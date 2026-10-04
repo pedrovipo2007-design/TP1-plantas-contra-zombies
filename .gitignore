@@ -1,0 +1,12 @@
+# Eclipse
+.metadata/
+.settings/
+
+# Compilados, el * significa este donde este
+bin/
+*.class
+
+# Otros
+# .project
+# .classpath
+# Los dejo comentados para facilitar el git clone
