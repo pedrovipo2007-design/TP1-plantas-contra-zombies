@@ -28,6 +28,7 @@ public class Controller {
 	 * Runs the game logic.
 	 */
 	public void run() {
+		view.showGame();
 		// TODO fill your code
 	}
 	
