@@ -31,6 +31,6 @@ public class Game {
 
 	public String positionToString(Position position) {
 		// TODO Auto-generated method stub
-		return null;
+		return " ";
 	}
 }
