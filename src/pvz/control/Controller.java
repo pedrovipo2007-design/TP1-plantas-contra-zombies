@@ -28,7 +28,21 @@ public class Controller {
 	 * Runs the game logic.
 	 */
 	public void run() {
+		
 		view.showGame();
+		for (String a : Messages.HELP_LINES) {
+		    System.out.println(a);
+		}
+		String action[]= view.getPrompt();
+		
+		while(action[0] != "e") {
+			view.showGame();
+			for (String a : Messages.HELP_LINES) {
+			    System.out.println(a);
+			}
+			action= view.getPrompt();
+		}
+
 		// TODO fill your code
 	}
 	

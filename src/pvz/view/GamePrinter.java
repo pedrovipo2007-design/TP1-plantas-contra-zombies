@@ -71,6 +71,10 @@ public class GamePrinter implements GameView {
 	 */
 	@Override
 	public void showGame() {
+		
+		System.out.println(String.format(Messages.NUMBER_OF_CYCLES, game.getCycles()));
+		System.out.println(String.format(Messages.NUMBER_OF_COINS));
+		
 		StringBuilder str = new StringBuilder();
 
 		// Game Status
@@ -88,6 +92,7 @@ public class GamePrinter implements GameView {
 		}
 
 		System.out.println(str);
+		
 	}
 
 	/**
