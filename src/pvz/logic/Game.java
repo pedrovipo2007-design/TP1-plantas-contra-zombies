@@ -1,7 +1,7 @@
 package pvz.logic;
 import pvz.control.Level;
 import utils.Position;
-
+import pvz.logic.gameobjects.*;
 public class Game {
 
 	
@@ -65,7 +65,14 @@ public class Game {
 	}
 	
 	public void reset() {
-		
+		coins = INITIAL_COINS;
+		cycles = 0;
+		//los reset de las list estan mal, no pueden ser static pero a la vez no se si 
+		// se pueden modificar desde aqui
+		//Tendria mas senntido si las list fueran un parametro de la clase game, pues cada game tiena las suyas.
+		ZombieList.reset();
+		PeashoterList.reset();
+		SunflowerList.reset();
 	}
 	
 	public void addGameObject(String plantType, Position position) {
@@ -76,7 +83,7 @@ public class Game {
 		
 	}
 	
-	private void generateWithCoins() {
+	private void buyWithCoins() {
 		
 	}
 	
@@ -98,8 +105,12 @@ public class Game {
 		return null;
 	}
 	
-	public boolean isInsideBoard(Position p) {
+	public boolean isInsideBoard(Position p) {//VOLVER no entiendo si debemos hacer esto desde el controlador o desde aqui
 		
 		return false; // VOLVER
+	}
+	
+	public void quit() {
+		playerQuit=true;
 	}
 }

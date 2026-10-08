@@ -1,5 +1,7 @@
 package pvz.control;
 
+import utils.Position;
+
 import pvz.logic.Game;
 import pvz.view.GamePrinter;
 import pvz.view.GameView;
@@ -27,24 +29,46 @@ public class Controller {
 	/**
 	 * Runs the game logic.
 	 */
+	private boolean isPositionValid(Position p) {
+		return (p.getCol()<game.NUM_COLS && p.getRow()<game.NUM_ROWS);
+		// VOLVER supongo que en un futuro deberemos checkear que no haya plantas en esa casilla
+	}
+	
+	private boolean isObjectValid(String object) {
+		boolean valid=false;
+		if(object=="peashoter") valid=true;
+		else if(object=="sunflower") valid=true;
+		else if(object=="s") valid=true;
+		else if(object=="p") valid=true;
+		return valid;
+	}
+	
+	
 	public void run() {
 		
-		view.showGame();
-		for (String a : Messages.HELP_LINES) {
-		    System.out.println(a);
-		}
-		String action[]= view.getPrompt();
+		String action[];//donde se almacena el comando a ejecutar.
 		
-		while(action[0] != "e") {
+		while(!game.hasGameFinished()) {
 			view.showGame();
 			for (String a : Messages.HELP_LINES) {
 			    System.out.println(a);
 			}
 			action= view.getPrompt();
+			
+			
+			if (action[0].equals("l") || action[0].equals("lista")) System.out.println(Messages.LIST);
+			else if (action[0].equals("r") || action[0].equals("reset")) game.reset();
+			else if (action[0].equals("h") || action[0].equals("help")) System.out.println(Messages.HELP);
+			else if (action[0].equals("e") || action[0].equals("exit")) game.quit();
+			else if (action[0].equals("n") || action[0].equals("none")) ;//VOLVER
+			else System.out.println("no se ha ejecutado ningun comando");
+			//no entiendo porque no coge nada de letras ni nada
+			//cuidado, no funciona el ==, tiene que ser con equals, media horita tirada a la basura
 		}
-
+		System.out.println("el juego ha terminado");
 		// TODO fill your code
 	}
+	
 	
 	/*
 view.showGame();
