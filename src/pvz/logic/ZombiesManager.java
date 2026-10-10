@@ -70,6 +70,10 @@ public class ZombiesManager {
 		}
 		return canAdd;
 	}
+	
+	public ZombieList getZombieList() {
+		return zombies;
+	}
 
 	// TODO fill your code
 }

@@ -15,6 +15,9 @@ public class Game {
 	private int seed; // random?? NO SABEMOS PARA QUE SIRVE
 	private boolean playerQuit;
 	private Level level;
+	private ZombiesManager zombiesmanager;
+	private PeashooterList peashoterlist;
+	private SunflowerList sunflowerlist;
 
 	public Game(long seed, Level level) {
 		
@@ -31,7 +34,7 @@ public class Game {
 	
 	public boolean checkGameObject(String objectName) {
 		
-		return false; // NO SABEMOS QUE HACE
+		return false; // creo que te tiene que dar las caracteristicas del objeto con el que la llamas
 	}
 	
 	public int getCycles() {
@@ -70,9 +73,9 @@ public class Game {
 		//los reset de las list estan mal, no pueden ser static pero a la vez no se si 
 		// se pueden modificar desde aqui
 		//Tendria mas senntido si las list fueran un parametro de la clase game, pues cada game tiena las suyas.
-		ZombieList.reset();
-		PeashoterList.reset();
-		SunflowerList.reset();
+		zombiesmanager.getZombieList().reset();
+		peashoterlist.reset();
+		sunflowerlist.reset();
 	}
 	
 	public void addGameObject(String plantType, Position position) {
