@@ -1,7 +1,9 @@
 package pvz.logic;
-import pvz.control.Level;
+
 import utils.Position;
+import pvz.control.Level;
 import pvz.logic.gameobjects.*;
+
 public class Game {
 
 	
@@ -14,10 +16,11 @@ public class Game {
 	private long longSeed;
 	private int seed; // random?? NO SABEMOS PARA QUE SIRVE
 	private boolean playerQuit;
-	private Level level;
-	private ZombiesManager zombiesmanager;
-	private PeashooterList peashoterlist;
-	private SunflowerList sunflowerlist;
+	
+	private Level tLevel;
+	private ZombiesManager tZM;
+	private PeashooterList tPL;
+	private SunflowerList tSL;
 
 	public Game(long seed, Level level) {
 		
@@ -28,13 +31,38 @@ public class Game {
 	}
 
 	public String positionToString(Position position) {
-		// TODO Auto-generated method stub
+		
+		int row = position.getRow();
+		int col = position.getCol();
+		
+		// tenemos los objetos en arrays de Game.NUM_COLS*Game.NUM_ROWS (x*y) y su posicion sera (x * NUM_COLS) + y 
+		// hay que buscar en las 3 listas
+		
+		String res;
+		
+		if (!tZM.getZombieList().isEmpty(position)) {
+			
+			res = tZM.getZombieList().iconInPosition(position);
+			System.out.println(res); // quitar VOLVER
+		}
+		else if (!tPL.isEmpty()) {
+			
+			res = tPL.iconInPosition(position);
+			System.out.println(res); // quitar VOLVER
+		}
+		else if (!tSL.isEmpty()) {
+			
+			res = tSL.iconInPosition(position);
+			System.out.println(res); // quitar VOLVER
+		}
+		else res = " "; // devolvemos vacio si no hay nada
+		
 		return " ";
 	}
 	
 	public boolean checkGameObject(String objectName) {
 		
-		return false; // creo que te tiene que dar las caracteristicas del objeto con el que la llamas
+		return false; // no se que hace esto, no se usa en el codigo
 	}
 	
 	public int getCycles() {
@@ -49,7 +77,7 @@ public class Game {
 	
 	public int getRemainingZombies() {
 		
-		return level.getNumberOfZombies();
+		return tLevel.getNumberOfZombies();
 	}
 	
 	public boolean hasGameFinished() { // sustituimos a playerQuits VOLVER - quit
@@ -59,38 +87,60 @@ public class Game {
 	
 	public boolean playerWins() {
 		
-		return level.getNumberOfZombies() == 0;
+		return tLevel.getNumberOfZombies() == 0;
 	}
 
+	public void quit() {
+		
+		playerQuit = true;
+	}
+	
 	public void update() {
 		
-		// VOLVER
+		// VOLVER - no se usa en ningun momento
 	}
 	
 	public void reset() {
+		
 		coins = INITIAL_COINS;
 		cycles = 0;
-		//los reset de las list estan mal, no pueden ser static pero a la vez no se si 
-		// se pueden modificar desde aqui
-		//Tendria mas senntido si las list fueran un parametro de la clase game, pues cada game tiena las suyas.
-		zombiesmanager.getZombieList().reset();
-		peashoterlist.reset();
-		sunflowerlist.reset();
+		// los reset de las list estan mal, no pueden ser static pero a la vez no se si se pueden modificar desde aqui
+		// tendria mas sentido si las list fueran un parametro de la clase game, pues cada game tiene las suyas
+		tZM.getZombieList().reset();
+		tPL.reset();
+		tSL.reset();
+		// habria que resetear Level?? VOLVER ( y en la constructora habria que hacer algo con Level?? )
 	}
 	
 	public void addGameObject(String plantType, Position position) {
 		
+		if(plantType.equals("peashoter") || plantType.equals("p")) {
+			
+			Peashooter p = new Peashooter(position, this);
+			tPL.add(p);
+		}
+		
+		else if(plantType.equals("sunflower") || plantType.equals("s")) {
+			
+			Sunflower s = new Sunflower(position, this);
+			tSL.add(s);
+		}
+		
+		else System.out.println("No apto"); // quitar VOLVER
 	}
 	
 	public void generateCoins(int cost) {
 		
+		coins += cost;
 	}
 	
-	private void buyWithCoins() {
+	private void buyWithCoins(int cost) {
 		
+		coins -= cost;
 	}
 	
-	public void attackZombie(Position p, int damage) {
+	public void attackZombie(Position p, int damage) { // position p es la planta
+		
 		
 	}
 	
@@ -111,9 +161,5 @@ public class Game {
 	public boolean isInsideBoard(Position p) {//VOLVER no entiendo si debemos hacer esto desde el controlador o desde aqui
 		
 		return false; // VOLVER
-	}
-	
-	public void quit() {
-		playerQuit=true;
 	}
 }

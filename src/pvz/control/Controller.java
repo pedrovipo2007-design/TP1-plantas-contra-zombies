@@ -34,12 +34,12 @@ public class Controller {
 		// VOLVER supongo que en un futuro deberemos checkear que no haya plantas en esa casilla
 	}
 	
-	private boolean isObjectValid(String object) {
+	private boolean isObjectValid(String object) { // VOLVER - no se usa
 		boolean valid=false;
-		if(object=="peashoter") valid=true;
-		else if(object=="sunflower") valid=true;
-		else if(object=="s") valid=true;
-		else if(object=="p") valid=true;
+		if(object.equals("peashoter")) valid=true;
+		else if(object.equals("sunflower")) valid=true;
+		else if(object.equals("s")) valid=true;
+		else if(object.equals("p")) valid=true;
 		return valid;
 	}
 	
@@ -63,11 +63,10 @@ public class Controller {
 					else if (action[0].equals("e") || action[0].equals("exit")) game.quit();
 					else if (action[0].equals("n") || action[0].equals("none")) ;//VOLVER
 					else System.out.println("no se ha ejecutado ningun comando");
-					//no entiendo porque no coge nada de letras ni nada
-					//cuidado, no funciona el ==, tiene que ser con equals, media horita tirada a la basura
+					// no entiendo porque no coge nada de letras ni nada
+					// cuidado, no funciona el ==, tiene que ser con equals, media horita tirada a la basura
 			}
 			System.out.println("el juego ha terminado");
-		// TODO fill your code
 	}
 	
 	
