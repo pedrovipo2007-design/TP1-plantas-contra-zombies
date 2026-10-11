@@ -34,9 +34,19 @@ public class Peashooter {
 	}
 	
 	
+	public boolean isAlive() {
+		return health>0;
+	}
 	
 	
+	public void update() {
+		game.attackZombie(position,DAMAGE);
+	}
 
+	
+	public void receiveDamage(int damage) {
+		health=health-damage;
+	}
 	
 	
 }
