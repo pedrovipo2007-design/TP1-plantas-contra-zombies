@@ -54,6 +54,10 @@ public class ZombiesManager {
 		return rand.nextInt(Game.NUM_ROWS);
 	}
 	
+	public String iconInPosition(Position p) {
+		return zombies.iconInPosition(p);
+	}
+	
 	public boolean addZombie() {
 		int row = randomZombieRow();
 		return addZombie(row);

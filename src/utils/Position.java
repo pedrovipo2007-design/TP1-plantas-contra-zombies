@@ -1,5 +1,5 @@
 package utils;
-
+import pvz.logic.Game;
 
 
 public class Position {
@@ -17,4 +17,14 @@ public class Position {
 	public int getCol() {
 		return col;
 	}
+	
+	public int hashcode() {
+		return row*Game.NUM_COLS+col;
+	}
+	
+	public Position left() {
+		Position position=new Position(this.getRow(),this.getCol()-1);
+		return position;
+	}
+
 }

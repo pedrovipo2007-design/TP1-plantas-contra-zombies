@@ -1,5 +1,6 @@
 package pvz.logic.gameobjects;
 import utils.Position;
+import pvz.logic.Game;
 public class Zombie {
 	private Position position;
 	public static final int INITIAL_HEALTH = 4;
@@ -7,25 +8,43 @@ public class Zombie {
 	public static final int MOVE_AFTER_CYCLES = 4;
 	private int health;
 	private int cyclesNotMoving;
+	private Game game;
 	
 	
-	
-	public Zombie(Position p) {
+	public Zombie(Position p,Game game) {
 		position=p;
 		health= INITIAL_HEALTH;
 		cyclesNotMoving=0;
+		this.game=game;
 	}
+	
+	
+	
 	
 	public Position getPosition() {
 		return position;
 	}
 	
-	public boolean mayor(Zombie zombie2) {//preguntarle a la profe si esto se puede hacer como interfaz o utilizando clases abstractas para no repetir en cada objeto que involucra la clase position
-		if(position.getRow()>zombie2.getPosition().getRow())return true;
-		else if (position.getCol()>zombie2.getPosition().getCol())return true;
-		else return false;
+	public void receiveDamage(int damage) {
+		health=health-damage;
 	}
-	public Zombie() {
+	
+	
+	
+	
+	private void move() {
+		position=position.left();
+	}
+	
+	
+	private void atack() {
+		game.attackPlant( this.getPosition().left(),DAMAGE );
+	}
+	
+	
+	public void update() {
+		if(game.isEmpty(this.getPosition().left()))move();
+		else atack();
 		
 	}
 }

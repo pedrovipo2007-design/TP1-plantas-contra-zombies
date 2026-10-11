@@ -31,6 +31,9 @@ public class ZombieList {
 		 return String.format(Messages.ZOMBIE_ICON, zombies[p.getRow()*Game.NUM_COLS+p.getCol()]);
 	}
 	
+	public boolean isEmpty(Position p) {
+		return (zombies[p.hashcode()]==null);
+	}
 	
 	
 	public void add(Zombie z) {//voy a optar por crear el zombie y luego insertarlo en vez de insertarlo y luego darle posicion
