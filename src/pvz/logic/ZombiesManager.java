@@ -16,6 +16,7 @@ import utils.Position;
  * {@link ZombieList}, and answering win/loss queries
  *
  */
+
 public class ZombiesManager {
 
 	private Game game;
@@ -41,6 +42,7 @@ public class ZombiesManager {
 	 * 
 	 * @return <code>true</code> if a zombie should be added to the game.
 	 */
+	
 	private boolean shouldAddZombie() {
 		return rand.nextDouble() < level.getZombieFrequency();
 	}
@@ -50,6 +52,7 @@ public class ZombiesManager {
 	 * 
 	 * @return a random row.
 	 */
+	
 	private int randomZombieRow() {
 		return rand.nextInt(Game.NUM_ROWS);
 	}
@@ -66,18 +69,16 @@ public class ZombiesManager {
 	public boolean addZombie(int row) {
 		Position zombiePosition = Game.newZombiePosition(row);
 
-		boolean canAdd = this.remainingZombies > 0 && shouldAddZombie()
-				&& game.isEmpty(zombiePosition);
+		boolean canAdd = this.remainingZombies > 0 && shouldAddZombie() && game.isEmpty(zombiePosition);
 
 		if(canAdd) {
-			// TODO fill your code
+			// TODO fill your code - VOLVER
 		}
 		return canAdd;
 	}
 	
-	public ZombieList getZombieList() {
+	public ZombieList getZombieList() { // necesaria - encapsulacion?? VOLVER
 		return zombies;
 	}
-
-	// TODO fill your code
+	
 }

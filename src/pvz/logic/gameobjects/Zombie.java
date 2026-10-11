@@ -1,7 +1,9 @@
 package pvz.logic.gameobjects;
 import utils.Position;
 import pvz.logic.Game;
+
 public class Zombie {
+	
 	private Position position;
 	public static final int INITIAL_HEALTH = 4;
 	public static final int DAMAGE = 4;
@@ -10,16 +12,12 @@ public class Zombie {
 	private int cyclesNotMoving;
 	private Game game;
 	
-	
 	public Zombie(Position p,Game game) {
 		position=p;
 		health= INITIAL_HEALTH;
 		cyclesNotMoving=0;
 		this.game=game;
 	}
-	
-	
-	
 	
 	public Position getPosition() {
 		return position;
@@ -29,9 +27,6 @@ public class Zombie {
 		health=health-damage;
 	}
 	
-	
-	
-	
 	private void move() {
 		if(cyclesNotMoving==MOVE_AFTER_CYCLES) {
 			position=position.left();
@@ -39,7 +34,6 @@ public class Zombie {
 		}
 		else cyclesNotMoving++;
 	}
-	
 	
 	private void atack() {
 		game.attackPlant( this.getPosition().left(),DAMAGE );
@@ -49,7 +43,6 @@ public class Zombie {
 	public void update() {
 		if(game.isEmpty(this.getPosition().left()))move();
 		else atack();
-		
 	}
 	
 	public boolean isAlive() {

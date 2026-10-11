@@ -18,10 +18,9 @@ public class PeashooterList {
 		 return String.format(Messages.PEASHOOTER_ICON, peashooters[p.getRow()*Game.NUM_COLS+p.getCol()]);
 	}
 	
-	
 	public void reset() {
 		numberOfPeashooters=0;
-		// si quieres podemos vaciar el array pero creo que de todas formas le vamos a escribir por encima
+		// si quieres podemos vaciar el array pero creo que de todas formas vamos a escribir por encima
 	}
 	
 	public boolean isEmpty(Position p) {
@@ -35,12 +34,9 @@ public class PeashooterList {
 				position= new Position(j,i);
 				if(!isEmpty(position))peashooters[position.hashcode()].update();
 			}
-			
 		}
-		
 		removeDead();
 	}
-	
 	
 	public void removeDead() {
 		for(int i=0;i<Game.NUM_COLS; i++) {
@@ -53,20 +49,20 @@ public class PeashooterList {
 					}
 				}
 			}
-			
 		}
 	}
 	
 	
-	public void add(Peashooter p) {//voy a optar por crear el zombie y luego insertarlo en vez de insertarlo y luego darle posicion
-		//busqueda binaria para encontrar donde insertar el zombie en el arraty
+	public void add(Peashooter p) {
+		
+		//voy a optar por crear el zombie y luego insertarlo en vez de insertarlo y luego darle posicion
+		//busqueda binaria para encontrar donde insertar el zombie en el array
 		
 		peashooters[p.getPosition().hashcode()]=p;
-		
 	}
 	
 	
-	public void receiveDamage(int damage, Position pos) {
+	public void receiveDamage(Position pos, int damage) {
 		peashooters[pos.hashcode()].receiveDamage(damage);
 	}
 	

@@ -16,6 +16,7 @@ import pvz.view.Messages;
  * {@link tp1.pvz.view.GameView>} when the cycle advances. It holds no game
  * state of its own; the source of truth is always {@link Game}.
  */
+
 public class Controller {
 
 	private final Game game;
@@ -29,12 +30,13 @@ public class Controller {
 	/**
 	 * Runs the game logic.
 	 */
+	
 	private boolean isPositionValid(Position p) {
 		return (p.getCol()<game.NUM_COLS && p.getRow()<game.NUM_ROWS);
-		// VOLVER supongo que en un futuro deberemos checkear que no haya plantas en esa casilla
+		// VOLVER - supongo que en un futuro deberemos checkear que no haya plantas en esa casilla
 	}
 	
-	private boolean isObjectValid(String object) { // VOLVER - no se usa
+	private boolean isObjectValid(String object) { // VOLVER - no se usa??
 		boolean valid=false;
 		if(object.equals("peashoter")) valid=true;
 		else if(object.equals("sunflower")) valid=true;
@@ -46,7 +48,7 @@ public class Controller {
 	
 	public void run() {
 		
-		String action[];//donde se almacena el comando a ejecutar.
+		String action[]; // donde se almacena el comando a ejecutar.
 		while(!game.hasGameFinished()) {
 				view.showGame();
 					for (String a : Messages.HELP_LINES) {
@@ -63,21 +65,19 @@ public class Controller {
 					else if (action[0].equals("e") || action[0].equals("exit")) game.quit();
 					else if (action[0].equals("n") || action[0].equals("none")) ;//VOLVER
 					else System.out.println("no se ha ejecutado ningun comando");
-					// no entiendo porque no coge nada de letras ni nada
+
 					// cuidado, no funciona el ==, tiene que ser con equals, media horita tirada a la basura
 			}
 			System.out.println("el juego ha terminado");
 	}
 	
+//	view.showGame();
+//	while (!game.hasGameFinished()) {
+//	// TODO fill your code
+//	// Prompt the user for a line (getPrompt)
+//	// Execute the user's command (method)
+//	}
+//	view.showEndMessage();
+//  VOLVER - No se cuando necesitamos esto??
 	
-	/*
-view.showGame();
-while (!game.hasGameFinished()) {
-// TODO fill your code
-// Prompt the user for a line (getPrompt)
-// Execute the user's command (method)
-}
-view.showEndMessage();
-	 */
-
 }

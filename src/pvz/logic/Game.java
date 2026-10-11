@@ -42,12 +42,12 @@ public class Game {
 			res = tZM.getZombieList().iconInPosition(position);
 			System.out.println(res); // quitar VOLVER
 		}
-		else if (!tPL.isEmpty()) {
+		else if (!tPL.isEmpty(position)) {
 			
 			res = tPL.iconInPosition(position);
 			System.out.println(res); // quitar VOLVER
 		}
-		else if (!tSL.isEmpty()) {
+		else if (!tSL.isEmpty(position)) {
 			
 			res = tSL.iconInPosition(position);
 			System.out.println(res); // quitar VOLVER
@@ -147,7 +147,7 @@ public class Game {
 			
 			if (!isEmpty(new Position(row, pos))) {
 				
-				damageZombie(new Position(row, pos), damage);
+				tZM.getZombieList().damage(new Position(row, pos), damage); // damageZombie no existe, usamos getlist
 				break;
 			}
 			else {
@@ -159,7 +159,7 @@ public class Game {
 	
 	public void attackPlant(Position p, int damage) { // position p es la planta
 		
-		receiveDamage(p, damage);
+		tPL.receiveDamage(p, damage);
 	}
 	
 	public boolean isEmpty(Position zombiePosition) {

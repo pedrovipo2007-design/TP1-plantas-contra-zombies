@@ -12,6 +12,7 @@ public class Peashooter {
 	public static final int COST = 50;
 	private int health;
 	private Game game;
+	
 	//metodos
 	public static Object getDescription() {
 		// TODO Auto-generated method stub
@@ -19,14 +20,11 @@ public class Peashooter {
 	}
 
 	
-	
 	public Peashooter(Position p,Game game) {
 		health=INITIAL_HEALTH;
 		position=p;
 		this.game=game;
 	}
-	
-	
 	
 	
 	public Position getPosition() {
@@ -47,6 +45,5 @@ public class Peashooter {
 	public void receiveDamage(int damage) {
 		health=health-damage;
 	}
-	
 	
 }

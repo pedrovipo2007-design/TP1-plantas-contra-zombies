@@ -14,22 +14,18 @@ public class SunflowerList {
 		numberOfSunflowers=0;
 	}
 	
-	
-	
 	public void reset() {
 		numberOfSunflowers=0;
 	}
-	
 	
 	public String iconInPosition(Position p) {
 		 return String.format(Messages.SUNFLOWER_ICON, sunflowers[p.getRow()*Game.NUM_COLS+p.getCol()]);
 	}
 	
-	
-	
-	public void add(Sunflower s) {//voy a optar por crear el zombie y luego insertarlo en vez de insertarlo y luego darle posicion
-		//busqueda binaria para encontrar donde insertar el zombie en el arraty
+	public void add(Sunflower s) {
 		
+		//voy a optar por crear el zombie y luego insertarlo en vez de insertarlo y luego darle posicion
+		//busqueda binaria para encontrar donde insertar el zombie en el arraty
 		
 		sunflowers[s.getPosition().hashcode()]=s;
 	}
@@ -38,7 +34,6 @@ public class SunflowerList {
 		return (sunflowers[p.hashcode()]==null);
 	}
 	
-	
 	public void update() {
 		for(int i=0;i<Game.NUM_COLS; i++) {
 			for(int j=0;j<Game.NUM_ROWS;j++) {
@@ -46,12 +41,9 @@ public class SunflowerList {
 				position= new Position(j,i);
 				if(!isEmpty(position))sunflowers[position.hashcode()].update();
 			}
-			
 		}
-		
 		removeDead();
 	}
-	
 	
 	public void removeDead() {
 		for(int i=0;i<Game.NUM_COLS; i++) {
@@ -64,10 +56,8 @@ public class SunflowerList {
 					}
 				}
 			}
-			
 		}
 	}
-	
 	
 	public void receiveDamage(int damage, Position pos) {
 		sunflowers[pos.hashcode()].receiveDamage(damage);

@@ -8,6 +8,7 @@ package pvz.control;
  * frequently. These values are fixed at construction and never change during
  * a game.
  */
+
 public enum Level {
 
 	EASY(3,0.1), HARD(5,0.2), INSANE(10,0.3);
@@ -27,6 +28,7 @@ public enum Level {
 	 * @param inputString string to parse
 	 * @return the parsed {@link Level} or <code>null</code> if none match.
 	 */
+	
 	public static Level valueOfIgnoreCase(String inputString) {
 		for (Level level : Level.values()) {
 			if (level.name().equalsIgnoreCase(inputString)) {
@@ -43,6 +45,7 @@ public enum Level {
 	 * 
 	 * @return the string resulted from joining all levels using <code>separator</code>
 	 */
+	
 	public static String all(String separator) {
 		StringBuilder buffer = new StringBuilder();
 		int levelCount = 0;

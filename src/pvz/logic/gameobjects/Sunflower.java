@@ -17,9 +17,6 @@ public class Sunflower {
 		return "[S]unflower: cost='20' suncoins, damage='0', endurance='1'";
 	}
 	
-	
-	
-	
 	public Sunflower(Position p,Game game) {
 		health=INITIAL_HEALTH;
 		position=p;
@@ -32,7 +29,6 @@ public class Sunflower {
 		
 	}
 	
-	
 	public void update() {
 		if (cyclesSinceLastGeneration==GENERATE_AFTER_CYCLES) {
 			game.generateCoins(COST);
@@ -40,18 +36,12 @@ public class Sunflower {
 		else cyclesSinceLastGeneration++;
 	}
 	
-	
 	public void receiveDamage(int damage) {
 		health =health-damage;
 	}
 	
-	
 	public Position getPosition() {
 		return position;
-	}
-	
-	
-	
-	
+	}	
 
 }

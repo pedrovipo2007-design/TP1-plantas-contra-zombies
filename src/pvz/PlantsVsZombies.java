@@ -15,11 +15,13 @@ import pvz.view.Messages;
  * and hands control to the controller. All argument-validation errors are reported
  * here and terminate the process before any game state is created.
  */
+
 public class PlantsVsZombies {
 
 	/**
 	 * Show application help message
 	 */
+	
 	private static void usage() {
 		System.out.println(Messages.USAGE);
 		System.out.println(Messages.USAGE_LEVEL_PARAM);
@@ -31,6 +33,7 @@ public class PlantsVsZombies {
 	 * 
 	 * @param args Arguments for the game.
 	 */
+	
 	public static void main(String[] args) {
 		// Required to avoid issues with tests
 		Locale.setDefault(Locale.of("es", "ES", "es"));
