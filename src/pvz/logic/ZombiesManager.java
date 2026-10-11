@@ -23,7 +23,7 @@ public class ZombiesManager {
 
 	private Level level;
 
-	private Random rand;
+	private Random rand; // VOLVER - q es esto
 
 	private int remainingZombies;
 

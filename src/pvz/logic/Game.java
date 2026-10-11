@@ -1,6 +1,9 @@
 package pvz.logic;
 
 import utils.Position;
+
+import java.util.Random;
+
 import pvz.control.Level;
 import pvz.logic.gameobjects.*;
 
@@ -14,7 +17,8 @@ public class Game {
 	private int cycles;
 	private int coins;
 	private long longSeed;
-	private int seed; // random?? NO SABEMOS PARA QUE SIRVE
+	private int seed; // random?? NO SABEMOS PARA QUE SIRVE - VOLVER
+	private Random rand; // lo pongo aqui...
 	private boolean playerQuit;
 	
 	private Level tLevel;
@@ -27,7 +31,13 @@ public class Game {
 		playerQuit = false;
 		longSeed = seed;
 		coins = INITIAL_COINS;
-		cycles = 0;
+		cycles = 0;		
+		
+		tLevel = Level.EASY; // VOLVER - A ver si asi compila
+		
+		tZM = new ZombiesManager(this, tLevel, rand);
+		tPL = new PeashooterList();
+		tSL = new SunflowerList();
 	}
 
 	public String positionToString(Position position) {

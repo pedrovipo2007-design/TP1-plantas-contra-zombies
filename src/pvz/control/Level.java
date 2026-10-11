@@ -15,7 +15,7 @@ public enum Level {
 	private int numberOfZombies;
 	private double zombieFrequency;
 
-	private Level(int numberOfZombies, double zombieFrequency) {
+	private Level(int numberOfZombies, double zombieFrequency) { // constructora de un enum??
 		this.numberOfZombies = numberOfZombies;
 		this.zombieFrequency = zombieFrequency;
 	}

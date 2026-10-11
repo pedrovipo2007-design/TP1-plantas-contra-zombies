@@ -56,9 +56,6 @@ public class Controller {
 					}
 					action= view.getPrompt();
 			
-			
-			
-			
 					if (action[0].equals("l") || action[0].equals("list")) System.out.println(Messages.LIST);
 					else if (action[0].equals("r") || action[0].equals("reset")) game.reset();
 					else if (action[0].equals("h") || action[0].equals("help")) System.out.println(Messages.HELP);
