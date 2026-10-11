@@ -81,4 +81,35 @@ public class ZombiesManager {
 		return zombies;
 	}
 	
+	public int getRemainingZombies() {
+		return remainingZombies;
+	}
+	
+	public boolean doZombiesReachedTheHouse() {
+		for(int r=0;r<Game.NUM_ROWS;r++) {
+			Position position;
+			position= new Position(r,0);
+			if(!zombies.isEmpty(position)) return true; // creo que estaba al reves - VOLVER
+		}
+		return false;
+	}
+	
+	public void damageZombie(Position pos, int damage) {
+		zombies.damage(pos, damage);
+	}
+	
+	public boolean isEmpty(Position pos) {
+		return zombies.isEmpty(pos);
+	}
+	
+	public void update() {
+		zombies.update();
+	}
+	
+	public boolean allZombiesWereKilled() {
+		return remainingZombies==0;
+	}
+	public void removeDead() {
+		zombies.removeDead();
+	}
 }
