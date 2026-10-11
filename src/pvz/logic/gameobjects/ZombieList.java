@@ -5,10 +5,12 @@ import utils.Position;
 import pvz.control.Level;
 import pvz.logic.Game;
 import pvz.logic.gameobjects.Zombie;
-
+import pvz.view.Messages;
 public class ZombieList {
 	private Zombie[] zombies;
 	private int numberOfZombies;
+	
+	
 	
 	
 	public ZombieList() {
@@ -16,33 +18,29 @@ public class ZombieList {
 		numberOfZombies=0;
 	}
 	
+	
+	
+	
 	public void reset() {
 		numberOfZombies=0;
 	}
 	
-	public void add(Position p) {//voy a optar por crear el zombie y luego insertarlo en vez de insertarlo y luego darle posicion
+	
+	
+	public String iconInPosition(Position p) {
+		 return String.format(Messages.ZOMBIE_ICON, zombies[p.getRow()*Game.NUM_COLS+p.getCol()]);
+	}
+	
+	
+	
+	public void add(Zombie z) {//voy a optar por crear el zombie y luego insertarlo en vez de insertarlo y luego darle posicion
 		//busqueda binaria para encontrar donde insertar el zombie en el arraty
 		
-		Zombie zombie=new Zombie(p);
 		
-		int low=0;
-		int high=numberOfZombies;
-		while(low<high) {
-				int mid=(low+high)/2;
-				if(zombie.equals(zombies[mid]))System.out.println("esa posicion ya esta ocupada");
-				if(zombie.mayor(zombies[mid])){
-					low=mid;
-				}
-				else {
-					high=mid;
-				}
-		// le creamos hueco
-		}
-		for(int i=numberOfZombies+1; i>low+1;i--) {
-			zombies[i]=zombies[i-1];
-		}
-		zombies[low]=zombie;
+		zombies[z.getPosition().hashcode()]=z;
 	}
+	
+	
 }
 
 
