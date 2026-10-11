@@ -33,7 +33,11 @@ public class Zombie {
 	
 	
 	private void move() {
-		position=position.left();
+		if(cyclesNotMoving==MOVE_AFTER_CYCLES) {
+			position=position.left();
+			cyclesNotMoving=0;
+		}
+		else cyclesNotMoving++;
 	}
 	
 	
@@ -47,5 +51,8 @@ public class Zombie {
 		else atack();
 		
 	}
+	
+	public boolean isAlive() {
+		return health>0;
+	}
 }
-
