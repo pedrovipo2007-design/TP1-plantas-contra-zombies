@@ -78,6 +78,38 @@ public class ZombiesManager {
 	public ZombieList getZombieList() {
 		return zombies;
 	}
-
+	
+	public int getRemainingZombies() {
+		return remainingZombies;
+		
+	}
+	
+	public boolean doZombiesReachedTheHouse() {
+		for(int r=0;r<Game.NUM_ROWS;r++) {
+			Position position;
+			position= new Position(r,0);
+			if(!zombies.isEmpty(position)) return false;
+		}
+		return true;
+	}
+	
+	public void damageZombie(Position pos, int damage) {
+		zombies.damage(pos, damage);
+	}
+	
+	public boolean isEmpty(Position pos) {
+		return zombies.isEmpty(pos);
+	}
 	// TODO fill your code
+	
+	public void update() {
+		zombies.update();
+	}
+	
+	public boolean allZombiesWereKilled() {
+		return remainingZombies==0;
+	}
+	public void removeDead() {
+		zombies.removeDead();
+	}
 }
