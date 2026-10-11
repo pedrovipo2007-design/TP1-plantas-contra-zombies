@@ -32,9 +32,6 @@ public class Game {
 
 	public String positionToString(Position position) {
 		
-		int row = position.getRow();
-		int col = position.getCol();
-		
 		// tenemos los objetos en arrays de Game.NUM_COLS*Game.NUM_ROWS (x*y) y su posicion sera (x * NUM_COLS) + y 
 		// hay que buscar en las 3 listas
 		
@@ -141,25 +138,44 @@ public class Game {
 	
 	public void attackZombie(Position p, int damage) { // position p es la planta
 		
+		int row = p.getRow();
+		int col = p.getCol();
 		
+		int pos = col++;
+		
+		while(pos < NUM_COLS) {
+			
+			if (!isEmpty(new Position(row, pos))) {
+				
+				damageZombie(new Position(row, pos), damage);
+				break;
+			}
+			else {
+				
+				pos++;
+			}
+		}
 	}
 	
-	public void attackPlant(Position p, int damage) {
+	public void attackPlant(Position p, int damage) { // position p es la planta
 		
+		receiveDamage(p, damage);
 	}
 	
 	public boolean isEmpty(Position zombiePosition) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-	
-	public static Position newZombiePosition(int row) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-	
-	public boolean isInsideBoard(Position p) {//VOLVER no entiendo si debemos hacer esto desde el controlador o desde aqui
 		
-		return false; // VOLVER
+		return tZM.getZombieList().isEmpty(zombiePosition);
+	}
+	
+	public static Position newZombiePosition(int row) { // devuelvo posicion en la col mas alejada
+		
+		Position p = new Position(row, NUM_COLS - 1);
+		
+		return p;
+	}
+	
+	public boolean isInsideBoard(Position p) { // VOLVER no entiendo si debemos hacer esto desde el controlador o desde aqui
+		
+		return p.getCol() < NUM_COLS && p.getRow() < NUM_ROWS;
 	}
 }
