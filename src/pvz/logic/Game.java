@@ -69,7 +69,7 @@ public class Game {
 	
 	public boolean checkGameObject(String objectName) {
 		
-		return false; // no se que hace esto, no se usa en el codigo
+		return (objectName.equals("sunflower") || objectName.equals("s") || objectName.equals("peashooter") || objectName.equals("p")); 
 	}
 	
 	public int getCycles() {
@@ -140,7 +140,7 @@ public class Game {
 			tSL.add(s);
 		}
 		
-		else System.out.println("No apto"); // quitar VOLVER
+		// else System.out.println("No apto");
 	}
 	
 	public void generateCoins(int cost) {
@@ -181,7 +181,7 @@ public class Game {
 	
 	public boolean isEmpty(Position zombiePosition) {
 		
-		return tZM.getZombieList().isEmpty(zombiePosition);
+		return (tZM.getZombieList().isEmpty(zombiePosition) && tPL.isEmpty(zombiePosition) && tSL.isEmpty(zombiePosition));
 	}
 	
 	public static Position newZombiePosition(int row) { // devuelvo posicion en la col mas alejada

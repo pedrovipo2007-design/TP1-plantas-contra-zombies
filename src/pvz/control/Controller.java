@@ -59,7 +59,7 @@ public class Controller {
 			action= view.getPrompt();
 					
 //			Available commands:
-//				[a]dd <plant> <col> <row>: add a plant in position (col, row)
+//				[a]dd <plant> <col> <row>: add a plant in position (col, row) - [0,CTE)
 //				[l]ist: print the list of available plants
 //				[r]eset: start a new game
 //				[h]elp: print this help message
@@ -67,24 +67,34 @@ public class Controller {
 //				[n]one | "": skips cycle
 //				Command > 
 			
-				if (action[0].equals("a") || action[0].equals("add")) game.addGameObject(action[1], new Position(Integer.parseInt(action[3]), Integer.parseInt(action[2])));
-				// VOLVER - revisar if
-				// recordar el orden del Position (ron cola) - cuidado xq es al reves 
-				// el Integer.parseInt es para hacer el casting (lo he buscado)
-																																											  
-				else if (action[0].equals("l") || action[0].equals("list")) System.out.println(Messages.LIST);
-				else if (action[0].equals("r") || action[0].equals("reset")) game.reset();
-				else if (action[0].equals("h") || action[0].equals("help")) System.out.println(Messages.HELP);
-				else if (action[0].equals("e") || action[0].equals("exit")) game.quit();
-				else if (action[0].equals("n") || action[0].equals("none")) {
-						game.update();
-						view.showGame();
-					}
-					else System.out.println("no se ha ejecutado ningun comando");
-
-					// cuidado, no funciona el ==, tiene que ser con equals, media horita tirada a la basura
+			if ((action[0].equals("a") || action[0].equals("add")) && game.isInsideBoard(new Position(Integer.parseInt(action[3]), Integer.parseInt(action[2]))) && game.isEmpty(new Position(Integer.parseInt(action[3]), Integer.parseInt(action[2]))) && game.checkGameObject(action[1])) {
+				
+				game.addGameObject(action[1], new Position(Integer.parseInt(action[3]), Integer.parseInt(action[2])));
+				game.update();
+				view.showGame();
 			}
-			System.out.println("el juego ha terminado");
+			// VOLVER - revisar if
+			// recordar el orden del Position (ron cola) - cuidado xq el cin es en el orden contrario 
+			// el Integer.parseInt es para hacer el casting (lo he buscado)
+			//
+			// corregir vida de sunflower
+			// corregir el gasto de soles
+			// corregir error en hashcode
+			// corregir todos los System.out por view.showGame y añadir los respectivos Message
+																																											  
+			else if (action[0].equals("l") || action[0].equals("list")) view.showMessage(Messages.LIST);
+			else if (action[0].equals("r") || action[0].equals("reset")) game.reset();
+			else if (action[0].equals("h") || action[0].equals("help")) view.showMessage(Messages.HELP);
+			else if (action[0].equals("e") || action[0].equals("exit")) game.quit();
+			else if (action[0].equals("n") || action[0].equals("none") || action[0].equals("")) {
+				game.update();
+				view.showGame();
+			}
+			else view.showError(Messages.INVALID_COMMAND);
+
+			// cuidado, no funciona el ==, tiene que ser con equals, media horita tirada a la basura
+		}
+			view.showMessage(Messages.PLAYER_QUITS);
 	}
 	
 //	view.showGame();
