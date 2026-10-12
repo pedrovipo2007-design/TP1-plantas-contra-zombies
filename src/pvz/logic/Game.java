@@ -103,6 +103,7 @@ public class Game {
 	}
 	
 	public void update() {
+
 		tZM.addZombie();
 		tZM.update();
 		tPL.update();
@@ -132,12 +133,14 @@ public class Game {
 			
 			Peashooter p = new Peashooter(position, this);
 			tPL.add(p);
+			this.buyWithCoins(Peashooter.COST);
 		}
 		
 		else if(plantType.equals("sunflower") || plantType.equals("s")) {
 			
 			Sunflower s = new Sunflower(position, this);
 			tSL.add(s);
+			this.buyWithCoins(Sunflower.COST);
 		}
 		
 		// else System.out.println("No apto");
@@ -152,20 +155,22 @@ public class Game {
 		
 		coins -= cost;
 	}
-	
+	public boolean isEmptyOfZombies(Position pos) {
+		return tZM.isEmpty(pos);
+	}
 	public void attackZombie(Position p, int damage) { // position p es la planta
 		
 		int row = p.getRow();
 		int col = p.getCol();
 		
-		int pos = col++;
+		int pos = col;
+		pos++;
 		
 		while(pos < NUM_COLS) {
 			
-			if (!isEmpty(new Position(row, pos))) {
-				
-				tZM.getZombieList().damage(new Position(row, pos), damage); // damageZombie no existe, usamos getlist
-				break;
+			if (!isEmptyOfZombies(new Position(row, pos))) {
+				p=new Position(row,pos);
+				tZM.damageZombie(p, damage);
 			}
 			else {
 				
@@ -175,18 +180,18 @@ public class Game {
 	}
 	
 	public void attackPlant(Position p, int damage) { // position p es la planta
-		
-		tPL.receiveDamage(p, damage);
+		if(tPL.isEmpty(p))tSL.receiveDamage(damage, p);
+		else tPL.receiveDamage(p, damage);
 	}
 	
 	public boolean isEmpty(Position zombiePosition) {
 		
-		return (tZM.getZombieList().isEmpty(zombiePosition) && tPL.isEmpty(zombiePosition) && tSL.isEmpty(zombiePosition));
+		return ( tPL.isEmpty(zombiePosition) && tSL.isEmpty(zombiePosition));//he quitado esto un momento tZM.getZombieList().isEmpty(zombiePosition) &&
 	}
 	
 	public static Position newZombiePosition(int row) { // devuelvo posicion en la col mas alejada
 		
-		Position p = new Position(row, NUM_COLS - 1);
+		Position p = new Position(row, NUM_COLS-1);
 		
 		return p;
 	}

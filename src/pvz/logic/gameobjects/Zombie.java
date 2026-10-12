@@ -30,6 +30,7 @@ public class Zombie {
 	
 	public void receiveDamage(int damage) {
 		health=health-damage;
+		System.out.println("el zombie en la posicion" +  this.position.getRow()+ this.position.getCol()+"ha recibido daño");
 	}
 	
 	private void move() {
@@ -53,4 +54,5 @@ public class Zombie {
 	public boolean isAlive() {
 		return health>0;
 	}
+	
 }

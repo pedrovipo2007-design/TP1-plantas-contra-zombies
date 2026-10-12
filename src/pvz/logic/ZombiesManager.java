@@ -110,11 +110,17 @@ public class ZombiesManager {
 	public void update() {
 		zombies.update();
 	}
-	
+
 	public boolean allZombiesWereKilled() {
 		return remainingZombies==0;
 	}
 	public void removeDead() {
 		zombies.removeDead();
+	}
+	
+	public void addZombiePosition(Position pos) {//es solo para debugear
+		Zombie zombie;
+		zombie= new Zombie(pos, game);
+		zombies.add(zombie);
 	}
 }

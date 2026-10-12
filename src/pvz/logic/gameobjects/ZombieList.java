@@ -28,8 +28,9 @@ public class ZombieList {
 		return (zombies[p.hashcode()]==null);
 	}
 	
-	public boolean damage(Position p,int damage) {
-		return true; // VOLVER
+	public void damage(Position p,int damage) {
+		zombies[p.hashcode()].receiveDamage(damage);
+		
 	}
 	
 	public void update() {
@@ -39,7 +40,7 @@ public class ZombieList {
 				position= new Position(j,i);
 				if(!isEmpty(position)) {
 					
-					zombies[position.hashcode()].update();
+					zombies[position.hashcode()].update();//para que los zombies se muevan dentro del array
 					if(!zombies[position.hashcode()].getPosition().equals(position)) {
 						zombies[position.hashcode()-1]=zombies[position.hashcode()];
 						zombies[position.hashcode()]=null;
@@ -66,9 +67,6 @@ public class ZombieList {
 	}
 	
 	public void add(Zombie z) {
-		
-		//voy a optar por crear el zombie y luego insertarlo en vez de insertarlo y luego darle posicion
-		//busqueda binaria para encontrar donde insertar el zombie en el arraty
 		
 		zombies[z.getPosition().hashcode()]=z;
 	}

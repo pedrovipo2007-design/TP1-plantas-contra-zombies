@@ -24,7 +24,7 @@ public class PeashooterList {
 	}
 	
 	public boolean isEmpty(Position p) {
-		return (peashooters[p.hashcode()]==null);
+		return (peashooters[p.hashcode()]==null);//aqui creo que falta un -1 porque miras si esta vacia la de la izquierda
 	}
 	
 	public void update() {
