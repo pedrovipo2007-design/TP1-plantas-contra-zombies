@@ -21,7 +21,7 @@ public class ZombieList {
 	}
 
 	public String iconInPosition(Position p) {
-		 return String.format(Messages.ZOMBIE_ICON, zombies[p.getRow()*Game.NUM_COLS+p.getCol()]);
+		 return String.format(Messages.ZOMBIE_ICON, zombies[p.getRow()*Game.NUM_COLS+p.getCol()].getHealth());
 	}
 	
 	public boolean isEmpty(Position p) {
@@ -37,7 +37,15 @@ public class ZombieList {
 			for(int j=0;j<Game.NUM_ROWS;j++) {
 				Position position;
 				position= new Position(j,i);
-				if(!isEmpty(position))zombies[position.hashcode()].update();
+				if(!isEmpty(position)) {
+					
+					zombies[position.hashcode()].update();
+					if(!zombies[position.hashcode()].getPosition().equals(position)) {
+						zombies[position.hashcode()-1]=zombies[position.hashcode()];
+						zombies[position.hashcode()]=null;
+					}
+				}
+				
 			}
 		}
 		removeDead();

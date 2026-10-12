@@ -16,7 +16,9 @@ public class Sunflower {
 		// TODO Auto-generated method stub
 		return "[S]unflower: cost='20' suncoins, damage='0', endurance='1'";
 	}
-	
+	public int getHealth() {
+		return health;
+	}
 	public Sunflower(Position p,Game game) {
 		health=INITIAL_HEALTH;
 		position=p;

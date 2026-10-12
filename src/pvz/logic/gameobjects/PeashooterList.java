@@ -15,7 +15,7 @@ public class PeashooterList {
 	}
 	
 	public String iconInPosition(Position p) {
-		 return String.format(Messages.PEASHOOTER_ICON, peashooters[p.getRow()*Game.NUM_COLS+p.getCol()]);
+		 return String.format(Messages.PEASHOOTER_ICON, peashooters[p.getRow()*Game.NUM_COLS+p.getCol()].getHealth());
 	}
 	
 	public void reset() {

@@ -27,6 +27,10 @@ public class Peashooter {
 	}
 	
 	
+	public int getHealth() {
+		return health;
+	}
+	
 	public Position getPosition() {
 		return position;
 	}

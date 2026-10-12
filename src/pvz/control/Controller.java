@@ -47,20 +47,24 @@ public class Controller {
 	
 	
 	public void run() {
-		
+		view.showGame();
+		for (String a : Messages.HELP_LINES) {
+			System.out.println(a);
+		}
 		String action[]; // donde se almacena el comando a ejecutar.
+		
+		
 		while(!game.hasGameFinished()) {
-				view.showGame();
-					for (String a : Messages.HELP_LINES) {
-						System.out.println(a);
-					}
-					action= view.getPrompt();
-			
+				
+			action= view.getPrompt();
 					if (action[0].equals("l") || action[0].equals("list")) System.out.println(Messages.LIST);
 					else if (action[0].equals("r") || action[0].equals("reset")) game.reset();
 					else if (action[0].equals("h") || action[0].equals("help")) System.out.println(Messages.HELP);
 					else if (action[0].equals("e") || action[0].equals("exit")) game.quit();
-					else if (action[0].equals("n") || action[0].equals("none")) ;//VOLVER
+					else if (action[0].equals("n") || action[0].equals("none")) {
+						game.update();
+						view.showGame();
+					}
 					else System.out.println("no se ha ejecutado ningun comando");
 
 					// cuidado, no funciona el ==, tiene que ser con equals, media horita tirada a la basura

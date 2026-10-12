@@ -32,7 +32,7 @@ public class Game {
 		longSeed = seed;
 		coins = INITIAL_COINS;
 		cycles = 0;		
-		
+		rand = new Random(seed);
 		tLevel = Level.EASY; // VOLVER - A ver si asi compila
 		
 		tZM = new ZombiesManager(this, tLevel, rand);
@@ -64,7 +64,7 @@ public class Game {
 		}
 		else res = " "; // devolvemos vacio si no hay nada
 		
-		return " ";
+		return res;
 	}
 	
 	public boolean checkGameObject(String objectName) {
@@ -103,8 +103,15 @@ public class Game {
 	}
 	
 	public void update() {
-		
-		// VOLVER - no se usa en ningun momento
+		tZM.addZombie();
+		tZM.update();
+		tPL.update();
+		tSL.update();
+		if(tZM.doZombiesReachedTheHouse()) {
+			playerQuit=true;
+			System.out.println("los zombies han llegado");
+		}
+		cycles++;
 	}
 	
 	public void reset() {

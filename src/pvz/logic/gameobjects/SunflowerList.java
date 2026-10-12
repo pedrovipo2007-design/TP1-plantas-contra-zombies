@@ -19,7 +19,7 @@ public class SunflowerList {
 	}
 	
 	public String iconInPosition(Position p) {
-		 return String.format(Messages.SUNFLOWER_ICON, sunflowers[p.getRow()*Game.NUM_COLS+p.getCol()]);
+		 return String.format(Messages.SUNFLOWER_ICON, sunflowers[p.getRow()*Game.NUM_COLS+p.getCol()].getHealth());
 	}
 	
 	public void add(Sunflower s) {

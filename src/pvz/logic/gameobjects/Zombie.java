@@ -7,7 +7,7 @@ public class Zombie {
 	private Position position;
 	public static final int INITIAL_HEALTH = 4;
 	public static final int DAMAGE = 4;
-	public static final int MOVE_AFTER_CYCLES = 4;
+	public static final int MOVE_AFTER_CYCLES = 2;
 	private int health;
 	private int cyclesNotMoving;
 	private Game game;
@@ -17,6 +17,11 @@ public class Zombie {
 		health= INITIAL_HEALTH;
 		cyclesNotMoving=0;
 		this.game=game;
+	}
+	
+	
+	public int getHealth() {
+		return health;
 	}
 	
 	public Position getPosition() {

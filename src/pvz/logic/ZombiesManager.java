@@ -45,6 +45,7 @@ public class ZombiesManager {
 	
 	private boolean shouldAddZombie() {
 		return rand.nextDouble() < level.getZombieFrequency();
+		
 	}
 	
 	/**
@@ -55,6 +56,8 @@ public class ZombiesManager {
 	
 	private int randomZombieRow() {
 		return rand.nextInt(Game.NUM_ROWS);
+		//de momento voy a poner que se vayan generando de forma no aleatoria pero que al menos vaya mas o menos
+		
 	}
 	
 	public String iconInPosition(Position p) {
@@ -72,7 +75,9 @@ public class ZombiesManager {
 		boolean canAdd = this.remainingZombies > 0 && shouldAddZombie() && game.isEmpty(zombiePosition);
 
 		if(canAdd) {
-			// TODO fill your code - VOLVER
+			Zombie zombie;
+			zombie=new Zombie(zombiePosition,game);
+			zombies.add(zombie);
 		}
 		return canAdd;
 	}
