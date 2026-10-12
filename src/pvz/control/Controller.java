@@ -57,11 +57,26 @@ public class Controller {
 		while(!game.hasGameFinished()) {
 				
 			action= view.getPrompt();
-					if (action[0].equals("l") || action[0].equals("list")) System.out.println(Messages.LIST);
-					else if (action[0].equals("r") || action[0].equals("reset")) game.reset();
-					else if (action[0].equals("h") || action[0].equals("help")) System.out.println(Messages.HELP);
-					else if (action[0].equals("e") || action[0].equals("exit")) game.quit();
-					else if (action[0].equals("n") || action[0].equals("none")) {
+					
+//			Available commands:
+//				[a]dd <plant> <col> <row>: add a plant in position (col, row)
+//				[l]ist: print the list of available plants
+//				[r]eset: start a new game
+//				[h]elp: print this help message
+//				[e]xit: terminate the program
+//				[n]one | "": skips cycle
+//				Command > 
+			
+				if (action[0].equals("a") || action[0].equals("add")) game.addGameObject(action[1], new Position(Integer.parseInt(action[3]), Integer.parseInt(action[2])));
+				// VOLVER - revisar if
+				// recordar el orden del Position (ron cola) - cuidado xq es al reves 
+				// el Integer.parseInt es para hacer el casting (lo he buscado)
+																																											  
+				else if (action[0].equals("l") || action[0].equals("list")) System.out.println(Messages.LIST);
+				else if (action[0].equals("r") || action[0].equals("reset")) game.reset();
+				else if (action[0].equals("h") || action[0].equals("help")) System.out.println(Messages.HELP);
+				else if (action[0].equals("e") || action[0].equals("exit")) game.quit();
+				else if (action[0].equals("n") || action[0].equals("none")) {
 						game.update();
 						view.showGame();
 					}
@@ -73,12 +88,6 @@ public class Controller {
 	}
 	
 //	view.showGame();
-//	while (!game.hasGameFinished()) {
-//	// TODO fill your code
-//	// Prompt the user for a line (getPrompt)
-//	// Execute the user's command (method)
-//	}
-//	view.showEndMessage();
-//  VOLVER - No se cuando necesitamos esto??
+//  VOLVER - No se cuando necesitamos view.ShowGame - No está en el esquema
 	
 }

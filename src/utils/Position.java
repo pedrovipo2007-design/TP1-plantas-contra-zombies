@@ -7,7 +7,7 @@ public class Position {
 	private int row;
 	private int col;
 	
-	public Position(int row, int col) {
+	public Position(int row, int col) { // ron cola (para recordar el orden)
 		this.row = row;
 		this.col = col;
 	}
@@ -19,7 +19,7 @@ public class Position {
 	}
 	
 	public int hashcode() {
-		return row*Game.NUM_COLS+col;
+		return row*Game.NUM_COLS+col; // hashcode es row*Game.NUM_COLS+col
 	}
 	
 	public Position left() {

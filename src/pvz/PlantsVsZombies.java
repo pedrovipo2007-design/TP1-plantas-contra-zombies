@@ -16,7 +16,7 @@ import pvz.view.Messages;
  * here and terminate the process before any game state is created.
  */
 
-public class PlantsVsZombies {
+public class PlantsVsZombies { // recordar poner en debug arguments EASY y una semilla
 
 	/**
 	 * Show application help message
