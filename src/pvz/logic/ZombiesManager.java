@@ -82,12 +82,13 @@ public class ZombiesManager {
 		return canAdd;
 	}
 	
-	public ZombieList getZombieList() { // necesaria - encapsulacion?? VOLVER
-		return zombies;
-	}
 	
 	public int getRemainingZombies() {
 		return remainingZombies;
+	}
+	
+	public void reset() {
+		zombies.reset();
 	}
 	
 	public boolean doZombiesReachedTheHouse() {

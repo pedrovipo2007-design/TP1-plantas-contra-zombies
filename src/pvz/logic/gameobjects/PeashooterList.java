@@ -28,6 +28,7 @@ public class PeashooterList {
 	}
 	
 	public void update() {
+		removeDead();
 		for(int i=0;i<Game.NUM_COLS; i++) {
 			for(int j=0;j<Game.NUM_ROWS;j++) {
 				Position position;
@@ -35,7 +36,7 @@ public class PeashooterList {
 				if(!isEmpty(position))peashooters[position.hashcode()].update();
 			}
 		}
-		removeDead();
+		
 	}
 	
 	public void removeDead() {

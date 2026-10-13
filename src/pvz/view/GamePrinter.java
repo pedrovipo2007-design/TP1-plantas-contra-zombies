@@ -60,9 +60,9 @@ public class GamePrinter implements GameView {
 	 */
 	private String getInfo() {
 		StringBuilder buffer = new StringBuilder();
-
-		// TODO fill your code
-
+		buffer.append(String.format(Messages.NUMBER_OF_CYCLES, game.getCycles()));
+		buffer.append(String.format(Messages.NUMBER_OF_COINS, game.getCoins()));
+		buffer.append(String.format(Messages.REMAINING_ZOMBIES, game.getRemainingZombies()));
 		return buffer.toString();
 	}
 
@@ -72,8 +72,7 @@ public class GamePrinter implements GameView {
 	@Override
 	public void showGame() {
 		
-		System.out.println(String.format(Messages.NUMBER_OF_CYCLES, game.getCycles()));
-		System.out.println(String.format(Messages.NUMBER_OF_COINS, game.getCoins()));
+		
 		StringBuilder str = new StringBuilder();
 
 		// Game Status
@@ -85,7 +84,7 @@ public class GamePrinter implements GameView {
 		for (int row = 0; row < Game.NUM_ROWS; row++) {
 			str.append(MARGIN).append(VERTICAL_DELIMITER);
 			for (int col = 0; col < Game.NUM_COLS; col++) {
-				str.append(StringUtils.centre(game.positionToString(new Position(row, col)), CELL_SIZE)).append(VERTICAL_DELIMITER);
+				str.append(StringUtils.centre(game.positionToString(new Position(row, col)), CELL_SIZE)).append(VERTICAL_DELIMITER);//el objeto que se crea arriba esta aqui
 			}
 			str.append(INDENTED_ROW_BORDER);
 		}
@@ -100,7 +99,17 @@ public class GamePrinter implements GameView {
 	@Override
 	public void showEndMessage() {
 		StringBuilder buffer = new StringBuilder(Messages.GAME_OVER);
-		// TODO fill your code
+		if(game.getRemainingZombies()==0) {
+			buffer.append(Messages.PLAYER_WINS);
+		}
+		if(game.haveZombiesReached()) {
+			
+			buffer.append(Messages.ZOMBIES_WIN);
+		}
+		if(game.hasGameFinished());{
+			buffer.append(Messages.PLAYER_QUITS);
+		}
+		
 		System.out.println(buffer);
 	}
 

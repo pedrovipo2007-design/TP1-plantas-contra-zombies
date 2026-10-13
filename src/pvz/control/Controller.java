@@ -48,9 +48,6 @@ public class Controller {
 	
 	public void run() {
 		view.showGame();
-		for (String a : Messages.HELP_LINES) {
-			System.out.println(a);
-		}
 		String action[]; // donde se almacena el comando a ejecutar.
 		
 		
@@ -68,10 +65,12 @@ public class Controller {
 //				Command > 
 			
 			if ((action[0].equals("a") || action[0].equals("add")) && game.isInsideBoard(new Position(Integer.parseInt(action[3]), Integer.parseInt(action[2]))) && game.isEmpty(new Position(Integer.parseInt(action[3]), Integer.parseInt(action[2]))) && game.checkGameObject(action[1])) {
-				
-				game.addGameObject(action[1], new Position(Integer.parseInt(action[3]), Integer.parseInt(action[2])));
-				game.update();
-				view.showGame();
+				if(game.getCoins()>=50) {
+					game.addGameObject(action[1], new Position(Integer.parseInt(action[3]), Integer.parseInt(action[2])));
+					game.update();
+					view.showGame();
+				}
+				else view.showMessage(Messages.NOT_ENOUGH_COINS);
 			}
 			// VOLVER - revisar if
 			// recordar el orden del Position (ron cola) - cuidado xq el cin es en el orden contrario 
@@ -91,10 +90,11 @@ public class Controller {
 				view.showGame();
 			}
 			else view.showError(Messages.INVALID_COMMAND);
-
+			
+			
 			// cuidado, no funciona el ==, tiene que ser con equals, media horita tirada a la basura
 		}
-			view.showMessage(Messages.PLAYER_QUITS);
+		view.showEndMessage();
 	}
 	
 //	view.showGame();

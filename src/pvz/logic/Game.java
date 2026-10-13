@@ -47,20 +47,20 @@ public class Game {
 		
 		String res;
 		
-		if (!tZM.getZombieList().isEmpty(position)) {
+		if (!tZM.isEmpty(position)) {
 			
-			res = tZM.getZombieList().iconInPosition(position);
-			System.out.println(res); // quitar VOLVER
+			res = tZM.iconInPosition(position);
+			
 		}
 		else if (!tPL.isEmpty(position)) {
 			
 			res = tPL.iconInPosition(position);
-			System.out.println(res); // quitar VOLVER
+			
 		}
 		else if (!tSL.isEmpty(position)) {
 			
 			res = tSL.iconInPosition(position);
-			System.out.println(res); // quitar VOLVER
+			
 		}
 		else res = " "; // devolvemos vacio si no hay nada
 		
@@ -89,7 +89,7 @@ public class Game {
 	
 	public boolean hasGameFinished() { // sustituimos a playerQuits VOLVER - quit
 		
-		return playerQuit;
+		return (playerQuit||this.haveZombiesReached()||(tZM.getRemainingZombies()==0));
 	}
 	
 	public boolean playerWins() {
@@ -104,24 +104,24 @@ public class Game {
 	
 	public void update() {
 
-		tZM.addZombie();
+		tZM.addZombie();//tenemos dudas de que quieres que actualicemos primero
 		tZM.update();
 		tPL.update();
 		tSL.update();
-		if(tZM.doZombiesReachedTheHouse()) {
-			playerQuit=true;
-			System.out.println("los zombies han llegado");
-		}
+		tZM.removeDead();
 		cycles++;
 	}
 	
+	public boolean haveZombiesReached() {
+		return tZM.doZombiesReachedTheHouse();
+	}
 	public void reset() {
 		
 		coins = INITIAL_COINS;
 		cycles = 0;
 		// los reset de las list estan mal, no pueden ser static pero a la vez no se si se pueden modificar desde aqui
 		// tendria mas sentido si las list fueran un parametro de la clase game, pues cada game tiene las suyas
-		tZM.getZombieList().reset();
+		tZM.reset();
 		tPL.reset();
 		tSL.reset();
 		// habria que resetear Level?? VOLVER ( y en la constructora habria que hacer algo con Level?? )

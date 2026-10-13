@@ -5,7 +5,7 @@ public class Sunflower {
 	//atributos
 	
 	private Position position;
-	public static final int INITIAL_HEALTH = 3;
+	public static final int INITIAL_HEALTH = 1;
 	public static final int GENERATE_AFTER_CYCLES = 3;
 	public static final int COST = 50;
 	private int health;
