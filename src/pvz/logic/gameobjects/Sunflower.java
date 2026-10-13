@@ -2,12 +2,15 @@ package pvz.logic.gameobjects;
 import pvz.logic.Game;
 import utils.Position;
 public class Sunflower {
+	
 	//atributos
 	
 	private Position position;
 	public static final int INITIAL_HEALTH = 1;
 	public static final int GENERATE_AFTER_CYCLES = 3;
-	public static final int COST = 50;
+	public static final int COST = 20;
+	public static final int SUNS_PER_GENERATION = 10;
+	
 	private int health;
 	private int cyclesSinceLastGeneration;
 	private Game game;
@@ -33,7 +36,7 @@ public class Sunflower {
 	
 	public void update() {
 		if (cyclesSinceLastGeneration==GENERATE_AFTER_CYCLES) {
-			game.generateCoins(COST);
+			game.generateCoins(SUNS_PER_GENERATION);
 		}
 		else cyclesSinceLastGeneration++;
 	}
@@ -45,5 +48,4 @@ public class Sunflower {
 	public Position getPosition() {
 		return position;
 	}	
-
 }

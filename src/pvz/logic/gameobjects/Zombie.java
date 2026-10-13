@@ -6,7 +6,7 @@ public class Zombie {
 	
 	private Position position;
 	public static final int INITIAL_HEALTH = 4;
-	public static final int DAMAGE = 4;
+	public static final int DAMAGE = 1;
 	public static final int MOVE_AFTER_CYCLES = 2;
 	private int health;
 	private int cyclesNotMoving;

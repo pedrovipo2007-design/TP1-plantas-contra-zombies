@@ -48,11 +48,16 @@ public class Controller {
 	
 	public void run() {
 		view.showGame();
+
 		String action[]; // donde se almacena el comando a ejecutar.
 		
 		
 		while(!game.hasGameFinished()) {
-				
+			
+			for (String a : Messages.HELP_LINES) {
+				view.showMessage(a);
+			}
+			
 			action= view.getPrompt();
 					
 //			Available commands:
@@ -64,7 +69,17 @@ public class Controller {
 //				[n]one | "": skips cycle
 //				Command > 
 			
-			if ((action[0].equals("a") || action[0].equals("add")) && game.isInsideBoard(new Position(Integer.parseInt(action[3]), Integer.parseInt(action[2]))) && game.isEmpty(new Position(Integer.parseInt(action[3]), Integer.parseInt(action[2]))) && game.checkGameObject(action[1])) {
+			if ( (action[0].equals("a") || action[0].equals("add")) && (action.length < 4 || !action[2].matches("\\d+") || !action[3].matches("\\d+")) ) {
+				
+				view.showError(Messages.INVALID_COMMAND);
+				// comprobamos que los datos que incluye el add son correctos
+				// las 2 ultimas condiciones comprueban que son numeros, lo he buscado
+				// la otra condicion comprueba que haya 4 inputs
+			}
+			else if ((action[0].equals("a") || action[0].equals("add")) && game.isInsideBoard(new Position(Integer.parseInt(action[3]), Integer.parseInt(action[2]))) && game.isEmpty(new Position(Integer.parseInt(action[3]), Integer.parseInt(action[2]))) && game.checkGameObject(action[1])) {
+				
+				// el Integer.parseInt es para hacer el casting (lo he buscado)
+				
 				if(game.getCoins()>=50) {
 					game.addGameObject(action[1], new Position(Integer.parseInt(action[3]), Integer.parseInt(action[2])));
 					game.update();
@@ -72,18 +87,16 @@ public class Controller {
 				}
 				else view.showMessage(Messages.NOT_ENOUGH_COINS);
 			}
-			// VOLVER - revisar if
-			// recordar el orden del Position (ron cola) - cuidado xq el cin es en el orden contrario 
-			// el Integer.parseInt es para hacer el casting (lo he buscado)
-			//
-			// corregir vida de sunflower
-			// corregir el gasto de soles
-			// corregir error en hashcode
+			// VOLVER
+			// recordar el orden del Position (ron cola) - cuidado xq el scanner es en el orden contrario 
+
+			// corregir error en hashcode - ya esta??
 			// corregir todos los System.out por view.showGame y añadir los respectivos Message
+			// corregir bug al poner peashooter en row = 2 - HECHO
 																																											  
 			else if (action[0].equals("l") || action[0].equals("list")) view.showMessage(Messages.LIST);
-			else if (action[0].equals("r") || action[0].equals("reset")) game.reset();
-			else if (action[0].equals("h") || action[0].equals("help")) view.showMessage(Messages.HELP);
+			else if (action[0].equals("r") || action[0].equals("reset")) game.reset(); 						// VOLVER - falla
+			else if (action[0].equals("h") || action[0].equals("help")) view.showMessage(Messages.HELP);	// imprime doble help
 			else if (action[0].equals("e") || action[0].equals("exit")) game.quit();
 			else if (action[0].equals("n") || action[0].equals("none") || action[0].equals("")) {
 				game.update();
