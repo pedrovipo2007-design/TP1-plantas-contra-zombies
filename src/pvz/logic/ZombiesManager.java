@@ -98,13 +98,9 @@ public class ZombiesManager {
 	}
 
 	public boolean doZombiesReachedTheHouse() {
-		for (int r = 0; r < Game.NUM_ROWS; r++) {
-			Position position;
-			position = new Position(r, 0);
-			if (!zombies.isEmpty(position))
-				return true;
-		}
-		return false;
+		
+		    return zombies.hasReachedHouse();
+		
 	}
 
 	public void damageZombie(Position pos, int damage) {

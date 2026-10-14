@@ -8,10 +8,15 @@ public class ZombieList {
 
 	private Zombie[] zombies;
 	private int numberOfZombies;
+	private boolean reachedHouse;
 
+	public boolean hasReachedHouse() {
+	    return reachedHouse;
+	}
 	public ZombieList() {
 		zombies = new Zombie[(1 + Game.NUM_COLS) * (Game.NUM_ROWS)];
 		numberOfZombies = 0;
+		reachedHouse=false;
 	}
 
 	public boolean noMoreZombies() {
@@ -23,6 +28,7 @@ public class ZombieList {
 		for (int i = 0; i < Game.NUM_COLS * Game.NUM_ROWS; i++) {
 			zombies[i] = null;
 		}
+		reachedHouse=false;
 	}
 
 	public String iconInPosition(Position p) {
@@ -45,10 +51,18 @@ public class ZombieList {
 					int idx = position.Zhashcode();
 					Zombie z = zombies[idx];
 					z.update();
-					int newIdx = z.getPosition().Zhashcode();
-					if (newIdx != idx) { // se ha movido
-						zombies[newIdx] = z;
-						zombies[idx] = null;
+					if (z.getPosition().getCol() < 0) {   // cruzó la casa
+					    zombies[idx] = null;
+					    numberOfZombies--;
+					    reachedHouse = true;
+					}
+					else {
+						int newIdx = z.getPosition().Zhashcode();
+						if (newIdx != idx) { // se ha movido
+							zombies[newIdx] = z;
+							zombies[idx] = null;
+					}
+					
 					}
 				}
 			}
