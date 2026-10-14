@@ -10,3 +10,5 @@ bin/
 # .project
 # .classpath
 # Los dejo comentados para facilitar el git clone
+
+src/test/
