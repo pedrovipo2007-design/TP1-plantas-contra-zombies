@@ -118,7 +118,7 @@ public class Game {
 		tPL.reset();
 		tSL.reset();
 
-		rand = new Random(longSeed);
+		rand.setSeed(longSeed); // lo he buscado, daba error
 	}
 
 	public void addGameObject(String plantType, Position position) {

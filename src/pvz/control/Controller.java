@@ -79,24 +79,24 @@ public class Controller {
 					view.showError(Messages.COMMAND_PARAMETERS_MISSING);
 				else if (!action[2].matches("\\d+") || !action[3].matches("\\d+"))
 					view.showError(Messages.INVALID_COMMAND);
+				else {
 
-			} else if (action[0].equals("a") || action[0].equals("add")) { // ahora se hace utilizando las constantes
+					Position pos = new Position(Integer.parseInt(action[3]), Integer.parseInt(action[2]));
 
-				Position pos = new Position(Integer.parseInt(action[3]), Integer.parseInt(action[2]));
-
-				if (!game.checkGameObject(action[1])) {
-					view.showError(Messages.INVALID_GAME_OBJECT);
-				} else if (!game.isInsideBoard(pos) || !game.isEmpty(pos)) {
-					view.showError(Messages.INVALID_POSITION);
-				} else {
-					boolean sunflower = action[1].equals("s") || action[1].equals("sunflower");
-					int cost = sunflower ? Sunflower.COST : Peashooter.COST;
-					if (game.getCoins() >= cost) {
-						game.addGameObject(action[1], pos);
-						game.update();
-						view.showGame();
-					} else
-						view.showError(Messages.NOT_ENOUGH_COINS);
+					if (!game.checkGameObject(action[1])) {
+						view.showError(Messages.INVALID_GAME_OBJECT);
+					} else if (!game.isInsideBoard(pos) || !game.isEmpty(pos)) {
+						view.showError(Messages.INVALID_POSITION);
+					} else {
+						boolean sunflower = action[1].equals("s") || action[1].equals("sunflower");
+						int cost = sunflower ? Sunflower.COST : Peashooter.COST;
+						if (game.getCoins() >= cost) {
+							game.addGameObject(action[1], pos);
+							game.update();
+							view.showGame();
+						} else
+							view.showError(Messages.NOT_ENOUGH_COINS);
+					}
 				}
 			}
 
@@ -118,7 +118,7 @@ public class Controller {
 				game.update();
 				view.showGame();
 			} else
-				view.showError(Messages.INVALID_COMMAND);
+				view.showError(Messages.UNKNOWN_COMMAND);
 
 			// cuidado, no funciona el ==, tiene que ser con equals, media horita tirada a
 			// la basura

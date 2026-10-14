@@ -42,7 +42,8 @@ public class Zombie {
 	}
 
 	private void atack() {
-		game.attackPlant(this.getPosition().left(), DAMAGE);
+		if (position.getCol() > 0)
+			game.attackPlant(this.getPosition().left(), DAMAGE);
 	}
 
 	public void update() {
