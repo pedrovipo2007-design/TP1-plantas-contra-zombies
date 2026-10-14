@@ -53,12 +53,12 @@ public class Controller {
 		boolean help = false; // para ver si tenemos que repetir HELP_LINES.
 		
 		while(!game.hasGameFinished()) {
-			
-			if(!help) { // correccion para evitar que imprima 2 veces help
-				for (String a : Messages.HELP_LINES) {
-					view.showMessage(a);
-				}
-			}
+			//Rodrogo solo hay que hacer print si pones help, estaba bien antes. Cuando te metas al discord te lo digo pa no ir cambiandonoslo todo el rato
+			//if(!help) { // correccion para evitar que imprima 2 veces help
+				//for (String a : Messages.HELP_LINES) {
+					//view.showMessage(a);
+				//}
+			//}
 			help = false;
 			
 			action= view.getPrompt();
@@ -84,13 +84,22 @@ public class Controller {
 			else if ((action[0].equals("a") || action[0].equals("add")) && game.isInsideBoard(new Position(Integer.parseInt(action[3]), Integer.parseInt(action[2]))) && game.isEmpty(new Position(Integer.parseInt(action[3]), Integer.parseInt(action[2]))) && game.checkGameObject(action[1])) {
 				
 				// el Integer.parseInt es para hacer el casting (lo he buscado)
-				
-				if(game.getCoins()>=50) {
-					game.addGameObject(action[1], new Position(Integer.parseInt(action[3]), Integer.parseInt(action[2])));
-					game.update();
-					view.showGame();
+				if(action[1].equals("s")) {
+					if(game.getCoins()>=20) {
+						game.addGameObject(action[1], new Position(Integer.parseInt(action[3]), Integer.parseInt(action[2])));
+						game.update();
+						view.showGame();
+					}
+					else view.showMessage(Messages.NOT_ENOUGH_COINS);
 				}
-				else view.showMessage(Messages.NOT_ENOUGH_COINS);
+				if(action[1].equals("p")) {
+					if(game.getCoins()>=50) {
+						game.addGameObject(action[1], new Position(Integer.parseInt(action[3]), Integer.parseInt(action[2])));
+						game.update();
+						view.showGame();
+					}
+					else view.showMessage(Messages.NOT_ENOUGH_COINS);
+				}
 			}
 			// VOLVER
 			// recordar el orden del Position (ron cola) - cuidado xq el scanner es en el orden contrario 

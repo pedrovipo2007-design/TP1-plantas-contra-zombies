@@ -169,6 +169,7 @@ public class Game {
 			if (!isEmptyOfZombies(new Position(row, pos))) {
 				p=new Position(row,pos);
 				tZM.damageZombie(p, damage);
+				pos++;
 			}
 			else {
 				
@@ -189,7 +190,7 @@ public class Game {
 	
 	public static Position newZombiePosition(int row) { // devuelvo posicion en la col mas alejada
 		
-		Position p = new Position(row, NUM_COLS-1);
+		Position p = new Position(row, NUM_COLS);
 		
 		return p;
 	}

@@ -16,6 +16,13 @@ Remaining zombies: 3
   |        |        |        |        |        |        |        |        |
    ──────── ──────── ──────── ──────── ──────── ──────── ──────── ──────── 
 
+Available commands:
+[a]dd <plant> <col> <row>: add a plant in position (col, row)
+[l]ist: print the list of available plants
+[r]eset: start a new game
+[h]elp: print this help message
+[e]xit: terminate the program
+[n]one | "": skips cycle
 Command > 
 [DEBUG] Executing: h
 
@@ -62,12 +69,26 @@ Command >
 [S]unflower: cost='20' suncoins, damage='0', endurance='1'
 [P]eashooter: cost='50' suncoins, damage='1', endurance='3'
 
+Available commands:
+[a]dd <plant> <col> <row>: add a plant in position (col, row)
+[l]ist: print the list of available plants
+[r]eset: start a new game
+[h]elp: print this help message
+[e]xit: terminate the program
+[n]one | "": skips cycle
 Command > 
 [DEBUG] Executing: List
 
 [S]unflower: cost='20' suncoins, damage='0', endurance='1'
 [P]eashooter: cost='50' suncoins, damage='1', endurance='3'
 
+Available commands:
+[a]dd <plant> <col> <row>: add a plant in position (col, row)
+[l]ist: print the list of available plants
+[r]eset: start a new game
+[h]elp: print this help message
+[e]xit: terminate the program
+[n]one | "": skips cycle
 Command > 
 [DEBUG] Executing: 
 
@@ -85,11 +106,18 @@ Remaining zombies: 3
   |        |        |        |        |        |        |        |        |
    ──────── ──────── ──────── ──────── ──────── ──────── ──────── ──────── 
 
+Available commands:
+[a]dd <plant> <col> <row>: add a plant in position (col, row)
+[l]ist: print the list of available plants
+[r]eset: start a new game
+[h]elp: print this help message
+[e]xit: terminate the program
+[n]one | "": skips cycle
 Command > 
 [DEBUG] Executing: add sunflower 0 0
 
 Number of cycles: 2
-Sun coins: 0
+Sun coins: 30
 Remaining zombies: 3
 
    ──────── ──────── ──────── ──────── ──────── ──────── ──────── ──────── 
@@ -102,11 +130,18 @@ Remaining zombies: 3
   |        |        |        |        |        |        |        |        |
    ──────── ──────── ──────── ──────── ──────── ──────── ──────── ──────── 
 
+Available commands:
+[a]dd <plant> <col> <row>: add a plant in position (col, row)
+[l]ist: print the list of available plants
+[r]eset: start a new game
+[h]elp: print this help message
+[e]xit: terminate the program
+[n]one | "": skips cycle
 Command > 
 [DEBUG] Executing: 
 
 Number of cycles: 3
-Sun coins: 0
+Sun coins: 30
 Remaining zombies: 3
 
    ──────── ──────── ──────── ──────── ──────── ──────── ──────── ──────── 
@@ -119,11 +154,18 @@ Remaining zombies: 3
   |        |        |        |        |        |        |        |        |
    ──────── ──────── ──────── ──────── ──────── ──────── ──────── ──────── 
 
+Available commands:
+[a]dd <plant> <col> <row>: add a plant in position (col, row)
+[l]ist: print the list of available plants
+[r]eset: start a new game
+[h]elp: print this help message
+[e]xit: terminate the program
+[n]one | "": skips cycle
 Command > 
 [DEBUG] Executing: 
 
 Number of cycles: 4
-Sun coins: 0
+Sun coins: 30
 Remaining zombies: 3
 
    ──────── ──────── ──────── ──────── ──────── ──────── ──────── ──────── 
@@ -136,11 +178,18 @@ Remaining zombies: 3
   |        |        |        |        |        |        |        |        |
    ──────── ──────── ──────── ──────── ──────── ──────── ──────── ──────── 
 
+Available commands:
+[a]dd <plant> <col> <row>: add a plant in position (col, row)
+[l]ist: print the list of available plants
+[r]eset: start a new game
+[h]elp: print this help message
+[e]xit: terminate the program
+[n]one | "": skips cycle
 Command > 
 [DEBUG] Executing: 
 
 Number of cycles: 5
-Sun coins: 50
+Sun coins: 40
 Remaining zombies: 3
 
    ──────── ──────── ──────── ──────── ──────── ──────── ──────── ──────── 
@@ -153,8 +202,26 @@ Remaining zombies: 3
   |        |        |        |        |        |        |        |        |
    ──────── ──────── ──────── ──────── ──────── ──────── ──────── ──────── 
 
+Available commands:
+[a]dd <plant> <col> <row>: add a plant in position (col, row)
+[l]ist: print the list of available plants
+[r]eset: start a new game
+[h]elp: print this help message
+[e]xit: terminate the program
+[n]one | "": skips cycle
 Command > 
 [DEBUG] Executing: a s 0 1
+
+Not enough suncoins
+Available commands:
+[a]dd <plant> <col> <row>: add a plant in position (col, row)
+[l]ist: print the list of available plants
+[r]eset: start a new game
+[h]elp: print this help message
+[e]xit: terminate the program
+[n]one | "": skips cycle
+Command > 
+[DEBUG] Executing: 
 
 Number of cycles: 6
 Sun coins: 50
@@ -163,98 +230,116 @@ Remaining zombies: 3
    ──────── ──────── ──────── ──────── ──────── ──────── ──────── ──────── 
   |  S[01] |        |        |        |        |        |        |        |
    ──────── ──────── ──────── ──────── ──────── ──────── ──────── ──────── 
-  |  S[01] |        |        |        |        |        |        |        |
+  |        |        |        |        |        |        |        |        |
    ──────── ──────── ──────── ──────── ──────── ──────── ──────── ──────── 
   |        |        |        |        |        |        |        |        |
    ──────── ──────── ──────── ──────── ──────── ──────── ──────── ──────── 
   |        |        |        |        |        |        |        |        |
    ──────── ──────── ──────── ──────── ──────── ──────── ──────── ──────── 
 
+Available commands:
+[a]dd <plant> <col> <row>: add a plant in position (col, row)
+[l]ist: print the list of available plants
+[r]eset: start a new game
+[h]elp: print this help message
+[e]xit: terminate the program
+[n]one | "": skips cycle
 Command > 
 [DEBUG] Executing: 
 
 Number of cycles: 7
-Sun coins: 100
+Sun coins: 60
 Remaining zombies: 3
 
    ──────── ──────── ──────── ──────── ──────── ──────── ──────── ──────── 
   |  S[01] |        |        |        |        |        |        |        |
    ──────── ──────── ──────── ──────── ──────── ──────── ──────── ──────── 
-  |  S[01] |        |        |        |        |        |        |        |
+  |        |        |        |        |        |        |        |        |
    ──────── ──────── ──────── ──────── ──────── ──────── ──────── ──────── 
   |        |        |        |        |        |        |        |        |
    ──────── ──────── ──────── ──────── ──────── ──────── ──────── ──────── 
   |        |        |        |        |        |        |        |        |
    ──────── ──────── ──────── ──────── ──────── ──────── ──────── ──────── 
 
+Available commands:
+[a]dd <plant> <col> <row>: add a plant in position (col, row)
+[l]ist: print the list of available plants
+[r]eset: start a new game
+[h]elp: print this help message
+[e]xit: terminate the program
+[n]one | "": skips cycle
 Command > 
 [DEBUG] Executing: 
 
 Number of cycles: 8
-Sun coins: 150
+Sun coins: 70
 Remaining zombies: 3
 
    ──────── ──────── ──────── ──────── ──────── ──────── ──────── ──────── 
   |  S[01] |        |        |        |        |        |        |        |
    ──────── ──────── ──────── ──────── ──────── ──────── ──────── ──────── 
-  |  S[01] |        |        |        |        |        |        |        |
+  |        |        |        |        |        |        |        |        |
    ──────── ──────── ──────── ──────── ──────── ──────── ──────── ──────── 
   |        |        |        |        |        |        |        |        |
    ──────── ──────── ──────── ──────── ──────── ──────── ──────── ──────── 
   |        |        |        |        |        |        |        |        |
    ──────── ──────── ──────── ──────── ──────── ──────── ──────── ──────── 
 
+Available commands:
+[a]dd <plant> <col> <row>: add a plant in position (col, row)
+[l]ist: print the list of available plants
+[r]eset: start a new game
+[h]elp: print this help message
+[e]xit: terminate the program
+[n]one | "": skips cycle
 Command > 
 [DEBUG] Executing: 
 
 Number of cycles: 9
-Sun coins: 250
+Sun coins: 80
 Remaining zombies: 3
 
    ──────── ──────── ──────── ──────── ──────── ──────── ──────── ──────── 
   |  S[01] |        |        |        |        |        |        |  Z[04] |
    ──────── ──────── ──────── ──────── ──────── ──────── ──────── ──────── 
-  |  S[01] |        |        |        |        |        |        |        |
+  |        |        |        |        |        |        |        |        |
    ──────── ──────── ──────── ──────── ──────── ──────── ──────── ──────── 
   |        |        |        |        |        |        |        |        |
    ──────── ──────── ──────── ──────── ──────── ──────── ──────── ──────── 
   |        |        |        |        |        |        |        |        |
    ──────── ──────── ──────── ──────── ──────── ──────── ──────── ──────── 
 
+Available commands:
+[a]dd <plant> <col> <row>: add a plant in position (col, row)
+[l]ist: print the list of available plants
+[r]eset: start a new game
+[h]elp: print this help message
+[e]xit: terminate the program
+[n]one | "": skips cycle
 Command > 
 [DEBUG] Executing: 
 
 Number of cycles: 10
-Sun coins: 350
+Sun coins: 90
 Remaining zombies: 3
 
    ──────── ──────── ──────── ──────── ──────── ──────── ──────── ──────── 
   |  S[01] |        |        |        |        |        |        |  Z[04] |
    ──────── ──────── ──────── ──────── ──────── ──────── ──────── ──────── 
-  |  S[01] |        |        |        |        |        |        |        |
-   ──────── ──────── ──────── ──────── ──────── ──────── ──────── ──────── 
   |        |        |        |        |        |        |        |        |
-   ──────── ──────── ──────── ──────── ──────── ──────── ──────── ──────── 
-  |        |        |        |        |        |        |        |        |
-   ──────── ──────── ──────── ──────── ──────── ──────── ──────── ──────── 
-
-Command > 
-[DEBUG] Executing: 
-
-Number of cycles: 11
-Sun coins: 450
-Remaining zombies: 3
-
-   ──────── ──────── ──────── ──────── ──────── ──────── ──────── ──────── 
-  |  S[01] |        |        |        |        |        |  Z[04] |        |
-   ──────── ──────── ──────── ──────── ──────── ──────── ──────── ──────── 
-  |  S[01] |        |        |        |        |        |        |        |
    ──────── ──────── ──────── ──────── ──────── ──────── ──────── ──────── 
   |        |        |        |        |        |        |        |        |
    ──────── ──────── ──────── ──────── ──────── ──────── ──────── ──────── 
   |        |        |        |        |        |        |        |        |
    ──────── ──────── ──────── ──────── ──────── ──────── ──────── ──────── 
 
+Available commands:
+[a]dd <plant> <col> <row>: add a plant in position (col, row)
+[l]ist: print the list of available plants
+[r]eset: start a new game
+[h]elp: print this help message
+[e]xit: terminate the program
+[n]one | "": skips cycle
 Command > 
 [DEBUG] Executing: a p 2 0
 

@@ -37,6 +37,7 @@ public class Sunflower {
 	public void update() {
 		if (cyclesSinceLastGeneration==GENERATE_AFTER_CYCLES) {
 			game.generateCoins(SUNS_PER_GENERATION);
+			cyclesSinceLastGeneration=0;
 		}
 		else cyclesSinceLastGeneration++;
 	}

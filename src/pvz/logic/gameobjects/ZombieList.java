@@ -12,7 +12,7 @@ public class ZombieList {
 	private int numberOfZombies;
 
 	public ZombieList() {
-		zombies= new Zombie[Game.NUM_COLS*Game.NUM_ROWS];
+		zombies= new Zombie[Game.NUM_COLS*(Game.NUM_ROWS+1)];
 		numberOfZombies=0;
 	}
 	
