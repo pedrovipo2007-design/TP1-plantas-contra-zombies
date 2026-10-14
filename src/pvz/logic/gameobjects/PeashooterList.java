@@ -21,6 +21,9 @@ public class PeashooterList {
 
 	public void reset() {
 		numberOfPeashooters = 0;
+		for(int i =0;i<36;i++) {
+			peashooters[i]=null;
+		}
 	}
 
 	public boolean isEmpty(Position p) {

@@ -20,6 +20,9 @@ public class ZombieList {
 
 	public void reset() {
 		numberOfZombies = 0;
+		for(int i =0;i<36;i++) {
+			zombies[i]=null;
+		}
 	}
 
 	public String iconInPosition(Position p) {
@@ -35,7 +38,7 @@ public class ZombieList {
 	}
 
 	public void update() {
-		for (int i = 0; i < Game.NUM_COLS; i++) {
+		for (int i = 0; i < Game.NUM_COLS+1; i++) {
 			for (int j = 0; j < Game.NUM_ROWS; j++) {
 				Position position;
 				position = new Position(j, i);

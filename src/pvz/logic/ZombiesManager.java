@@ -107,6 +107,7 @@ public class ZombiesManager {
 
 	public void reset() {
 		zombies.reset();
+		
 	}
 
 	public boolean doZombiesReachedTheHouse() {

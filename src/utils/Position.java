@@ -29,14 +29,21 @@ public class Position {
 	}
 	
 	public int Zhashcode() {
-		return (row+1)*Game.NUM_COLS+col;
+		if(this.col<8)return this.hashcode();
+		else return(Game.NUM_COLS*Game.NUM_ROWS+this.row);
 	}
 	
 	public Position left() {
-		Position position=new Position(this.getRow(),this.getCol()-1);
+		Position position;
+		if(this.col<8) {
+			position=new Position(this.getRow(),this.getCol()-1);
+		}
+		else {
+			position=new Position(this.getRow(), Game.NUM_COLS-1);
+		}
+		
 		return position;
 	}
-
 	@Override
 	public boolean equals(Object o) {
 	    if (this == o) return true;

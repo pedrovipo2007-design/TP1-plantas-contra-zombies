@@ -16,6 +16,9 @@ public class SunflowerList {
 
 	public void reset() {
 		numberOfSunflowers = 0;
+		for(int i =0;i<36;i++) {
+			sunflowers[i]=null;
+		}
 	}
 
 	public String iconInPosition(Position p) {
