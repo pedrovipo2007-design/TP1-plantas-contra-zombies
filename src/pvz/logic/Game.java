@@ -89,7 +89,7 @@ public class Game {
 	
 	public boolean hasGameFinished() { // sustituimos a playerQuits VOLVER - quit
 		
-		return (playerQuit||this.haveZombiesReached()||(tZM.getRemainingZombies()==0));
+		return (playerQuit||this.haveZombiesReached()||(tZM.getRemainingZombies()==0)); // PEDRO HA AÑADIDO MAS (MERGE)
 	}
 	
 	public boolean playerWins() {
@@ -104,7 +104,7 @@ public class Game {
 	
 	public void update() {
 
-		tZM.addZombie();//tenemos dudas de que quieres que actualicemos primero
+		tZM.addZombie(); //tenemos dudas de que quieres que actualicemos primero
 		tZM.update();
 		tPL.update();
 		tSL.update();
@@ -129,7 +129,7 @@ public class Game {
 	
 	public void addGameObject(String plantType, Position position) {
 		
-		if(plantType.equals("peashoter") || plantType.equals("p")) {
+		if(plantType.equals("peashooter") || plantType.equals("p")) {
 			
 			Peashooter p = new Peashooter(position, this);
 			tPL.add(p);
@@ -170,6 +170,7 @@ public class Game {
 				p=new Position(row,pos);
 				tZM.damageZombie(p, damage);
 				pos++;
+				break;
 			}
 			else {
 				
@@ -185,7 +186,7 @@ public class Game {
 	
 	public boolean isEmpty(Position zombiePosition) {
 		
-		return ( tPL.isEmpty(zombiePosition) && tSL.isEmpty(zombiePosition));//he quitado esto un momento tZM.getZombieList().isEmpty(zombiePosition) &&
+		return ( tPL.isEmpty(zombiePosition) && tSL.isEmpty(zombiePosition));
 	}
 	
 	public static Position newZombiePosition(int row) { // devuelvo posicion en la col mas alejada

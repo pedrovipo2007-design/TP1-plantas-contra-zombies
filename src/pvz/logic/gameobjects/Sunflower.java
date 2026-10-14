@@ -47,6 +47,6 @@ public class Sunflower {
 	}
 	
 	public Position getPosition() {
-		return position;
+		return new Position(position.getRow(), position.getCol());
 	}	
 }

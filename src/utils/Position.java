@@ -34,9 +34,4 @@ public class Position {
 	    Position other = (Position) o;
 	    return row == other.row && col == other.col;
 	}
-
-	@Override
-	public int hashCode() {
-	    return hashcode();
-	}
 }

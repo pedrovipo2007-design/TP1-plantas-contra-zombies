@@ -71,7 +71,7 @@ public class ZombieList {
 		zombies[z.getPosition().hashcode()]=z;
 	}
 	
-	public Zombie firstZombieInRow(int row,int col) {//la columna desde la que dispara el lanzaguisantes
+	public Zombie firstZombieInRow(int row,int col) { //la columna desde la que dispara el lanzaguisantes
 		
 		while(col<Game.NUM_COLS) {
 			Position position;

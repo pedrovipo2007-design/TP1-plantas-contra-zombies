@@ -5,7 +5,7 @@ import pvz.logic.Game;
 public class Zombie {
 	
 	private Position position;
-	public static final int INITIAL_HEALTH = 4;
+	public static final int INITIAL_HEALTH = 5;
 	public static final int DAMAGE = 1;
 	public static final int MOVE_AFTER_CYCLES = 2;
 	private int health;
@@ -25,7 +25,7 @@ public class Zombie {
 	}
 	
 	public Position getPosition() {
-		return position;
+		return new Position(position.getRow(), position.getCol());
 	}
 	
 	public void receiveDamage(int damage) {
@@ -47,8 +47,8 @@ public class Zombie {
 	
 	
 	public void update() {
-		if(game.isEmpty(this.getPosition().left()))move();
-		else atack();
+		if(game.isEmpty(this.getPosition().left()) && game.isEmptyOfZombies(this.getPosition().left())) move();
+		else if (game.isEmptyOfZombies(this.getPosition().left())) atack();
 	}
 	
 	public boolean isAlive() {

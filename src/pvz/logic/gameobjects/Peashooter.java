@@ -18,7 +18,7 @@ public class Peashooter {
 		// TODO Auto-generated method stub
 		return "[P]eashooter: cost='50' suncoins, damage='1', endurance='3'";
 	}
-
+	
 	
 	public Peashooter(Position p,Game game) {
 		health=INITIAL_HEALTH;
@@ -32,7 +32,7 @@ public class Peashooter {
 	}
 	
 	public Position getPosition() {
-		return position;
+		return new Position(position.getRow(), position.getCol());
 	}
 	
 	

@@ -33,12 +33,12 @@ public class Controller {
 	
 	private boolean isPositionValid(Position p) {
 		return (p.getCol()<game.NUM_COLS && p.getRow()<game.NUM_ROWS);
-		// VOLVER - supongo que en un futuro deberemos checkear que no haya plantas en esa casilla
+		// VOLVER - NO SE USA
 	}
 	
-	private boolean isObjectValid(String object) { // VOLVER - no se usa??
+	private boolean isObjectValid(String object) { // VOLVER - NO SE USA
 		boolean valid=false;
-		if(object.equals("peashoter")) valid=true;
+		if(object.equals("peashooter")) valid=true;
 		else if(object.equals("sunflower")) valid=true;
 		else if(object.equals("s")) valid=true;
 		else if(object.equals("p")) valid=true;
@@ -50,16 +50,8 @@ public class Controller {
 		view.showGame();
 
 		String action[]; // donde se almacena el comando a ejecutar.
-		boolean help = false; // para ver si tenemos que repetir HELP_LINES.
 		
 		while(!game.hasGameFinished()) {
-			//Rodrogo solo hay que hacer print si pones help, estaba bien antes. Cuando te metas al discord te lo digo pa no ir cambiandonoslo todo el rato
-			//if(!help) { // correccion para evitar que imprima 2 veces help
-				//for (String a : Messages.HELP_LINES) {
-					//view.showMessage(a);
-				//}
-			//}
-			help = false;
 			
 			action= view.getPrompt();
 					
@@ -84,7 +76,7 @@ public class Controller {
 			else if ((action[0].equals("a") || action[0].equals("add")) && game.isInsideBoard(new Position(Integer.parseInt(action[3]), Integer.parseInt(action[2]))) && game.isEmpty(new Position(Integer.parseInt(action[3]), Integer.parseInt(action[2]))) && game.checkGameObject(action[1])) {
 				
 				// el Integer.parseInt es para hacer el casting (lo he buscado)
-				if(action[1].equals("s")) {
+				if(action[1].equals("s") || action[1].equals("sunflower")) {
 					if(game.getCoins()>=20) {
 						game.addGameObject(action[1], new Position(Integer.parseInt(action[3]), Integer.parseInt(action[2])));
 						game.update();
@@ -92,7 +84,7 @@ public class Controller {
 					}
 					else view.showMessage(Messages.NOT_ENOUGH_COINS);
 				}
-				if(action[1].equals("p")) {
+				if(action[1].equals("p") || action[1].equals("peashooter")) {
 					if(game.getCoins()>=50) {
 						game.addGameObject(action[1], new Position(Integer.parseInt(action[3]), Integer.parseInt(action[2])));
 						game.update();
@@ -103,18 +95,15 @@ public class Controller {
 			}
 			// VOLVER
 			// recordar el orden del Position (ron cola) - cuidado xq el scanner es en el orden contrario 
-
-			// corregir error en hashcode - ya esta??
-			// corregir bug al poner peashooter en row = 2 - creo que falla al disparar, no al ponerla
-
-			// comparar tests - creo que estan todos los messages y System.out corregidos (comprobar si corresponden con tests)
+			// comparar tests - msgs
+			// isPositionValid y isObjectValid no se usan
 																																											  
 			else if (action[0].equals("l") || action[0].equals("list")) view.showMessage(Messages.LIST);
-			else if (action[0].equals("r") || action[0].equals("reset")) game.reset(); // VOLVER - falla mucho
-			else if (action[0].equals("h") || action[0].equals("help")) {
-				view.showMessage(Messages.HELP); 
-				help = true;
+			else if (action[0].equals("r") || action[0].equals("reset")) {
+				game.reset();
+				view.showGame();
 			}
+			else if (action[0].equals("h") || action[0].equals("help")) view.showMessage(Messages.HELP);
 			else if (action[0].equals("e") || action[0].equals("exit")) game.quit();
 			else if (action[0].equals("n") || action[0].equals("none") || action[0].equals("")) {
 				game.update();

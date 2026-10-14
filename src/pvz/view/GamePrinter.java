@@ -100,6 +100,8 @@ public class GamePrinter implements GameView {
 	@Override
 	public void showEndMessage() {
 		StringBuilder buffer = new StringBuilder(Messages.GAME_OVER);
+		buffer.append('\n');
+		
 		if(game.getRemainingZombies()==0) {
 			buffer.append(Messages.PLAYER_WINS);
 		}
@@ -107,7 +109,7 @@ public class GamePrinter implements GameView {
 			
 			buffer.append(Messages.ZOMBIES_WIN);
 		}
-		else if(game.hasGameFinished());{
+		else if(game.hasGameFinished()) {
 			buffer.append(Messages.PLAYER_QUITS);
 		}
 		
