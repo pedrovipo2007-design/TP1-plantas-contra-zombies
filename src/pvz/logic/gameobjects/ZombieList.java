@@ -20,8 +20,8 @@ public class ZombieList {
 
 	public void reset() {
 		numberOfZombies = 0;
-		for(int i =0;i<Game.NUM_COLS*Game.NUM_ROWS;i++) {
-			zombies[i]=null;
+		for (int i = 0; i < Game.NUM_COLS * Game.NUM_ROWS; i++) {
+			zombies[i] = null;
 		}
 	}
 
@@ -38,22 +38,22 @@ public class ZombieList {
 	}
 
 	public void update() {
-	    for (int i = 0; i < Game.NUM_COLS + 1; i++) {
-	        for (int j = 0; j < Game.NUM_ROWS; j++) {
-	            Position position = new Position(j, i);
-	            if (!isEmpty(position)) {
-	                int idx = position.Zhashcode();
-	                Zombie z = zombies[idx];
-	                z.update();
-	                int newIdx = z.getPosition().Zhashcode();
-	                if (newIdx != idx) {          // se ha movido
-	                    zombies[newIdx] = z;
-	                    zombies[idx] = null;
-	                }
-	            }
-	        }
-	    }
-	    removeDead();
+		for (int i = 0; i < Game.NUM_COLS + 1; i++) {
+			for (int j = 0; j < Game.NUM_ROWS; j++) {
+				Position position = new Position(j, i);
+				if (!isEmpty(position)) {
+					int idx = position.Zhashcode();
+					Zombie z = zombies[idx];
+					z.update();
+					int newIdx = z.getPosition().Zhashcode();
+					if (newIdx != idx) { // se ha movido
+						zombies[newIdx] = z;
+						zombies[idx] = null;
+					}
+				}
+			}
+		}
+		removeDead();
 	}
 
 	public void removeDead() {
@@ -77,18 +77,17 @@ public class ZombieList {
 		numberOfZombies++;
 	}
 
-	public Zombie firstZombieInRow(int row, int col) { // la columna desde la que dispara el lanzaguisantes
+//	public Zombie firstZombieInRow(int row, int col) { // la columna desde la que dispara el lanzaguisantes
+//
+//		while (col < Game.NUM_COLS) {
+//			Position position;
+//			position = new Position(row, col);
+//			if (!isEmpty(position))
+//				col++;
+//			else
+//				return zombies[position.Zhashcode()];
+//		}
+//		return null;
+//	}
 
-		while (col < Game.NUM_COLS) {
-			Position position;
-			position = new Position(row, col);
-			if (!isEmpty(position)) {
-
-				col++;
-			} else
-
-				return zombies[position.Zhashcode()];
-		}
-		return null;
-	}
 }

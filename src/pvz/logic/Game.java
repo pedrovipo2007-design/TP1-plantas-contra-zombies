@@ -180,7 +180,6 @@ public class Game {
 		return p.getCol() < NUM_COLS && p.getRow() < NUM_ROWS;
 	}
 
-	// Game.java
 	public boolean hasGameFinished() {
 		return playerQuit || haveZombiesReached() || playerWins();
 	}
