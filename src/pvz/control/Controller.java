@@ -99,6 +99,7 @@ public class Controller {
 						view.showError(Messages.NOT_ENOUGH_COINS);
 				}
 			}
+
 			// VOLVER
 			// comparar tests
 			// isPositionValid y isObjectValid no se usan
