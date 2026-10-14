@@ -89,6 +89,7 @@ public class GamePrinter implements GameView {
 			str.append(INDENTED_ROW_BORDER);
 		}
 
+		
 		System.out.println(str);
 		
 	}

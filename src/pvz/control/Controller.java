@@ -50,13 +50,16 @@ public class Controller {
 		view.showGame();
 
 		String action[]; // donde se almacena el comando a ejecutar.
-		
+		boolean help = false; // para ver si tenemos que repetir HELP_LINES.
 		
 		while(!game.hasGameFinished()) {
 			
-			for (String a : Messages.HELP_LINES) {
-				view.showMessage(a);
+			if(!help) { // correccion para evitar que imprima 2 veces help
+				for (String a : Messages.HELP_LINES) {
+					view.showMessage(a);
+				}
 			}
+			help = false;
 			
 			action= view.getPrompt();
 					
@@ -71,9 +74,11 @@ public class Controller {
 			
 			if ( (action[0].equals("a") || action[0].equals("add")) && (action.length < 4 || !action[2].matches("\\d+") || !action[3].matches("\\d+")) ) {
 				
+				
 				view.showError(Messages.INVALID_COMMAND);
+
 				// comprobamos que los datos que incluye el add son correctos
-				// las 2 ultimas condiciones comprueban que son numeros, lo he buscado
+				// las 2 ultimas condiciones comprueban que son numeros (lo he buscado)
 				// la otra condicion comprueba que haya 4 inputs
 			}
 			else if ((action[0].equals("a") || action[0].equals("add")) && game.isInsideBoard(new Position(Integer.parseInt(action[3]), Integer.parseInt(action[2]))) && game.isEmpty(new Position(Integer.parseInt(action[3]), Integer.parseInt(action[2]))) && game.checkGameObject(action[1])) {
@@ -91,12 +96,16 @@ public class Controller {
 			// recordar el orden del Position (ron cola) - cuidado xq el scanner es en el orden contrario 
 
 			// corregir error en hashcode - ya esta??
-			// corregir todos los System.out por view.showGame y añadir los respectivos Message
-			// corregir bug al poner peashooter en row = 2 - HECHO
+			// corregir bug al poner peashooter en row = 2 - creo que falla al disparar, no al ponerla
+
+			// comparar tests - creo que estan todos los messages y System.out corregidos (comprobar si corresponden con tests)
 																																											  
 			else if (action[0].equals("l") || action[0].equals("list")) view.showMessage(Messages.LIST);
-			else if (action[0].equals("r") || action[0].equals("reset")) game.reset(); 						// VOLVER - falla
-			else if (action[0].equals("h") || action[0].equals("help")) view.showMessage(Messages.HELP);	// imprime doble help
+			else if (action[0].equals("r") || action[0].equals("reset")) game.reset(); // VOLVER - falla mucho
+			else if (action[0].equals("h") || action[0].equals("help")) {
+				view.showMessage(Messages.HELP); 
+				help = true;
+			}
 			else if (action[0].equals("e") || action[0].equals("exit")) game.quit();
 			else if (action[0].equals("n") || action[0].equals("none") || action[0].equals("")) {
 				game.update();

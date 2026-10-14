@@ -142,8 +142,6 @@ public class Game {
 			tSL.add(s);
 			this.buyWithCoins(Sunflower.COST);
 		}
-		
-		// else System.out.println("No apto");
 	}
 	
 	public void generateCoins(int cost) {
