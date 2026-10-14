@@ -1,12 +1,13 @@
 package pvz.control;
 
 import pvz.logic.Game;
+import pvz.logic.gameobjects.Peashooter;
+import pvz.logic.gameobjects.Sunflower;
 import pvz.view.GamePrinter;
 import pvz.view.GameView;
 import pvz.view.Messages;
 import utils.Position;
-import pvz.logic.gameobjects.Peashooter;
-import pvz.logic.gameobjects.Sunflower;
+
 /**
  * Input/output coordinator of the game (the C in MVC).
  *
@@ -68,36 +69,34 @@ public class Controller {
 //				[n]one | "": skips cycle
 //				Command > 
 
-			if ((action[0].equals("a") || action[0].equals("add"))
-					&& (action.length < 4 || !action[2].matches("\\d+") || !action[3].matches("\\d+"))) {
+			// comprobamos 1ue los datos que incluye el add son correctos
+			// las 2 ultimas condiciones comprueban que son numeros (lo he buscado)
+			// la otra condicion comprueba que haya 4 inputs
 
-				view.showError(Messages.INVALID_COMMAND);
+			if (action[0].equals("a") || action[0].equals("add")) {
 
-				// comprobamos que los datos que incluye el add son correctos
-				// las 2 ultimas condiciones comprueban que son numeros (lo he buscado)
-				// la otra condicion comprueba que haya 4 inputs
+				if (action.length < 4)
+					view.showError(Messages.COMMAND_PARAMETERS_MISSING);
+				else if (!action[2].matches("\\d+") || !action[3].matches("\\d+"))
+					view.showError(Messages.INVALID_COMMAND);
+			} else if (action[0].equals("a") || action[0].equals("add")) { // ahora se hace utilizando las constantes
 
-			}
-			
-			else if (action[0].equals("a") || action[0].equals("add")) {//ahora se hace utilizando las constantes
-				
+				Position pos = new Position(Integer.parseInt(action[3]), Integer.parseInt(action[2]));
 
-			    Position pos = new Position(Integer.parseInt(action[3]), Integer.parseInt(action[2]));
-
-			    if (!game.checkGameObject(action[1])) {
-			        view.showError(Messages.INVALID_GAME_OBJECT);
-			    } else if (!game.isInsideBoard(pos) || !game.isEmpty(pos)) {
-			        view.showError(Messages.INVALID_POSITION);
-			    } else {
-			        boolean sunflower = action[1].equals("s") || action[1].equals("sunflower");
-			        int cost = sunflower ? Sunflower.COST : Peashooter.COST;
-			        if (game.getCoins() >= cost) {
-			            game.addGameObject(action[1], pos);
-			            game.update();
-			            view.showGame();
-			        } else
-			            view.showError(Messages.NOT_ENOUGH_COINS);
-			    }
+				if (!game.checkGameObject(action[1])) {
+					view.showError(Messages.INVALID_GAME_OBJECT);
+				} else if (!game.isInsideBoard(pos) || !game.isEmpty(pos)) {
+					view.showError(Messages.INVALID_POSITION);
+				} else {
+					boolean sunflower = action[1].equals("s") || action[1].equals("sunflower");
+					int cost = sunflower ? Sunflower.COST : Peashooter.COST;
+					if (game.getCoins() >= cost) {
+						game.addGameObject(action[1], pos);
+						game.update();
+						view.showGame();
+					} else
+						view.showError(Messages.NOT_ENOUGH_COINS);
+				}
 			}
 			// VOLVER
 			// comparar tests
