@@ -25,7 +25,7 @@ public class Sunflower {
 	public Sunflower(Position p,Game game) {
 		health=INITIAL_HEALTH;
 		position=p;
-		cyclesSinceLastGeneration=0;
+		cyclesSinceLastGeneration=1;
 		this.game=game;
 	}
 	
@@ -37,7 +37,7 @@ public class Sunflower {
 	public void update() {
 		if (cyclesSinceLastGeneration==GENERATE_AFTER_CYCLES) {
 			game.generateCoins(SUNS_PER_GENERATION);
-			cyclesSinceLastGeneration=0;
+			cyclesSinceLastGeneration=1;
 		}
 		else cyclesSinceLastGeneration++;
 	}

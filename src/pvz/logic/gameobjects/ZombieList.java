@@ -12,8 +12,12 @@ public class ZombieList {
 	private int numberOfZombies;
 
 	public ZombieList() {
-		zombies= new Zombie[Game.NUM_COLS*(Game.NUM_ROWS+1)];
+		zombies= new Zombie[(1+Game.NUM_COLS)*(Game.NUM_ROWS)];
 		numberOfZombies=0;
+	}
+	
+	public boolean noMoreZombies() {
+		return numberOfZombies==0;
 	}
 	
 	public void reset() {
@@ -60,6 +64,7 @@ public class ZombieList {
 				if(!isEmpty(position)) {
 					if(!zombies[position.hashcode()].isAlive()) {
 						zombies[position.hashcode()]=null;
+						numberOfZombies--;
 					}
 				}
 			}
@@ -68,7 +73,8 @@ public class ZombieList {
 	
 	public void add(Zombie z) {
 		
-		zombies[z.getPosition().hashcode()]=z;
+		zombies[z.getPosition().Zhashcode()]=z;
+		numberOfZombies++;
 	}
 	
 	public Zombie firstZombieInRow(int row,int col) {//la columna desde la que dispara el lanzaguisantes

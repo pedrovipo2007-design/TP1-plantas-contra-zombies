@@ -107,7 +107,7 @@ public class GamePrinter implements GameView {
 			
 			buffer.append(Messages.ZOMBIES_WIN);
 		}
-		else if(game.hasGameFinished());{
+		else if(game.hasGameFinished()){
 			buffer.append(Messages.PLAYER_QUITS);
 		}
 		

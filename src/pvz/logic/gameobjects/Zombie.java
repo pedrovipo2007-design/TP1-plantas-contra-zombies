@@ -5,7 +5,7 @@ import pvz.logic.Game;
 public class Zombie {
 	
 	private Position position;
-	public static final int INITIAL_HEALTH = 4;
+	public static final int INITIAL_HEALTH = 5;
 	public static final int DAMAGE = 1;
 	public static final int MOVE_AFTER_CYCLES = 2;
 	private int health;
@@ -15,7 +15,7 @@ public class Zombie {
 	public Zombie(Position p,Game game) {
 		position=p;
 		health= INITIAL_HEALTH;
-		cyclesNotMoving=0;
+		cyclesNotMoving=1;
 		this.game=game;
 	}
 	
@@ -35,7 +35,7 @@ public class Zombie {
 	private void move() {
 		if(cyclesNotMoving==MOVE_AFTER_CYCLES) {
 			position=position.left();
-			cyclesNotMoving=0;
+			cyclesNotMoving=1;
 			
 		}
 		else cyclesNotMoving++;

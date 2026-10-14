@@ -11,6 +11,12 @@ public class Position {
 		this.row = row;
 		this.col = col;
 	}
+	
+	public Position(int hashcode) {
+		int col=hashcode%(Game.NUM_COLS);
+		this.col= col;
+		this.row= (hashcode-col)/(Game.NUM_COLS);
+	}
 	public int getRow() {
 		return row;
 	}
@@ -20,6 +26,10 @@ public class Position {
 	
 	public int hashcode() {
 		return row*Game.NUM_COLS+col; // hashcode es row*Game.NUM_COLS+col
+	}
+	
+	public int Zhashcode() {
+		return (row+1)*Game.NUM_COLS+col;
 	}
 	
 	public Position left() {

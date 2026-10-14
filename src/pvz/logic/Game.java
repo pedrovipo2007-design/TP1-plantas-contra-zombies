@@ -89,7 +89,7 @@ public class Game {
 	
 	public boolean hasGameFinished() { // sustituimos a playerQuits VOLVER - quit
 		
-		return (playerQuit||this.haveZombiesReached()||(tZM.getRemainingZombies()==0));
+		return (playerQuit||this.haveZombiesReached()||(tZM.getRemainingZombies()==0)&& tZM.noMoreZombies());
 	}
 	
 	public boolean playerWins() {
@@ -129,7 +129,7 @@ public class Game {
 	
 	public void addGameObject(String plantType, Position position) {
 		
-		if(plantType.equals("peashoter") || plantType.equals("p")) {
+		if(plantType.equals("peashooter") || plantType.equals("p")) {
 			
 			Peashooter p = new Peashooter(position, this);
 			tPL.add(p);
@@ -190,7 +190,7 @@ public class Game {
 	
 	public static Position newZombiePosition(int row) { // devuelvo posicion en la col mas alejada
 		
-		Position p = new Position(row, NUM_COLS);
+		Position p = new Position(row, NUM_COLS+1);
 		
 		return p;
 	}
