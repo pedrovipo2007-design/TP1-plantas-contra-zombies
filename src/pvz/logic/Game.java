@@ -178,7 +178,7 @@ public class Game {
 
 	public boolean isInsideBoard(Position p) {
 
-		return p.getCol() < NUM_COLS && p.getRow() < NUM_ROWS;
+		return p.getCol() < NUM_COLS && p.getRow() < NUM_ROWS && p.getCol() >= 0 && p.getRow() >= 0;
 	}
 
 	public boolean hasGameFinished() {

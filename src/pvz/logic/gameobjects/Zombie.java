@@ -42,8 +42,7 @@ public class Zombie {
 	}
 
 	private void atack() {
-		if (position.getCol() > 0)
-			game.attackPlant(this.getPosition().left(), DAMAGE);
+		game.attackPlant(this.getPosition().left(), DAMAGE);
 	}
 
 	public void update() {
@@ -54,9 +53,9 @@ public class Zombie {
 		if (house || (game.isEmpty(left) && game.isEmptyOfZombies(left)))
 			move();
 
-		if (position.getCol() >= 0 && !house) { // ataque en el mismo ciclo en que llega
+		if (position.getCol() > 0 && !house) { // ataque en el mismo ciclo en que llega
 			left = getPosition().left();
-			if (!game.isEmpty(left) && game.isEmptyOfZombies(left))
+			if (position.getCol() > 0 && !game.isEmpty(left) && game.isEmptyOfZombies(left))
 				atack();
 		}
 	}

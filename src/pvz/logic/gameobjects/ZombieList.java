@@ -11,12 +11,13 @@ public class ZombieList {
 	private boolean reachedHouse;
 
 	public boolean hasReachedHouse() {
-	    return reachedHouse;
+		return reachedHouse;
 	}
+
 	public ZombieList() {
 		zombies = new Zombie[(1 + Game.NUM_COLS) * (Game.NUM_ROWS)];
 		numberOfZombies = 0;
-		reachedHouse=false;
+		reachedHouse = false;
 	}
 
 	public boolean noMoreZombies() {
@@ -28,7 +29,7 @@ public class ZombieList {
 		for (int i = 0; i < Game.NUM_COLS * Game.NUM_ROWS; i++) {
 			zombies[i] = null;
 		}
-		reachedHouse=false;
+		reachedHouse = false;
 	}
 
 	public String iconInPosition(Position p) {
@@ -51,18 +52,17 @@ public class ZombieList {
 					int idx = position.Zhashcode();
 					Zombie z = zombies[idx];
 					z.update();
-					if (z.getPosition().getCol() < 0) {   // cruzó la casa
-					    zombies[idx] = null;
-					    numberOfZombies--;
-					    reachedHouse = true;
-					}
-					else {
+					if (z.getPosition().getCol() < 0) { // cruzó la casa
+						zombies[idx] = null;
+						numberOfZombies--;
+						reachedHouse = true;
+					} else {
 						int newIdx = z.getPosition().Zhashcode();
 						if (newIdx != idx) { // se ha movido
 							zombies[newIdx] = z;
 							zombies[idx] = null;
-					}
-					
+						}
+
 					}
 				}
 			}
@@ -90,18 +90,4 @@ public class ZombieList {
 		zombies[z.getPosition().Zhashcode()] = z;
 		numberOfZombies++;
 	}
-
-//	public Zombie firstZombieInRow(int row, int col) { // la columna desde la que dispara el lanzaguisantes
-//
-//		while (col < Game.NUM_COLS) {
-//			Position position;
-//			position = new Position(row, col);
-//			if (!isEmpty(position))
-//				col++;
-//			else
-//				return zombies[position.Zhashcode()];
-//		}
-//		return null;
-//	}
-
 }

@@ -33,24 +33,6 @@ public class Controller {
 	 * Runs the game logic.
 	 */
 
-	private boolean isPositionValid(Position p) {
-		return (p.getCol() < game.NUM_COLS && p.getRow() < game.NUM_ROWS);
-		// VOLVER - NO SE USA
-	}
-
-	private boolean isObjectValid(String object) { // VOLVER - NO SE USA
-		boolean valid = false;
-		if (object.equals("peashooter"))
-			valid = true;
-		else if (object.equals("sunflower"))
-			valid = true;
-		else if (object.equals("s"))
-			valid = true;
-		else if (object.equals("p"))
-			valid = true;
-		return valid;
-	}
-
 	public void run() {
 		view.showGame();
 
@@ -69,15 +51,13 @@ public class Controller {
 //				[n]one | "": skips cycle
 //				Command > 
 
-			// comprobamos 1ue los datos que incluye el add son correctos
-			// las 2 ultimas condiciones comprueban que son numeros (lo he buscado)
-			// la otra condicion comprueba que haya 4 inputs
+			// \\d{1,3} comprueba que son numeros (lo he buscado)
 
 			if (action[0].equals("a") || action[0].equals("add")) {
 
 				if (action.length < 4)
 					view.showError(Messages.COMMAND_PARAMETERS_MISSING);
-				else if (!action[2].matches("\\d+") || !action[3].matches("\\d+"))
+				else if (!action[2].matches("\\d{1,3}") || !action[3].matches("\\d{1,3}"))
 					view.showError(Messages.INVALID_COMMAND);
 				else {
 
@@ -100,9 +80,7 @@ public class Controller {
 				}
 			}
 
-			// VOLVER
 			// comparar tests
-			// isPositionValid y isObjectValid no se usan
 
 			else if (action[0].equals("l") || action[0].equals("list"))
 				view.showMessage(Messages.LIST);
@@ -120,8 +98,7 @@ public class Controller {
 			} else
 				view.showError(Messages.UNKNOWN_COMMAND);
 
-			// cuidado, no funciona el ==, tiene que ser con equals, media horita tirada a
-			// la basura
+			// cuidado, no funciona el ==, tiene que ser con equals
 		}
 		view.showEndMessage();
 	}

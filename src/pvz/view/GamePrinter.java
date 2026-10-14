@@ -105,9 +105,12 @@ public class GamePrinter implements GameView {
 		buffer.append('\n');
 
 		// GamePrinter.showEndMessage()
-		if (game.haveZombiesReached())      buffer.append(Messages.ZOMBIES_WIN);
-		else if (game.playerWins())         buffer.append(Messages.PLAYER_WINS);
-		else                                buffer.append(Messages.PLAYER_QUITS);
+		if (game.haveZombiesReached())
+			buffer.append(Messages.ZOMBIES_WIN);
+		else if (game.playerWins())
+			buffer.append(Messages.PLAYER_WINS);
+		else
+			buffer.append(Messages.PLAYER_QUITS);
 
 		System.out.println(buffer);
 	}

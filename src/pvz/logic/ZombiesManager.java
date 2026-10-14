@@ -99,9 +99,9 @@ public class ZombiesManager {
 	}
 
 	public boolean doZombiesReachedTheHouse() {
-		
-		    return zombies.hasReachedHouse();
-		
+
+		return zombies.hasReachedHouse();
+
 	}
 
 	public void damageZombie(Position pos, int damage) {
