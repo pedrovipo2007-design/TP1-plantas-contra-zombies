@@ -79,6 +79,7 @@ public class Controller {
 					view.showError(Messages.COMMAND_PARAMETERS_MISSING);
 				else if (!action[2].matches("\\d+") || !action[3].matches("\\d+"))
 					view.showError(Messages.INVALID_COMMAND);
+
 			} else if (action[0].equals("a") || action[0].equals("add")) { // ahora se hace utilizando las constantes
 
 				Position pos = new Position(Integer.parseInt(action[3]), Integer.parseInt(action[2]));

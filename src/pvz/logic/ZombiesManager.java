@@ -74,8 +74,6 @@ public class ZombiesManager {
 		return true;
 	}
 
-	
-
 	public boolean addZombie(int row) {
 
 		Position zombiePosition = Game.newZombiePosition(row);
@@ -96,7 +94,7 @@ public class ZombiesManager {
 
 	public void reset() {
 		zombies.reset();
-		
+
 	}
 
 	public boolean doZombiesReachedTheHouse() {
@@ -110,7 +108,23 @@ public class ZombiesManager {
 	}
 
 	public void damageZombie(Position pos, int damage) {
-		zombies.damage(pos, damage);
+
+		int row = pos.getRow();
+		int col = pos.getCol();
+
+		int p = col;
+		p++;
+
+		while (p < game.NUM_COLS) {
+
+			if (!isEmpty(new Position(row, p))) {
+				Position aux = new Position(row, p);
+				zombies.damage(aux, damage);
+				break;
+
+			} else
+				p++;
+		}
 	}
 
 	public boolean isEmpty(Position pos) {

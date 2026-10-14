@@ -97,7 +97,7 @@ public class Game {
 
 		tZM.addZombie(); // tenemos dudas de que quieres que actualicemos primero
 		tPL.update();
-		tZM.update();//para que den los test este es el orden
+		tZM.update();// para que den los test este es el orden
 
 		tSL.update();
 		tZM.removeDead();
@@ -153,24 +153,7 @@ public class Game {
 
 	public void attackZombie(Position p, int damage) { // position p es la planta
 
-		int row = p.getRow();
-		int col = p.getCol();
-
-		int pos = col;
-		pos++;
-
-		while (pos < NUM_COLS) {
-
-			if (!isEmptyOfZombies(new Position(row, pos))) {
-				p = new Position(row, pos);
-				tZM.damageZombie(p, damage);
-				pos++;
-				break;
-			} else {
-
-				pos++;
-			}
-		}
+		tZM.damageZombie(p, damage);
 	}
 
 	public void attackPlant(Position p, int damage) { // position p es la planta
@@ -196,13 +179,17 @@ public class Game {
 
 		return p.getCol() < NUM_COLS && p.getRow() < NUM_ROWS;
 	}
-	
+
 	// Game.java
 	public boolean hasGameFinished() {
-	    return playerQuit || haveZombiesReached() || playerWins();
+		return playerQuit || haveZombiesReached() || playerWins();
 	}
+
 	public boolean playerWins() {
-	    return tZM.getRemainingZombies() == 0 && tZM.noMoreZombies();
+		return tZM.getRemainingZombies() == 0 && tZM.noMoreZombies();
 	}
-	public boolean playerQuits() { return playerQuit; }
+
+	public boolean playerQuits() {
+		return playerQuit;
+	}
 }
