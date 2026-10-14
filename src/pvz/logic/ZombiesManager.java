@@ -78,7 +78,7 @@ public class ZombiesManager {
 
 		Position zombiePosition = Game.newZombiePosition(row);
 
-		boolean canAdd = shouldAddZombie() && this.remainingZombies > 0 && game.isEmpty(zombiePosition);
+		boolean canAdd = this.remainingZombies > 0 && shouldAddZombie() && game.isEmptyOfZombies(zombiePosition);
 
 		if (canAdd) {
 			Zombie zombie;
