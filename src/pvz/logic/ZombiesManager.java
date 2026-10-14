@@ -10,7 +10,8 @@ import utils.Position;
 /**
  * Manages the full lifecycle of zombies for a game session.
  *
- * <p>Responsibilities: deciding each cycle whether to spawn a new zombie
+ * <p>
+ * Responsibilities: deciding each cycle whether to spawn a new zombie
  * (probabilistically, subject to the remaining quota from {@link Level}),
  * delegating per-cycle updates and dead-removal to the underlying
  * {@link ZombieList}, and answering win/loss queries
@@ -23,7 +24,7 @@ public class ZombiesManager {
 
 	private Level level;
 
-	private Random rand; // VOLVER - q es esto
+	private Random rand;
 
 	private int remainingZombies;
 
@@ -42,86 +43,105 @@ public class ZombiesManager {
 	 * 
 	 * @return <code>true</code> if a zombie should be added to the game.
 	 */
-	
+
 	private boolean shouldAddZombie() {
 		return rand.nextDouble() < level.getZombieFrequency();
-		
+
 	}
-	
+
+	public boolean noMoreZombies() {
+		return zombies.noMoreZombies();
+	}
+
 	/**
 	 * Return a random row within the board limits.
 	 * 
 	 * @return a random row.
 	 */
-	
+
 	private int randomZombieRow() {
 		return rand.nextInt(Game.NUM_ROWS);
-		//de momento voy a poner que se vayan generando de forma no aleatoria pero que al menos vaya mas o menos
-		
 	}
-	
+
 	public String iconInPosition(Position p) {
 		return zombies.iconInPosition(p);
 	}
-	
+
 	public boolean addZombie() {
 		int row = randomZombieRow();
+		if (addZombie(row))
+			remainingZombies--;
 		return addZombie(row);
 	}
 
+	public boolean esVacia() {
+		boolean vacio = true;
+		int hash = 0;
+		Position pos;
+		while (vacio && hash < 36) {
+			pos = new Position(hash);
+			if (zombies.isEmpty(pos)) {
+				vacio = false;
+			}
+		}
+		return vacio;
+	}
+
 	public boolean addZombie(int row) {
+
 		Position zombiePosition = Game.newZombiePosition(row);
 
 		boolean canAdd = this.remainingZombies > 0 && shouldAddZombie() && game.isEmpty(zombiePosition);
 
-		if(canAdd) {
+		if (canAdd) {
 			Zombie zombie;
-			zombie=new Zombie(zombiePosition,game);
+			zombie = new Zombie(zombiePosition, game);
 			zombies.add(zombie);
 		}
 		return canAdd;
 	}
-	
-	
+
 	public int getRemainingZombies() {
 		return remainingZombies;
 	}
-	
+
 	public void reset() {
 		zombies.reset();
 	}
-	
+
 	public boolean doZombiesReachedTheHouse() {
-		for(int r=0;r<Game.NUM_ROWS;r++) {
+		for (int r = 0; r < Game.NUM_ROWS; r++) {
 			Position position;
-			position= new Position(r,0);
-			if(!zombies.isEmpty(position)) return true; // creo que estaba al reves - VOLVER
+			position = new Position(r, 0);
+			if (!zombies.isEmpty(position))
+				return true;
 		}
 		return false;
 	}
-	
+
 	public void damageZombie(Position pos, int damage) {
 		zombies.damage(pos, damage);
 	}
-	
+
 	public boolean isEmpty(Position pos) {
 		return zombies.isEmpty(pos);
 	}
-	
+
 	public void update() {
 		zombies.update();
 	}
 
 	public boolean allZombiesWereKilled() {
-		return remainingZombies==0;
+		return remainingZombies == 0;
 	}
+
 	public void removeDead() {
 		zombies.removeDead();
 	}
-	
-	public void addZombiePosition(Position pos) {//es solo para debugear
+
+	public void addZombiePosition(Position pos) { // para debugear
 		Zombie zombie;
-		zombie= new Zombie(pos, game);
+		zombie = new Zombie(pos, game);
 		zombies.add(zombie);
 	}
 }

@@ -10,10 +10,12 @@ import pvz.view.Messages;
 /**
  * Application entry point.
  *
- * <p>Parses command-line arguments (difficulty level and optional random seed),
- * constructs the MVC triad ({@link Game}, {@link Controller}, {@link java.util.Scanner}),
- * and hands control to the controller. All argument-validation errors are reported
- * here and terminate the process before any game state is created.
+ * <p>
+ * Parses command-line arguments (difficulty level and optional random seed),
+ * constructs the MVC triad ({@link Game}, {@link Controller},
+ * {@link java.util.Scanner}), and hands control to the controller. All
+ * argument-validation errors are reported here and terminate the process before
+ * any game state is created.
  */
 
 public class PlantsVsZombies { // recordar poner en debug arguments EASY y una semilla
@@ -21,7 +23,7 @@ public class PlantsVsZombies { // recordar poner en debug arguments EASY y una s
 	/**
 	 * Show application help message
 	 */
-	
+
 	private static void usage() {
 		System.out.println(Messages.USAGE);
 		System.out.println(Messages.USAGE_LEVEL_PARAM);
@@ -33,7 +35,7 @@ public class PlantsVsZombies { // recordar poner en debug arguments EASY y una s
 	 * 
 	 * @param args Arguments for the game.
 	 */
-	
+
 	public static void main(String[] args) {
 		// Required to avoid issues with tests
 		Locale.setDefault(Locale.of("es", "ES", "es"));
@@ -44,6 +46,7 @@ public class PlantsVsZombies { // recordar poner en debug arguments EASY y una s
 		}
 
 		Level level = Level.valueOfIgnoreCase(args[0]);
+
 		if (level == null) {
 			System.out.println(Messages.ALLOWED_LEVELS);
 			usage();
@@ -52,6 +55,7 @@ public class PlantsVsZombies { // recordar poner en debug arguments EASY y una s
 
 		long seed = System.currentTimeMillis() % 1000;
 		String seedParam = "";
+
 		try {
 			if (args.length == 2) {
 				seedParam = args[1];
@@ -71,5 +75,4 @@ public class PlantsVsZombies { // recordar poner en debug arguments EASY y una s
 		Controller controller = new Controller(game);
 		controller.run();
 	}
-
 }

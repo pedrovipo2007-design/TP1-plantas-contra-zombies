@@ -4,50 +4,45 @@ import pvz.logic.Game;
 import utils.Position;
 
 public class Peashooter {
-	
-	//atributos
+
+	// atributos
 	private Position position;
 	public static final int INITIAL_HEALTH = 3;
 	public static final int DAMAGE = 1;
 	public static final int COST = 50;
 	private int health;
 	private Game game;
-	
-	//metodos
+
+	// metodos
 	public static Object getDescription() {
-		// TODO Auto-generated method stub
+
 		return "[P]eashooter: cost='50' suncoins, damage='1', endurance='3'";
 	}
-	
-	
-	public Peashooter(Position p,Game game) {
-		health=INITIAL_HEALTH;
-		position=p;
-		this.game=game;
+
+	public Peashooter(Position p, Game game) {
+		health = INITIAL_HEALTH;
+		position = p;
+		this.game = game;
 	}
-	
-	
+
 	public int getHealth() {
 		return health;
 	}
-	
+
 	public Position getPosition() {
 		return new Position(position.getRow(), position.getCol());
 	}
-	
-	
+
 	public boolean isAlive() {
-		return health>0;
-	}
-	
-	
-	public void update() {
-		game.attackZombie(position,DAMAGE);
+		return health > 0;
 	}
 
-	
-	public void receiveDamage(int damage) {
-		health=health-damage;
+	public void update() {
+		game.attackZombie(position, DAMAGE);
 	}
-	
+
+	public void receiveDamage(int damage) {
+		health = health - damage;
+	}
+
 }
