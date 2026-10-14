@@ -96,13 +96,12 @@ public class Game {
 	public void update() {
 
 		tZM.addZombie(); // tenemos dudas de que quieres que actualicemos primero
-		tPL.update();
-		tZM.update();// para que den los test este es el orden
-
 		tSL.update();
-		tZM.removeDead();
-		tPL.removeDead();
+		tPL.update();
+		tZM.update(); // para que den los test este es el orden
 		tSL.removeDead();
+		tPL.removeDead();
+		tZM.removeDead();
 		cycles++;
 	}
 
@@ -118,6 +117,8 @@ public class Game {
 		tZM.reset();
 		tPL.reset();
 		tSL.reset();
+
+		rand = new Random(longSeed);
 	}
 
 	public void addGameObject(String plantType, Position position) {

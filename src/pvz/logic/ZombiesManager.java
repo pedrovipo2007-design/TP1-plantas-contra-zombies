@@ -93,8 +93,9 @@ public class ZombiesManager {
 	}
 
 	public void reset() {
-		zombies.reset();
 
+		this.remainingZombies = level.getNumberOfZombies();
+		zombies.reset();
 	}
 
 	public boolean doZombiesReachedTheHouse() {
