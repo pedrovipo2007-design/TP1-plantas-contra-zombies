@@ -5,7 +5,8 @@ import pvz.view.GamePrinter;
 import pvz.view.GameView;
 import pvz.view.Messages;
 import utils.Position;
-
+import pvz.logic.gameobjects.Peashooter;
+import pvz.logic.gameobjects.Sunflower;
 /**
  * Input/output coordinator of the game (the C in MVC).
  *
@@ -76,35 +77,27 @@ public class Controller {
 				// las 2 ultimas condiciones comprueban que son numeros (lo he buscado)
 				// la otra condicion comprueba que haya 4 inputs
 
-			} else if ((action[0].equals("a") || action[0].equals("add"))
-					&& game.isInsideBoard(new Position(Integer.parseInt(action[3]), Integer.parseInt(action[2])))
-					&& game.isEmpty(new Position(Integer.parseInt(action[3]), Integer.parseInt(action[2])))
-					&& game.checkGameObject(action[1])) {
+			}
+			
+			else if (action[0].equals("a") || action[0].equals("add")) {//ahora se hace utilizando las constantes
+				
 
-				// el Integer.parseInt es para hacer el casting (lo he buscado)
-				// VOLVER - tiene que sacar mensaje diferente
+			    Position pos = new Position(Integer.parseInt(action[3]), Integer.parseInt(action[2]));
 
-				if (action[1].equals("s") || action[1].equals("sunflower")) {
-
-					if (game.getCoins() >= 20) {
-						game.addGameObject(action[1],
-								new Position(Integer.parseInt(action[3]), Integer.parseInt(action[2])));
-						game.update();
-						view.showGame();
-					} else
-						view.showMessage(Messages.NOT_ENOUGH_COINS);
-				}
-
-				if (action[1].equals("p") || action[1].equals("peashooter")) {
-
-					if (game.getCoins() >= 50) {
-						game.addGameObject(action[1],
-								new Position(Integer.parseInt(action[3]), Integer.parseInt(action[2])));
-						game.update();
-						view.showGame();
-					} else
-						view.showMessage(Messages.NOT_ENOUGH_COINS);
-				}
+			    if (!game.checkGameObject(action[1])) {
+			        view.showError(Messages.INVALID_GAME_OBJECT);
+			    } else if (!game.isInsideBoard(pos) || !game.isEmpty(pos)) {
+			        view.showError(Messages.INVALID_POSITION);
+			    } else {
+			        boolean sunflower = action[1].equals("s") || action[1].equals("sunflower");
+			        int cost = sunflower ? Sunflower.COST : Peashooter.COST;
+			        if (game.getCoins() >= cost) {
+			            game.addGameObject(action[1], pos);
+			            game.update();
+			            view.showGame();
+			        } else
+			            view.showError(Messages.NOT_ENOUGH_COINS);
+			    }
 			}
 			// VOLVER
 			// comparar tests

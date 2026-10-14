@@ -29,7 +29,7 @@ public class Sunflower {
 	public Sunflower(Position p, Game game) {
 		health = INITIAL_HEALTH;
 		position = p;
-		cyclesSinceLastGeneration = 1;
+		cyclesSinceLastGeneration = 0;
 		this.game = game;
 	}
 

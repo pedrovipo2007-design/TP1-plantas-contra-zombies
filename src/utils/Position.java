@@ -29,7 +29,7 @@ public class Position {
 	}
 	
 	public int Zhashcode() {
-		if(this.col<8)return this.hashcode();
+		if(this.col<Game.NUM_COLS)return this.hashcode();
 		else return(Game.NUM_COLS*Game.NUM_ROWS+this.row);
 	}
 	

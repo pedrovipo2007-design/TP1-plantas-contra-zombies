@@ -85,17 +85,7 @@ public class Game {
 
 	public int getRemainingZombies() {
 
-		return tLevel.getNumberOfZombies();
-	}
-
-	public boolean hasGameFinished() { // sustituimos a playerQuits
-
-		return (playerQuit || this.haveZombiesReached() || (tZM.getRemainingZombies() == 0) && tZM.noMoreZombies());
-	}
-
-	public boolean playerWins() {
-
-		return tLevel.getNumberOfZombies() == 0;
+		return tZM.getRemainingZombies();
 	}
 
 	public void quit() {
@@ -106,10 +96,13 @@ public class Game {
 	public void update() {
 
 		tZM.addZombie(); // tenemos dudas de que quieres que actualicemos primero
-		tZM.update();
 		tPL.update();
+		tZM.update();//para que den los test este es el orden
+
 		tSL.update();
 		tZM.removeDead();
+		tPL.removeDead();
+		tSL.removeDead();
 		cycles++;
 	}
 
@@ -203,4 +196,13 @@ public class Game {
 
 		return p.getCol() < NUM_COLS && p.getRow() < NUM_ROWS;
 	}
+	
+	// Game.java
+	public boolean hasGameFinished() {
+	    return playerQuit || haveZombiesReached() || playerWins();
+	}
+	public boolean playerWins() {
+	    return tZM.getRemainingZombies() == 0 && tZM.noMoreZombies();
+	}
+	public boolean playerQuits() { return playerQuit; }
 }

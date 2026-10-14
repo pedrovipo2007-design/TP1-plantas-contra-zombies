@@ -16,7 +16,7 @@ public class SunflowerList {
 
 	public void reset() {
 		numberOfSunflowers = 0;
-		for(int i =0;i<36;i++) {
+		for(int i =0;i<Game.NUM_COLS*Game.NUM_ROWS;i++) {
 			sunflowers[i]=null;
 		}
 	}

@@ -16,7 +16,7 @@ public class Zombie {
 	public Zombie(Position p, Game game) {
 		position = p;
 		health = INITIAL_HEALTH;
-		cyclesNotMoving = 1;
+		cyclesNotMoving = 0;
 		this.game = game;
 	}
 
@@ -46,10 +46,14 @@ public class Zombie {
 	}
 
 	public void update() {
-		if (game.isEmpty(this.getPosition().left()) && game.isEmptyOfZombies(this.getPosition().left()))
-			move();
-		else if (game.isEmptyOfZombies(this.getPosition().left()))
-			atack();
+	    if (position.getCol() == 0)
+	        return; // ya llegó a la casa
+	    Position left = getPosition().left();
+	    if (game.isEmpty(left) && game.isEmptyOfZombies(left))
+	        move();
+	    left = getPosition().left();   // al parecer ataca despues de moverse en los test
+	    if (!game.isEmpty(left) && game.isEmptyOfZombies(left))
+	        atack();
 	}
 
 	public boolean isAlive() {

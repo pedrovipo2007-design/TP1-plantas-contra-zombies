@@ -71,21 +71,10 @@ public class ZombiesManager {
 		int row = randomZombieRow();
 		if (addZombie(row))
 			remainingZombies--;
-		return addZombie(row);
+		return true;
 	}
 
-	public boolean esVacia() {
-		boolean vacio = true;
-		int hash = 0;
-		Position pos;
-		while (vacio && hash < 36) {
-			pos = new Position(hash);
-			if (zombies.isEmpty(pos)) {
-				vacio = false;
-			}
-		}
-		return vacio;
-	}
+	
 
 	public boolean addZombie(int row) {
 
