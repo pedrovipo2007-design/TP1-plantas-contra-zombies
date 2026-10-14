@@ -46,18 +46,20 @@ public class Zombie {
 	}
 
 	public void update() {
-	    Position left = getPosition().left();
-	    boolean house = left.getCol() < 0;   // está en la columna 0: el siguiente paso cruza la casa
 
-	    if (house || (game.isEmpty(left) && game.isEmptyOfZombies(left)))
-	        move();
+		Position left = getPosition().left();
+		boolean house = left.getCol() < 0; // está en la columna 0: el siguiente paso cruza la casa
 
-	    if (position.getCol() >= 0 && !house) {   // ataque en el mismo ciclo en que llega
-	        left = getPosition().left();
-	        if (!game.isEmpty(left) && game.isEmptyOfZombies(left))
-	            atack();
-	    }
+		if (house || (game.isEmpty(left) && game.isEmptyOfZombies(left)))
+			move();
+
+		if (position.getCol() >= 0 && !house) { // ataque en el mismo ciclo en que llega
+			left = getPosition().left();
+			if (!game.isEmpty(left) && game.isEmptyOfZombies(left))
+				atack();
+		}
 	}
+
 	public boolean isAlive() {
 		return health > 0;
 	}
