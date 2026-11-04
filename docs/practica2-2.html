@@ -1,0 +1,871 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>practica2-2.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> or <div class="page"></div> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h1 id="práctica-2-parte-ii-plantas-contra-zombis-extended">Práctica 2 (Parte II): Plantas contra zombis <em>extended</em></h1>
+<p>Antes de comenzar recordad la <strong>advertencia</strong>:</p>
+<blockquote>
+<p>La falta de encapsulación, el uso de métodos que devuelvan listas, y el uso de <code>instanceof</code> o <code>getClass()</code> tiene como
+consecuencia un <strong>suspenso directo</strong> en la práctica. Es incluso peor implementar un <code>instanceof</code> casero, por ejemplo
+así: cada subclase de la clase <code>GameObject</code> contiene un conjunto de métodos <code>esX</code>, uno por cada subclase X de
+<code>GameObject</code>; el método <code>esX</code> de la clase X devuelve <code>true</code> y los demás métodos <code>esX</code> de la clase X devuelven <code>false</code>.</p>
+</blockquote>
+<p><strong>NOTA:</strong> Te recomendamos que leas completamente el enunciado antes de ponerte a implementar la funcionalidad
+solicitada. Primero explicamos las nuevas funcionalidades que solicitamos y posteriormente proporcionamos algunos
+detalles acerca de cómo puedes implementar estas funcionalidades.</p>
+<!-- TOC start -->
+<ul>
+<li><a href="#pr%C3%A1ctica-2-parte-ii-plantas-contra-zombis-extended">Práctica 2 (Parte II): Plantas contra zombis Extended</a>
+<ul>
+<li><a href="#extensiones-b%C3%A1sicas-del-juego">Extensiones básicas del juego</a>
+<ul>
+<li><a href="#incorporaci%C3%B3n-de-nuevos-objetos-de-juego">Incorporación de nuevos objetos de juego</a>
+<ul>
+<li><a href="#cherrybomb-plant">CherryBomb plant</a></li>
+<li><a href="#wall-nut-plant">Wall-Nut plant</a></li>
+<li><a href="#buckethead-zombie">BucketHead zombie</a></li>
+<li><a href="#sporty-zombie">Sporty zombie</a></li>
+<li><a href="#explosive-zombie">Explosive zombie</a></li>
+</ul>
+</li>
+<li><a href="#comandos">Comandos</a>
+<ul>
+<li><a href="#comando-reset">Comando Reset</a></li>
+<li><a href="#listzombiescommand">ListZombiesCommand</a></li>
+<li><a href="#addplantcheatcommand">AddPlantCheatCommand</a></li>
+<li><a href="#addzombiecommand">AddZombieCommand</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#cambiando-la-mec%C3%A1nica-para-conseguir-suncoins">Cambiando la mecánica para conseguir <em>suncoins</em></a>
+<ul>
+<li><a href="#detalles-de-la-mec%C3%A1nica">Detalles de la mecánica</a></li>
+<li><a href="#implementaci%C3%B3n-de-la-mec%C3%A1nica">Implementación de la mecánica</a></li>
+</ul>
+</li>
+<li><a href="#la-interfaz-gameaction-y-las-acciones-explosionaction">La interfaz <code>GameAction</code> y las acciones <code>ExplosionAction</code></a></li>
+<li><a href="#pinta-zombies-y-valla">Opcional: Pinta la valla y los zombies fuera del tablero</a></li>
+<li><a href="#pr%C3%A1ctica2-parte2-pruebas">Pruebas</a></li>
+</ul>
+</li>
+</ul>
+<!-- TOC end -->
+<!-- TOC --><a name="práctica-2-parte-ii-plantas-contra-zombis-extended"></a>
+<!-- TOC --><a name="extensiones-básicas-del-juego"></a>
+<h1 id="extensiones-básicas-del-juego">Extensiones básicas del juego</h1>
+<!-- TOC --><a name="incorporación-de-nuevos-objetos-de-juego"></a>
+<h2 id="incorporación-de-nuevos-objetos-de-juego">Incorporación de nuevos objetos de juego</h2>
+<p>Ahora que tenemos nuestra factoría y hemos utilizado herencia para generalizar los objetos de juego va a ser muy
+sencillo extender el juego con nuevas plantas y zombis. De esta forma, vamos a incluir las siguientes plantas:</p>
+<ul>
+<li><code>CherryBomb</code></li>
+<li><code>WallNut</code></li>
+</ul>
+<p>En cuanto a los zombies vamos a añadir los siguientes:</p>
+<ul>
+<li><code>BucketHead</code></li>
+<li><code>Sporty</code></li>
+<li><code>ExplosiveZombie</code></li>
+</ul>
+<p>Los tres nuevos zombis ejercen el mismo daño que el zombi común de la primera práctica. Los diferentes tipos de zombis
+aparecen con la misma probabilidad.</p>
+<p>Para hacer estos cambios organiza tu jerarquía de objetos de juego para que tengan como base <code>GameObject</code>, del que heredan
+<code>Plant</code> y <code>Zombie</code>, de los cuales heredan las clases concretas de plantas y zombies. Mientras implementes esta nueva
+jerarquía, analiza qué clases de tu jerarquía deberían de ser clases abstractas.</p>
+<p>Si has planteado bien la lista de objetos y el juego, no deberías tener que hacer ningún cambio importante, lo único que
+tendrás que hacer es crear las clases y registrar los nuevos objetos en sus respectivas factorías.</p>
+<p>De todas formas, ten en cuenta que el código es algo vivo, y no sería extraño que a medida que fueses incorporando
+nuevos objetos o funcionalidades al juego te des cuenta de que hay más código que puedes simplificar, escribir de forma
+más sencilla o lógica que se mueva de una clase más específica a una más general. No tengas miedo a ir mejorando
+tu propio código de forma iterativa. Abraza el cambio <img class="emoji" alt="smiley" src="data:image/png;base64,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" /></p>
+<p>Así quedará nuestra lista de plantas.</p>
+<pre class="hljs"><code><div>Command &gt; l
+
+[DEBUG] Executing: l
+
+[S]unflower: cost='20' suncoins, damage='0', endurance='1'
+[P]eashooter: cost='50' suncoins, damage='1', endurance='3'
+[W]all-[N]ut: cost='50' suncoins, damage='0', endurance='10'
+[C]herry-Bomb: cost='50' suncoins, damage='10', endurance='2'
+</div></code></pre>
+<p>Así es como veremos la pantalla con los nuevos tipos de objetos.</p>
+<pre class="hljs"><code><div>Number of cycles: 20
+Sun coins: 130
+Remaining zombies: 5
+     ────────────── ────────────── ────────────── ────────────── ────────────── ────────────── ────────────── ────────────── 
+    |              |              |              |              |              |     Z[05]    |              |              |              
+     ────────────── ────────────── ────────────── ────────────── ────────────── ────────────── ────────────── ────────────── 
+    |              |              |              |              |              |              |              |    Bz[08]    |              
+     ────────────── ────────────── ────────────── ────────────── ────────────── ────────────── ────────────── ────────────── 
+    |              |              |              |              |              |    Sz[02]    |              |              |              
+     ────────────── ────────────── ────────────── ────────────── ────────────── ────────────── ────────────── ────────────── 
+    |              |              |              |              |              |    Ez[05]    |              |              |              
+     ────────────── ────────────── ────────────── ────────────── ────────────── ────────────── ────────────── ────────────── 
+</div></code></pre>
+<!-- TOC --><a name="cherrybomb-plant"></a>
+<h3 id="cherrybomb-plant">CherryBomb plant</h3>
+<p>Es una planta que explota y quita <em>10</em> puntos de daño a todos los zombis que están a su alrededor (a distancia de 1
+casilla). Una vez que explota, la planta muere. La explosión ocurre dos ciclos después de ser plantada. Los zombis
+también se pueden comer a la planta, que tiene resistencia <em>2</em>. Su coste es <em>50</em> suncoins.</p>
+<blockquote>
+<p>NOTA: La planta tiene que estar viva para poder explotar.</p>
+</blockquote>
+<p>Su representación será una <code>c</code> minúscula, que pasará a ser mayúscula <code>C</code> justo el ciclo anterior a explotar.</p>
+<!-- TOC --><a name="wall-nut-plant"></a>
+<h3 id="wall-nut-plant">Wall-Nut plant</h3>
+<p>Es una planta que sirve como barrera. Tiene coste <em>50</em> suncoins y resistencia <em>10</em>. Esta planta no produce ningún daño.</p>
+<p>Su representación será <code>WN</code>.</p>
+<!-- TOC --><a name="buckethead-zombie"></a>
+<h3 id="buckethead-zombie">BucketHead zombie</h3>
+<p>Es un zombie más lento pero más resistente, porque lleva un cubo protegiendo su cabeza.
+Camina un paso cada <em>4</em> ciclos y tiene resistencia <em>8</em>.</p>
+<p>Su representación será <code>Bz</code>.</p>
+<!-- TOC --><a name="sporty-zombie"></a>
+<h3 id="sporty-zombie">Sporty zombie</h3>
+<p>Es un zombie más rápido pero menos resistente. Camina un paso cada ciclo y tiene resistencia <em>2</em>.</p>
+<p>Su representación será <code>Sz</code>.</p>
+<!-- TOC --><a name="explosive-zombie"></a>
+<h3 id="explosive-zombie">Explosive zombie</h3>
+<p>Tiene la misma velocidad y resistencia que un zombie básico, pero si una planta lo mata explota haciendo <em>3</em> de daño a
+todas las plantas que tiene a su alrededor.</p>
+<p>Su representación será <code>Ez</code>.</p>
+<!-- TOC --><a name="comandos"></a>
+<h2 id="comandos">Comandos</h2>
+<p>Ahora, vamos a introducir algunos comandos adicionales para <em>hacer trampas</em> en el juego, pero que nos permitirán realizar las
+pruebas de la aplicación de manera más sencilla.</p>
+<p>Al terminar de añadir todos los comandos, si solicitamos la ayuda de la aplicación se deberá generar la siguiente
+salida:</p>
+<pre class="hljs"><code><div>Command &gt; h
+
+[DEBUG] Executing: h
+
+Available commands:
+[a]dd &lt;plant&gt; &lt;col&gt; &lt;row&gt;: add a plant in position (col, row)
+[a]dd[Z]ombie &lt;zombie&gt; &lt;col&gt; &lt;row&gt;: add a zombie in position (col, row)
+[C]heat[P]lant &lt;plant&gt; &lt;col&gt; &lt;row&gt;: add a plant in position (col, row) without consuming suncoins
+[l]ist: print the list of available plants
+[l]ist[Z]ombies: print the list of available zombies
+[r]eset [&lt;level&gt; &lt;seed&gt;]: start a new game (if level and seed are both provided, they are used to initialize the game)
+[h]elp: print this help message
+[e]xit: terminate the program
+[n]one | &quot;&quot;: skips cycle
+</div></code></pre>
+<!-- TOC --><a name="comando-reset"></a>
+<h3 id="reset">Reset</h3>
+<p>En primer lugar, vamos a modificar ligeramente el comportamiento del comando reset de la Práctica 1 con el objetivo de facilitar las
+pruebas, de modo que sea posible cambiar el nivel y la semilla de juego sin tener que parar y volver a arrancar el
+juego.</p>
+<p>El <code>ResetCommand</code> debe ser suficientemente flexible como para o bien recibir 0 parámetros y, por tanto, utilizar el
+nivel y semilla que se venían utilizando, o bien recibir 2 parámetros (mismo tipo y orden que
+en la línea de comandos) que se utilizarán para reiniciar la partida.</p>
+<p>Ten en cuenta que al resetear el juego, también se debe reiniciar la instancia de <code>Random</code> que se utiliza para generar
+la partida.</p>
+<p>Además, otro efecto colateral de este cambio es que la ayuda del comando reset cambia ligeramente (para reflejar que puede
+aceptar dos argumentos opcionales).</p>
+<!-- TOC --><a name="listzombiescommand"></a>
+<h3 id="listzombiescommand">ListZombiesCommand</h3>
+<p>En concreto, el comando <code>ListZombiesCommand</code> comando lista los zombies disponibles en el juego.</p>
+<pre class="hljs"><code><div>Command &gt; lz
+
+[DEBUG] Executing: lz
+
+Available zombies:
+Zombie: speed='2', damage='1', endurance='5'
+BucketHead Zombie: speed='4', damage='1', endurance='8'
+Sporty Zombie: speed='1', damage='1', endurance='2'
+Explosive Zombie: speed='2', damage='1', endurance='5'
+</div></code></pre>
+<!-- TOC --><a name="addplantcheatcommand"></a>
+<h3 id="addplantcheatcommand">AddPlantCheatCommand</h3>
+<p>Este comando es similar a <code>AddPlantCommand</code>, es decir, permite añadir una planta al juego, pero en este caso no se
+consumen suncoins.</p>
+<p>Este comando <strong>hace que se actualice el juego</strong> (al igual que cuando se añade una planta).</p>
+<!-- TOC --><a name="addzombiecommand"></a>
+<h3 id="addzombiecommand">AddZombieCommand</h3>
+<p>Este comando permite añadir un zombie al juego en una casilla que se encuentre libre dentro del terreno de juego.</p>
+<p>Este comando <strong>hace que se actualice el juego</strong> (al igual que cuando se añade una planta).</p>
+<!-- TOC --><a name="cambiando-la-mecánica-para-conseguir-suncoins"></a>
+<h1 id="cambiando-la-mecánica-para-conseguir-suncoins">Cambiando la mecánica para conseguir <em>suncoins</em></h1>
+<p>El siguiente cambio afecta a más partes del juego, por lo que es más delicado. Hasta ahora los <code>Sunflower</code>s actualizaban
+el número de <em>suncoins</em> automáticamente pasado un número de ciclos concretos. Vamos a cambiar esta mecánica para que se
+parezca más a la mecánica del juego original, es decir, ahora los <code>Sunflower</code>s van a generar <em>soles</em> que el jugador va a
+tener que recoger. Cuando el jugador recoge un <em>sol</em>, este le proporcionará <em>suncoins</em>.</p>
+<p>Vamos a representar los soles como un nuevo tipo de objeto mediante la clase <code>Sun</code>. Y el jugador tendrá que coger los
+<code>Sun</code>s con el nuevo comando <code>catch col row</code>. La lista de comandos disponibles quedará del siguiente modo:</p>
+<pre class="hljs"><code><div>Command &gt; h
+
+[DEBUG] Executing: h
+
+Available commands:
+[a]dd &lt;plant&gt; &lt;col&gt; &lt;row&gt;: add a plant in position (col, row)
+[a]dd[Z]ombie &lt;zombie&gt; &lt;col&gt; &lt;row&gt;: add a zombie in position (col, row)
+[C]heat[P]lant &lt;plant&gt; &lt;col&gt; &lt;row&gt;: add a plant in position (col, row) without consuming suncoins
+[C]atch &lt;col&gt; &lt;row&gt;: catch a sun, if possible, in position (col, row)
+[l]ist: print the list of available plants
+[l]ist[Z]ombies: print the list of available zombies
+[r]eset [&lt;level&gt; &lt;seed&gt;]: start a new game (if level and seed are both provided, they are used to initialize the game)
+[h]elp: print this help message
+[e]xit: terminate the program
+[n]one | &quot;&quot;: skips cycle
+</div></code></pre>
+<!-- TOC --><a name="detalles-de-la-mecánica"></a>
+<h2 id="detalles-de-la-mecánica">Detalles de la mecánica</h2>
+<p>El comportamiento completo de la mecánica de juego es el siguiente:</p>
+<ul>
+<li>
+<p>Cada <code>Sunflower</code> en vez de añadir <em>suncoins</em> directamente al jugador cuando pasan 3 ciclos, añadirá un <code>Sun</code> en una
+casilla aleatoria.</p>
+</li>
+<li>
+<p>Además, aleatoriamente cada <em>5</em> ciclos se genera un sun en una posición aleatoria del tablero.</p>
+</li>
+<li>
+<p>Puede haber más de un sol en una casilla. Si hay más de uno, sólo se pinta 1.</p>
+</li>
+<li>
+<p>Sí puede haber una planta o un zombie en la misma casilla de un sol.</p>
+</li>
+<li>
+<p>Los soles estarán disponibles en el juego durante <em>10</em> ciclos. Si el usuario no coge los soles, estos desaparecerán.</p>
+</li>
+<li>
+<p>El usuario tiene que coger los soles; solo se puede coger soles (si hay más de uno en la misma casilla), una vez por
+turno / ciclo. Cada sol suma <em>10</em> suncoins como en la práctica anterior.</p>
+</li>
+</ul>
+<blockquote>
+<p>Aclaración: El <code>GamePrinter</code> que te proporcionamos como plantilla ya está ajustado para que en cada casilla se puedan
+pintar 1 zombie o 1 planta y 1 sol. Si hay <strong>más de un sol</strong> en una casilla <strong>sólo se pintará 1</strong> pero <strong>se recogerán
+todos</strong> con el comando <code>catch</code>.</p>
+</blockquote>
+<p>Los soles se representarán con el símbolo <code>*[XX]</code> (donde XX son los ciclos que le quedan antes de desaparecer). Como
+puede haber una planta o un zombie en la misma casilla de un sol, e incluso los zombies pueden caminar por encima de los
+soles, a la hora de pintar el tablero se tendrá que generar de la siguiente manera, concatenando el símbolo del sol con
+el del objeto de juego que haya en la casilla:</p>
+<pre class="hljs"><code><div>Number of cycles: 28
+Sun coins: 10
+Remaining zombies: 2
+Generated suns: 18
+Caught suns: 0
+
+     ────────────── ────────────── ────────────── ────────────── ────────────── ────────────── ────────────── ────────────── 
+    |  S[01] *[02] |     *[02]    |              |              |              |  *[06]Sz[02] |              |              |              
+     ────────────── ────────────── ────────────── ────────────── ────────────── ────────────── ────────────── ────────────── 
+    |     S[01]    |              |              |              |              |              |              |     *[05]    |              
+     ────────────── ────────────── ────────────── ────────────── ────────────── ────────────── ────────────── ────────────── 
+    |              |              |              |              |              |     *[05]    |              |              |              
+     ────────────── ────────────── ────────────── ────────────── ────────────── ────────────── ────────────── ────────────── 
+    |              |     *[08]    |              |              |              |              |     *[08]    |              |              
+     ────────────── ────────────── ────────────── ────────────── ────────────── ────────────── ────────────── ────────────── 
+</div></code></pre>
+<!-- TOC --><a name="implementación-de-la-mecánica"></a>
+<h2 id="implementación-de-la-mecánica">Implementación de la mecánica</h2>
+<p>Para implementar esta parte vamos a proceder con los siguientes cambios:</p>
+<ul>
+<li>
+<p>Vamos a añadir una clase <code>Sun</code>. Recuerda que los soles sólo estarán como mucho <em>10</em> ciclos en el juego.</p>
+</li>
+<li>
+<p>Los <code>Sunflowers</code>, en lugar de actualizar el número de <em>suncoins</em>, generarán un nuevo <code>Sun</code>.</p>
+</li>
+<li>
+<p>Crearemos una clase <code>SunsManager</code> que se encargará de centralizar la generación de soles aleatorios. Esta clase es
+similar a <code>ZombiesManager</code>. Esta acción sólo se realiza 1 vez por turno / ciclo.</p>
+</li>
+<li>
+<p>Actualiza <code>Game</code> para delegar en <code>SunsManager</code> la generación aleatoria de soles.</p>
+</li>
+<li>
+<p>Crearemos el comando <code>CatchCommand</code> que delegará en el juego para intentar coger los soles. Recuerda que esta acción
+sólo se puede realizar 1 vez por turno / ciclo.</p>
+</li>
+<li>
+<p>Actualiza la información del estado del juego para saber el número de <code>Sun</code>s generados y los que el jugador ha cogido.
+Los soles generados son aquellos que se han añadido al juego (se hayan cogido o no) y los soles cogidos son aquellos
+que el usuario ha cogido realmente con el comando <code>catch col row</code></p>
+</li>
+</ul>
+<blockquote>
+<p><strong>NOTA</strong>: Ten en cuenta que al añadir <code>Sun</code>s al <code>GameObjectContainer</code>, estos van a recibir inmediatamente
+<code>update()</code>. Ajusta su tiempo de vida para que al añadirlo al juego realmente estén <em>10</em> ciclos presentes.</p>
+</blockquote>
+<p>Siguiendo el mismo razonamiento que para los soles, necesitamos algo que nos permita controlar si ya
+se ha ejecutado un comando <code>CatchCommand</code> en un turno / ciclo concreto.</p>
+<blockquote>
+<p>NOTA: Este comando <em>no actualiza</em> el juego.</p>
+</blockquote>
+<p>El <code>Game</code> debe saber si ya se cogieron soles en el ciclo presente, y notificar de alguna forma al <code>CatchCommand</code> que no
+puede ejecutarse otra vez si ya se cogieron soles.</p>
+<!-- TOC --><a name="detalles-de-implementación"></a>
+<!-- TOC --><a name="la-interfaz-gameaction-y-las-acciones-explosionaction"></a>
+<h2 id="la-interfaz-gameaction-y-las-acciones-explosionaction">La interfaz <code>GameAction</code> y las acciones <code>ExplosionAction</code></h2>
+<p>La introducción de los nuevos objetos <code>CherryBomb</code> y <code>ExplosiveZombie</code> introduce una complicación adicional en el juego
+y es que <strong>es necesario gestionar explosiones encadenadas</strong>. Esto es, si una <code>CherryBomb</code> explota matando a un
+<code>ExplosiveZombie</code> este a su vez también explota, por lo que puede matar a alguna planta que tenga a su alcance. A
+continuación mostramos el escenario descrito.</p>
+<pre class="hljs"><code><div>Number of cycles: 28
+Sun coins: 130
+Remaining zombies: 5
+   
+     ────────────── ────────────── ────────────── ────────────── ────────────── ────────────── ────────────── ────────────── 
+    |              |              |              |              |              |              |              |              |              
+     ────────────── ────────────── ────────────── ────────────── ────────────── ────────────── ────────────── ────────────── 
+    |              |              |              |              |              |              |              |              |              
+     ────────────── ────────────── ────────────── ────────────── ────────────── ────────────── ────────────── ────────────── 
+    |              |              |              |              |              |     C[02]    |              |              |              
+     ────────────── ────────────── ────────────── ────────────── ────────────── ────────────── ────────────── ────────────── 
+    |              |              |              |              |     WN[04]   |    Ez[05]    |              |              |              
+     ────────────── ────────────── ────────────── ────────────── ────────────── ────────────── ────────────── ────────────── 
+</div></code></pre>
+<p>Para poder implementar este comportamiento tenemos que realizar dos cambios importantes en el juego:</p>
+<ul>
+<li>Eliminar los objetos muertos en <code>Game#update()</code> 1 o más veces. Es decir, hay que eliminar objetos muertos mientras
+haya eliminado algún objeto en la pasada anterior.</li>
+<li>Ejecutar acciones de juego como resultado de haber matado / o salir del juego uno de los objetos.</li>
+</ul>
+<p>Si no tenemos cuidado a la hora de diseñar e implementar esta funcionalidad, complicaríamos en exceso el código de
+<code>Game</code> y <code>GameObjectContainer</code>. Además, es probable que repartiéramos la responsabilidad de la actualización del juego
+entre varias clases.</p>
+<p>Para flexibilizar el diseño vamos a introducir la interfaz <code>GameAction</code>:</p>
+<pre class="hljs"><code><div><span class="hljs-keyword">package</span> tp1.pvz.logic.actions;
+
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">interface</span> <span class="hljs-title class_">GameAction</span> {
+  <span class="hljs-keyword">void</span> <span class="hljs-title function_">execute</span><span class="hljs-params">(GameWorld game)</span>;
+}
+</div></code></pre>
+<p>Esta interfaz nos permitirá representar acciones de juego, como una explosión. En nuestro caso tendremos que implementar
+la clase <code>ExplosionAction</code> que nos permitirá implementar el comportamiento de atacar un zombie o una planta (dependiendo
+de qué objeto haya causado la explosión) en las casillas adyacentes a una posición concreta. En el siguiente escenario,
+como resultado de explotar la <code>CherryBomb</code> de la casilla (5, 2) se ven afectadas las casillas marcadas con <strong>X</strong>. Como
+resultado de la explosión, también explotará el <code>ExplosiveZombie</code> de (5, 3) afectando a las casillas marcadas con <strong>Y</strong>.</p>
+<pre class="hljs"><code><div>     ────────────── ────────────── ────────────── ────────────── ────────────── ────────────── ────────────── ────────────── 
+    |              |              |              |              |              |              |              |              |              
+     ────────────── ────────────── ────────────── ────────────── ────────────── ────────────── ────────────── ────────────── 
+    |              |              |              |              |      X       |      X       |      X       |              |              
+     ────────────── ────────────── ────────────── ────────────── ────────────── ────────────── ────────────── ────────────── 
+    |              |              |              |              |      X Y     |     C[02] Y  |      X Y     |              |              
+     ────────────── ────────────── ────────────── ────────────── ────────────── ────────────── ────────────── ────────────── 
+    |              |              |              |              |   WN[04] X Y |    Ez[05] X  |      X Y     |              |              
+     ────────────── ────────────── ────────────── ────────────── ────────────── ────────────── ────────────── ────────────── 
+</div></code></pre>
+<p>Para lograr este comportamiento vamos a implementar una pila de <code>GameAction</code>s que se ejecutaran al comienzo y al final
+de cada ciclo del juego. De este modo, cuando un objeto de juego va a explotar, en vez de ejecutarse inmediatamente, se
+apila una instancia de <code>ExplosionAction</code> que se ejecutará cuando sea necesario. Como resultado de esa ejecución, es
+posible que otros objetos apilen otros efectos, que a su vez serán ejecutados una vez finalizada la ejecución del efecto
+actual. Como resultado adicional, la pila de acciones de juego nos permite definir un orden consistente en la ejecución
+de las acciones que nos facilita la depuración de la aplicación.</p>
+<p>Pese a que existe la clase <code>java.util.Stack</code> <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/Stack.html">su propia documentación</a>
+nos indica que es más recomendable utilizar una clase que
+implemente la interfaz <code>java.util.Deque</code> por lo que en nuestro caso hemos decidido utilizar la clase
+<code>java.util.ArrayDeque</code>.</p>
+<p>A continuación mostramos un extracto del código necesario para poder gestionar las <code>GameAction</code> dentro de <code>Game</code>.</p>
+<pre class="hljs"><code><div><span class="hljs-comment">// Game.java</span>
+
+<span class="hljs-keyword">private</span> Deque&lt;GameAction&gt; actions;
+
+<span class="hljs-comment">// ...</span>
+
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">reset</span><span class="hljs-params">(Level level, <span class="hljs-type">long</span> seed)</span> {
+  <span class="hljs-comment">// ...</span>
+  <span class="hljs-built_in">this</span>.actions = <span class="hljs-keyword">new</span> <span class="hljs-title class_">ArrayDeque</span>&lt;&gt;();
+}
+
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">update</span><span class="hljs-params">()</span> {
+
+  <span class="hljs-comment">// 1. Execute pending actions</span>
+  executePendingActions();
+
+  <span class="hljs-comment">// 2. Execute game Actions</span>
+
+  <span class="hljs-comment">// 3. Game object updates</span>
+
+  <span class="hljs-comment">// 4. &amp; 5. Remove dead and execute pending actions</span>
+  <span class="hljs-type">boolean</span> <span class="hljs-variable">deadRemoved</span> <span class="hljs-operator">=</span> <span class="hljs-literal">true</span>;
+  <span class="hljs-keyword">while</span> (deadRemoved || arePendingActionsLeft()) {
+    <span class="hljs-comment">// 4. Remove dead</span>
+    deadRemoved = <span class="hljs-built_in">this</span>.container.removeDead();
+
+    <span class="hljs-comment">// 5. execute pending actions</span>
+    executePendingActions();
+  }
+
+  <span class="hljs-built_in">this</span>.cycle++;
+}
+
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">pushAction</span><span class="hljs-params">(GameAction gameAction)</span> {
+  <span class="hljs-built_in">this</span>.actions.addLast(gameAction);
+}
+
+<span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">executePendingActions</span><span class="hljs-params">()</span> {
+  <span class="hljs-keyword">while</span> (!<span class="hljs-built_in">this</span>.actions.isEmpty()) {
+    <span class="hljs-type">GameAction</span> <span class="hljs-variable">action</span> <span class="hljs-operator">=</span> <span class="hljs-built_in">this</span>.actions.removeLast();
+    action.execute(<span class="hljs-built_in">this</span>);
+  }
+}
+
+<span class="hljs-keyword">private</span> <span class="hljs-type">boolean</span> <span class="hljs-title function_">arePendingActionsLeft</span><span class="hljs-params">()</span> {
+  <span class="hljs-keyword">return</span> !<span class="hljs-built_in">this</span>.actions.isEmpty();
+}
+</div></code></pre>
+<!-- TOC --><a name="pinta-zombies-y-valla"></a>
+<h2 id="opcional-pinta-la-valla-y-los-zombies-fuera-del-tablero">Opcional: Pinta la valla y los zombies fuera del tablero</h2>
+<p>Durante la práctica I no podíamos ver a los zombies que, pese a estar en la partida, aún no habían entrado al tablero.
+Queda a vuestra disposición modificar la función <code>public void showGame()</code> de <code>GamePrinter</code> para lograrlo. A continuación se
+incluye un ejemplo de ejecución con esta modificación estética:</p>
+<pre class="hljs"><code><div>Level: EASY
+Random generator initialized with seed: 25
+Number of cycles: 0
+Sun coins: 50
+Remaining zombies: 3
+Generated suns: 0
+Caught suns: 0
+
+   ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── 
+  |            |            |            |            |            |            |            |            || 
+   ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── 
+  |            |            |            |            |            |            |            |            || 
+   ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── 
+  |            |            |            |            |            |            |            |            || 
+   ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── 
+  |            |            |            |            |            |            |            |            || 
+   ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── 
+   
+   ...
+   
+Number of cycles: 1
+Sun coins: 50
+Remaining zombies: 2
+Generated suns: 0
+Caught suns: 0
+
+   ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── 
+  |            |            |            |            |            |            |            |            || 
+   ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── 
+  |            |            |            |            |            |            |            |            || 
+   ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── 
+  |            |            |            |            |            |            |            |            || Bz[08]
+   ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── 
+  |            |            |            |            |            |            |            |            || 
+   ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── 
+   
+   ...
+
+Number of cycles: 2 - 3
+Sun coins: 50
+Remaining zombies: 1
+Generated suns: 0
+Caught suns: 0
+
+   ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── 
+  |            |            |            |            |            |            |            |            || 
+   ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── 
+  |            |            |            |            |            |            |            |            || 
+   ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── 
+  |            |            |            |            |            |            |            |            || Bz[08] Z[05]
+   ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── 
+  |            |            |            |            |            |            |            |            || 
+   ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── ────────────    
+   
+   ...
+   
+Number of cycles: 4
+Sun coins: 50
+Remaining zombies: 1
+Generated suns: 0
+Caught suns: 0
+
+   ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── 
+  |            |            |            |            |            |            |            |            || 
+   ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── 
+  |            |            |            |            |            |            |            |            || 
+   ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── 
+  |            |            |            |            |            |            |            |    Z[05]   || Bz[08]
+   ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── 
+  |            |            |            |            |            |            |            |            || 
+   ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── 
+   
+   ...
+   
+Number of cycles: 10
+Sun coins: 50
+Remaining zombies: 0
+Generated suns: 1
+Caught suns: 0
+
+   ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── 
+  |    *[06]   |            |            |            |            |            |            |            || Sz[02]
+   ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── 
+  |            |            |            |            |            |            |            |            || 
+   ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── 
+  |            |            |            |            |    Z[05]   |            |            |   Bz[08]   || 
+   ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── 
+  |            |            |            |            |            |            |            |            || 
+   ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── 
+</div></code></pre>
+
+</body>
+</html>
