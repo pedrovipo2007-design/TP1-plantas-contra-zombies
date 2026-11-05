@@ -1,0 +1,3 @@
+Command.create especificamente cuando es el create de un add plant puede dar distintos tipos de error, missinf parameters o wrongparameters pero como esta diseñado para 
+analizar si devuelve null o no no se distinguen este tipo de casos. Quieres que hagamos una respuesta generica indepndiente del tipo de error
+que haga un cout desde create o que mande algun tipo de flag que le indique que tipo de error se ha dado.
