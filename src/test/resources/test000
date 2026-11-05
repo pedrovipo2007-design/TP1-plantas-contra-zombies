@@ -1,0 +1,1038 @@
+PlantsVsZombies 1.0
+
+Level: EASY
+Random generator initialized with seed: 25
+Number of cycles: 0
+Sun coins: 50
+Remaining zombies: 3
+
+   ──────── ──────── ──────── ──────── ──────── ──────── ──────── ──────── 
+  |        |        |        |        |        |        |        |        |
+   ──────── ──────── ──────── ──────── ──────── ──────── ──────── ──────── 
+  |        |        |        |        |        |        |        |        |
+   ──────── ──────── ──────── ──────── ──────── ──────── ──────── ──────── 
+  |        |        |        |        |        |        |        |        |
+   ──────── ──────── ──────── ──────── ──────── ──────── ──────── ──────── 
+  |        |        |        |        |        |        |        |        |
+   ──────── ──────── ──────── ──────── ──────── ──────── ──────── ──────── 
+
+Command > 
+[DEBUG] Executing: PlantsVsZombies 1.0
+
+[ERROR] Error: Invalid command
+
+Command > 
+[DEBUG] Executing: 
+
+Number of cycles: 1
+Sun coins: 50
+Remaining zombies: 3
+
+   ──────── ──────── ──────── ──────── ──────── ──────── ──────── ──────── 
+  |        |        |        |        |        |        |        |        |
+   ──────── ──────── ──────── ──────── ──────── ──────── ──────── ──────── 
+  |        |        |        |        |        |        |        |        |
+   ──────── ──────── ──────── ──────── ──────── ──────── ──────── ──────── 
+  |        |        |        |        |        |        |        |        |
+   ──────── ──────── ──────── ──────── ──────── ──────── ──────── ──────── 
+  |        |        |        |        |        |        |        |        |
+   ──────── ──────── ──────── ──────── ──────── ──────── ──────── ──────── 
+
+Command > 
+[DEBUG] Executing: Level: EASY
+
+[ERROR] Error: Invalid command
+
+Command > 
+[DEBUG] Executing: Random generator initialized with seed: 25
+
+[ERROR] Error: Invalid command
+
+Command > 
+[DEBUG] Executing: Number of cycles: 0
+
+[ERROR] Error: Invalid command
+
+Command > 
+[DEBUG] Executing: Sun coins: 50
+
+[ERROR] Error: Invalid command
+
+Command > 
+[DEBUG] Executing: Remaining zombies: 3
+
+[ERROR] Error: Invalid command
+
+Command > 
+[DEBUG] Executing: 
+
+Number of cycles: 2
+Sun coins: 50
+Remaining zombies: 3
+
+   ──────── ──────── ──────── ──────── ──────── ──────── ──────── ──────── 
+  |        |        |        |        |        |        |        |        |
+   ──────── ──────── ──────── ──────── ──────── ──────── ──────── ──────── 
+  |        |        |        |        |        |        |        |        |
+   ──────── ──────── ──────── ──────── ──────── ──────── ──────── ──────── 
+  |        |        |        |        |        |        |        |        |
+   ──────── ──────── ──────── ──────── ──────── ──────── ──────── ──────── 
+  |        |        |        |        |        |        |        |        |
+   ──────── ──────── ──────── ──────── ──────── ──────── ──────── ──────── 
+
+Command > 
+[DEBUG] Executing:    ──────── ──────── ──────── ──────── ──────── ──────── ──────── ──────── 
+
+[ERROR] Error: Invalid command
+
+Command > 
+[DEBUG] Executing:   |        |        |        |        |        |        |        |        |
+
+[ERROR] Error: Invalid command
+
+Command > 
+[DEBUG] Executing:    ──────── ──────── ──────── ──────── ──────── ──────── ──────── ──────── 
+
+[ERROR] Error: Invalid command
+
+Command > 
+[DEBUG] Executing:   |        |        |        |        |        |        |        |        |
+
+[ERROR] Error: Invalid command
+
+Command > 
+[DEBUG] Executing:    ──────── ──────── ──────── ──────── ──────── ──────── ──────── ──────── 
+
+[ERROR] Error: Invalid command
+
+Command > 
+[DEBUG] Executing:   |        |        |        |        |        |        |        |        |
+
+[ERROR] Error: Invalid command
+
+Command > 
+[DEBUG] Executing:    ──────── ──────── ──────── ──────── ──────── ──────── ──────── ──────── 
+
+[ERROR] Error: Invalid command
+
+Command > 
+[DEBUG] Executing:   |        |        |        |        |        |        |        |        |
+
+[ERROR] Error: Invalid command
+
+Command > 
+[DEBUG] Executing:    ──────── ──────── ──────── ──────── ──────── ──────── ──────── ──────── 
+
+[ERROR] Error: Invalid command
+
+Command > 
+[DEBUG] Executing: 
+
+Number of cycles: 3
+Sun coins: 50
+Remaining zombies: 3
+
+   ──────── ──────── ──────── ──────── ──────── ──────── ──────── ──────── 
+  |        |        |        |        |        |        |        |        |
+   ──────── ──────── ──────── ──────── ──────── ──────── ──────── ──────── 
+  |        |        |        |        |        |        |        |        |
+   ──────── ──────── ──────── ──────── ──────── ──────── ──────── ──────── 
+  |        |        |        |        |        |        |        |        |
+   ──────── ──────── ──────── ──────── ──────── ──────── ──────── ──────── 
+  |        |        |        |        |        |        |        |        |
+   ──────── ──────── ──────── ──────── ──────── ──────── ──────── ──────── 
+
+Command > 
+[DEBUG] Executing: Command > 
+
+[ERROR] Error: Invalid command
+
+Command > 
+[DEBUG] Executing: [DEBUG] Executing: h
+
+[ERROR] Error: Invalid command
+
+Command > 
+[DEBUG] Executing: 
+
+Number of cycles: 4
+Sun coins: 50
+Remaining zombies: 3
+
+   ──────── ──────── ──────── ──────── ──────── ──────── ──────── ──────── 
+  |        |        |        |        |        |        |        |        |
+   ──────── ──────── ──────── ──────── ──────── ──────── ──────── ──────── 
+  |        |        |        |        |        |        |        |        |
+   ──────── ──────── ──────── ──────── ──────── ──────── ──────── ──────── 
+  |        |        |        |        |        |        |        |        |
+   ──────── ──────── ──────── ──────── ──────── ──────── ──────── ──────── 
+  |        |        |        |        |        |        |        |        |
+   ──────── ──────── ──────── ──────── ──────── ──────── ──────── ──────── 
+
+Command > 
+[DEBUG] Executing: Available commands:
+
+[ERROR] Error: Invalid command
+
+Command > 
+[DEBUG] Executing: [a]dd <plant> <col> <row>: add a plant in position (col, row)
+
+[ERROR] Error: Invalid command
+
+Command > 
+[DEBUG] Executing: [l]ist: print the list of available plants
+
+[ERROR] Error: Invalid command
+
+Command > 
+[DEBUG] Executing: [r]eset: start a new game
+
+[ERROR] Error: Invalid command
+
+Command > 
+[DEBUG] Executing: [h]elp: print this help message
+
+[ERROR] Error: Invalid command
+
+Command > 
+[DEBUG] Executing: [e]xit: terminate the program
+
+[ERROR] Error: Invalid command
+
+Command > 
+[DEBUG] Executing: [n]one | "": skips cycle
+
+[ERROR] Error: Invalid command
+
+Command > 
+[DEBUG] Executing: Command > 
+
+[ERROR] Error: Invalid command
+
+Command > 
+[DEBUG] Executing: [DEBUG] Executing: H
+
+[ERROR] Error: Invalid command
+
+Command > 
+[DEBUG] Executing: 
+
+Number of cycles: 5
+Sun coins: 50
+Remaining zombies: 3
+
+   ──────── ──────── ──────── ──────── ──────── ──────── ──────── ──────── 
+  |        |        |        |        |        |        |        |        |
+   ──────── ──────── ──────── ──────── ──────── ──────── ──────── ──────── 
+  |        |        |        |        |        |        |        |        |
+   ──────── ──────── ──────── ──────── ──────── ──────── ──────── ──────── 
+  |        |        |        |        |        |        |        |        |
+   ──────── ──────── ──────── ──────── ──────── ──────── ──────── ──────── 
+  |        |        |        |        |        |        |        |        |
+   ──────── ──────── ──────── ──────── ──────── ──────── ──────── ──────── 
+
+Command > 
+[DEBUG] Executing: Available commands:
+
+[ERROR] Error: Invalid command
+
+Command > 
+[DEBUG] Executing: [a]dd <plant> <col> <row>: add a plant in position (col, row)
+
+[ERROR] Error: Invalid command
+
+Command > 
+[DEBUG] Executing: [l]ist: print the list of available plants
+
+[ERROR] Error: Invalid command
+
+Command > 
+[DEBUG] Executing: [r]eset: start a new game
+
+[ERROR] Error: Invalid command
+
+Command > 
+[DEBUG] Executing: [h]elp: print this help message
+
+[ERROR] Error: Invalid command
+
+Command > 
+[DEBUG] Executing: [e]xit: terminate the program
+
+[ERROR] Error: Invalid command
+
+Command > 
+[DEBUG] Executing: [n]one | "": skips cycle
+
+[ERROR] Error: Invalid command
+
+Command > 
+[DEBUG] Executing: Command > 
+
+[ERROR] Error: Invalid command
+
+Command > 
+[DEBUG] Executing: [DEBUG] Executing: help
+
+[ERROR] Error: Invalid command
+
+Command > 
+[DEBUG] Executing: 
+
+Number of cycles: 6
+Sun coins: 50
+Remaining zombies: 3
+
+   ──────── ──────── ──────── ──────── ──────── ──────── ──────── ──────── 
+  |        |        |        |        |        |        |        |        |
+   ──────── ──────── ──────── ──────── ──────── ──────── ──────── ──────── 
+  |        |        |        |        |        |        |        |        |
+   ──────── ──────── ──────── ──────── ──────── ──────── ──────── ──────── 
+  |        |        |        |        |        |        |        |        |
+   ──────── ──────── ──────── ──────── ──────── ──────── ──────── ──────── 
+  |        |        |        |        |        |        |        |        |
+   ──────── ──────── ──────── ──────── ──────── ──────── ──────── ──────── 
+
+Command > 
+[DEBUG] Executing: Available commands:
+
+[ERROR] Error: Invalid command
+
+Command > 
+[DEBUG] Executing: [a]dd <plant> <col> <row>: add a plant in position (col, row)
+
+[ERROR] Error: Invalid command
+
+Command > 
+[DEBUG] Executing: [l]ist: print the list of available plants
+
+[ERROR] Error: Invalid command
+
+Command > 
+[DEBUG] Executing: [r]eset: start a new game
+
+[ERROR] Error: Invalid command
+
+Command > 
+[DEBUG] Executing: [h]elp: print this help message
+
+[ERROR] Error: Invalid command
+
+Command > 
+[DEBUG] Executing: [e]xit: terminate the program
+
+[ERROR] Error: Invalid command
+
+Command > 
+[DEBUG] Executing: [n]one | "": skips cycle
+
+[ERROR] Error: Invalid command
+
+Command > 
+[DEBUG] Executing: Command > 
+
+[ERROR] Error: Invalid command
+
+Command > 
+[DEBUG] Executing: [DEBUG] Executing: Help
+
+[ERROR] Error: Invalid command
+
+Command > 
+[DEBUG] Executing: 
+
+Number of cycles: 7
+Sun coins: 50
+Remaining zombies: 3
+
+   ──────── ──────── ──────── ──────── ──────── ──────── ──────── ──────── 
+  |        |        |        |        |        |        |        |        |
+   ──────── ──────── ──────── ──────── ──────── ──────── ──────── ──────── 
+  |        |        |        |        |        |        |        |        |
+   ──────── ──────── ──────── ──────── ──────── ──────── ──────── ──────── 
+  |        |        |        |        |        |        |        |        |
+   ──────── ──────── ──────── ──────── ──────── ──────── ──────── ──────── 
+  |        |        |        |        |        |        |        |        |
+   ──────── ──────── ──────── ──────── ──────── ──────── ──────── ──────── 
+
+Command > 
+[DEBUG] Executing: Available commands:
+
+[ERROR] Error: Invalid command
+
+Command > 
+[DEBUG] Executing: [a]dd <plant> <col> <row>: add a plant in position (col, row)
+
+[ERROR] Error: Invalid command
+
+Command > 
+[DEBUG] Executing: [l]ist: print the list of available plants
+
+[ERROR] Error: Invalid command
+
+Command > 
+[DEBUG] Executing: [r]eset: start a new game
+
+[ERROR] Error: Invalid command
+
+Command > 
+[DEBUG] Executing: [h]elp: print this help message
+
+[ERROR] Error: Invalid command
+
+Command > 
+[DEBUG] Executing: [e]xit: terminate the program
+
+[ERROR] Error: Invalid command
+
+Command > 
+[DEBUG] Executing: [n]one | "": skips cycle
+
+[ERROR] Error: Invalid command
+
+Command > 
+[DEBUG] Executing: Command > 
+
+[ERROR] Error: Invalid command
+
+Command > 
+[DEBUG] Executing: [DEBUG] Executing: l
+
+[ERROR] Error: Invalid command
+
+Command > 
+[DEBUG] Executing: 
+
+Number of cycles: 8
+Sun coins: 50
+Remaining zombies: 3
+
+   ──────── ──────── ──────── ──────── ──────── ──────── ──────── ──────── 
+  |        |        |        |        |        |        |        |        |
+   ──────── ──────── ──────── ──────── ──────── ──────── ──────── ──────── 
+  |        |        |        |        |        |        |        |        |
+   ──────── ──────── ──────── ──────── ──────── ──────── ──────── ──────── 
+  |        |        |        |        |        |        |        |        |
+   ──────── ──────── ──────── ──────── ──────── ──────── ──────── ──────── 
+  |        |        |        |        |        |        |        |        |
+   ──────── ──────── ──────── ──────── ──────── ──────── ──────── ──────── 
+
+Command > 
+[DEBUG] Executing: [S]unflower: cost='20' suncoins, damage='0', endurance='1'
+
+[ERROR] Error: Invalid command
+
+Command > 
+[DEBUG] Executing: [P]eashooter: cost='50' suncoins, damage='1', endurance='3'
+
+[ERROR] Error: Invalid command
+
+Command > 
+[DEBUG] Executing: 
+
+Number of cycles: 9
+Sun coins: 50
+Remaining zombies: 2
+
+   ──────── ──────── ──────── ──────── ──────── ──────── ──────── ──────── 
+  |        |        |        |        |        |        |        |        |
+   ──────── ──────── ──────── ──────── ──────── ──────── ──────── ──────── 
+  |        |        |        |        |        |        |        |        |
+   ──────── ──────── ──────── ──────── ──────── ──────── ──────── ──────── 
+  |        |        |        |        |        |        |        |        |
+   ──────── ──────── ──────── ──────── ──────── ──────── ──────── ──────── 
+  |        |        |        |        |        |        |        |        |
+   ──────── ──────── ──────── ──────── ──────── ──────── ──────── ──────── 
+
+Command > 
+[DEBUG] Executing: Command > 
+
+[ERROR] Error: Invalid command
+
+Command > 
+[DEBUG] Executing: [DEBUG] Executing: List
+
+[ERROR] Error: Invalid command
+
+Command > 
+[DEBUG] Executing: 
+
+Number of cycles: 10
+Sun coins: 50
+Remaining zombies: 2
+
+   ──────── ──────── ──────── ──────── ──────── ──────── ──────── ──────── 
+  |        |        |        |        |        |        |        |        |
+   ──────── ──────── ──────── ──────── ──────── ──────── ──────── ──────── 
+  |        |        |        |        |        |        |        |        |
+   ──────── ──────── ──────── ──────── ──────── ──────── ──────── ──────── 
+  |        |        |        |        |        |        |        |        |
+   ──────── ──────── ──────── ──────── ──────── ──────── ──────── ──────── 
+  |        |        |        |        |        |        |        |        |
+   ──────── ──────── ──────── ──────── ──────── ──────── ──────── ──────── 
+
+Command > 
+[DEBUG] Executing: [S]unflower: cost='20' suncoins, damage='0', endurance='1'
+
+[ERROR] Error: Invalid command
+
+Command > 
+[DEBUG] Executing: [P]eashooter: cost='50' suncoins, damage='1', endurance='3'
+
+[ERROR] Error: Invalid command
+
+Command > 
+[DEBUG] Executing: 
+
+Number of cycles: 11
+Sun coins: 50
+Remaining zombies: 2
+
+   ──────── ──────── ──────── ──────── ──────── ──────── ──────── ──────── 
+  |        |        |        |        |        |        |        |  Z[05] |
+   ──────── ──────── ──────── ──────── ──────── ──────── ──────── ──────── 
+  |        |        |        |        |        |        |        |        |
+   ──────── ──────── ──────── ──────── ──────── ──────── ──────── ──────── 
+  |        |        |        |        |        |        |        |        |
+   ──────── ──────── ──────── ──────── ──────── ──────── ──────── ──────── 
+  |        |        |        |        |        |        |        |        |
+   ──────── ──────── ──────── ──────── ──────── ──────── ──────── ──────── 
+
+Command > 
+[DEBUG] Executing: Command > 
+
+[ERROR] Error: Invalid command
+
+Command > 
+[DEBUG] Executing: [DEBUG] Executing: 
+
+[ERROR] Error: Invalid command
+
+Command > 
+[DEBUG] Executing: 
+
+Number of cycles: 12
+Sun coins: 50
+Remaining zombies: 2
+
+   ──────── ──────── ──────── ──────── ──────── ──────── ──────── ──────── 
+  |        |        |        |        |        |        |        |  Z[05] |
+   ──────── ──────── ──────── ──────── ──────── ──────── ──────── ──────── 
+  |        |        |        |        |        |        |        |        |
+   ──────── ──────── ──────── ──────── ──────── ──────── ──────── ──────── 
+  |        |        |        |        |        |        |        |        |
+   ──────── ──────── ──────── ──────── ──────── ──────── ──────── ──────── 
+  |        |        |        |        |        |        |        |        |
+   ──────── ──────── ──────── ──────── ──────── ──────── ──────── ──────── 
+
+Command > 
+[DEBUG] Executing: Number of cycles: 1
+
+[ERROR] Error: Invalid command
+
+Command > 
+[DEBUG] Executing: Sun coins: 50
+
+[ERROR] Error: Invalid command
+
+Command > 
+[DEBUG] Executing: Remaining zombies: 3
+
+[ERROR] Error: Invalid command
+
+Command > 
+[DEBUG] Executing: 
+
+Number of cycles: 13
+Sun coins: 50
+Remaining zombies: 2
+
+   ──────── ──────── ──────── ──────── ──────── ──────── ──────── ──────── 
+  |        |        |        |        |        |        |  Z[05] |        |
+   ──────── ──────── ──────── ──────── ──────── ──────── ──────── ──────── 
+  |        |        |        |        |        |        |        |        |
+   ──────── ──────── ──────── ──────── ──────── ──────── ──────── ──────── 
+  |        |        |        |        |        |        |        |        |
+   ──────── ──────── ──────── ──────── ──────── ──────── ──────── ──────── 
+  |        |        |        |        |        |        |        |        |
+   ──────── ──────── ──────── ──────── ──────── ──────── ──────── ──────── 
+
+Command > 
+[DEBUG] Executing:    ──────── ──────── ──────── ──────── ──────── ──────── ──────── ──────── 
+
+[ERROR] Error: Invalid command
+
+Command > 
+[DEBUG] Executing:   |        |        |        |        |        |        |        |        |
+
+[ERROR] Error: Invalid command
+
+Command > 
+[DEBUG] Executing:    ──────── ──────── ──────── ──────── ──────── ──────── ──────── ──────── 
+
+[ERROR] Error: Invalid command
+
+Command > 
+[DEBUG] Executing:   |        |        |        |        |        |        |        |        |
+
+[ERROR] Error: Invalid command
+
+Command > 
+[DEBUG] Executing:    ──────── ──────── ──────── ──────── ──────── ──────── ──────── ──────── 
+
+[ERROR] Error: Invalid command
+
+Command > 
+[DEBUG] Executing:   |        |        |        |        |        |        |        |        |
+
+[ERROR] Error: Invalid command
+
+Command > 
+[DEBUG] Executing:    ──────── ──────── ──────── ──────── ──────── ──────── ──────── ──────── 
+
+[ERROR] Error: Invalid command
+
+Command > 
+[DEBUG] Executing:   |        |        |        |        |        |        |        |        |
+
+[ERROR] Error: Invalid command
+
+Command > 
+[DEBUG] Executing:    ──────── ──────── ──────── ──────── ──────── ──────── ──────── ──────── 
+
+[ERROR] Error: Invalid command
+
+Command > 
+[DEBUG] Executing: 
+
+Number of cycles: 14
+Sun coins: 50
+Remaining zombies: 1
+
+   ──────── ──────── ──────── ──────── ──────── ──────── ──────── ──────── 
+  |        |        |        |        |        |        |  Z[05] |        |
+   ──────── ──────── ──────── ──────── ──────── ──────── ──────── ──────── 
+  |        |        |        |        |        |        |        |        |
+   ──────── ──────── ──────── ──────── ──────── ──────── ──────── ──────── 
+  |        |        |        |        |        |        |        |        |
+   ──────── ──────── ──────── ──────── ──────── ──────── ──────── ──────── 
+  |        |        |        |        |        |        |        |        |
+   ──────── ──────── ──────── ──────── ──────── ──────── ──────── ──────── 
+
+Command > 
+[DEBUG] Executing: Command > 
+
+[ERROR] Error: Invalid command
+
+Command > 
+[DEBUG] Executing: [DEBUG] Executing: add sunflower 0 0
+
+[ERROR] Error: Invalid command
+
+Command > 
+[DEBUG] Executing: 
+
+Number of cycles: 15
+Sun coins: 50
+Remaining zombies: 1
+
+   ──────── ──────── ──────── ──────── ──────── ──────── ──────── ──────── 
+  |        |        |        |        |        |  Z[05] |        |        |
+   ──────── ──────── ──────── ──────── ──────── ──────── ──────── ──────── 
+  |        |        |        |        |        |        |        |        |
+   ──────── ──────── ──────── ──────── ──────── ──────── ──────── ──────── 
+  |        |        |        |        |        |        |        |        |
+   ──────── ──────── ──────── ──────── ──────── ──────── ──────── ──────── 
+  |        |        |        |        |        |        |        |        |
+   ──────── ──────── ──────── ──────── ──────── ──────── ──────── ──────── 
+
+Command > 
+[DEBUG] Executing: Number of cycles: 2
+
+[ERROR] Error: Invalid command
+
+Command > 
+[DEBUG] Executing: Sun coins: 30
+
+[ERROR] Error: Invalid command
+
+Command > 
+[DEBUG] Executing: Remaining zombies: 3
+
+[ERROR] Error: Invalid command
+
+Command > 
+[DEBUG] Executing: 
+
+Number of cycles: 16
+Sun coins: 50
+Remaining zombies: 1
+
+   ──────── ──────── ──────── ──────── ──────── ──────── ──────── ──────── 
+  |        |        |        |        |        |  Z[05] |        |        |
+   ──────── ──────── ──────── ──────── ──────── ──────── ──────── ──────── 
+  |        |        |        |        |        |        |        |        |
+   ──────── ──────── ──────── ──────── ──────── ──────── ──────── ──────── 
+  |        |        |        |        |        |        |        |  Z[05] |
+   ──────── ──────── ──────── ──────── ──────── ──────── ──────── ──────── 
+  |        |        |        |        |        |        |        |        |
+   ──────── ──────── ──────── ──────── ──────── ──────── ──────── ──────── 
+
+Command > 
+[DEBUG] Executing:    ──────── ──────── ──────── ──────── ──────── ──────── ──────── ──────── 
+
+[ERROR] Error: Invalid command
+
+Command > 
+[DEBUG] Executing:   |  S[01] |        |        |        |        |        |        |        |
+
+[ERROR] Error: Invalid command
+
+Command > 
+[DEBUG] Executing:    ──────── ──────── ──────── ──────── ──────── ──────── ──────── ──────── 
+
+[ERROR] Error: Invalid command
+
+Command > 
+[DEBUG] Executing:   |        |        |        |        |        |        |        |        |
+
+[ERROR] Error: Invalid command
+
+Command > 
+[DEBUG] Executing:    ──────── ──────── ──────── ──────── ──────── ──────── ──────── ──────── 
+
+[ERROR] Error: Invalid command
+
+Command > 
+[DEBUG] Executing:   |        |        |        |        |        |        |        |        |
+
+[ERROR] Error: Invalid command
+
+Command > 
+[DEBUG] Executing:    ──────── ──────── ──────── ──────── ──────── ──────── ──────── ──────── 
+
+[ERROR] Error: Invalid command
+
+Command > 
+[DEBUG] Executing:   |        |        |        |        |        |        |        |        |
+
+[ERROR] Error: Invalid command
+
+Command > 
+[DEBUG] Executing:    ──────── ──────── ──────── ──────── ──────── ──────── ──────── ──────── 
+
+[ERROR] Error: Invalid command
+
+Command > 
+[DEBUG] Executing: 
+
+Number of cycles: 17
+Sun coins: 50
+Remaining zombies: 1
+
+   ──────── ──────── ──────── ──────── ──────── ──────── ──────── ──────── 
+  |        |        |        |        |  Z[05] |        |        |        |
+   ──────── ──────── ──────── ──────── ──────── ──────── ──────── ──────── 
+  |        |        |        |        |        |        |        |        |
+   ──────── ──────── ──────── ──────── ──────── ──────── ──────── ──────── 
+  |        |        |        |        |        |        |        |  Z[05] |
+   ──────── ──────── ──────── ──────── ──────── ──────── ──────── ──────── 
+  |        |        |        |        |        |        |        |        |
+   ──────── ──────── ──────── ──────── ──────── ──────── ──────── ──────── 
+
+Command > 
+[DEBUG] Executing: Command > 
+
+[ERROR] Error: Invalid command
+
+Command > 
+[DEBUG] Executing: [DEBUG] Executing: 
+
+[ERROR] Error: Invalid command
+
+Command > 
+[DEBUG] Executing: 
+
+Number of cycles: 18
+Sun coins: 50
+Remaining zombies: 1
+
+   ──────── ──────── ──────── ──────── ──────── ──────── ──────── ──────── 
+  |        |        |        |        |  Z[05] |        |        |        |
+   ──────── ──────── ──────── ──────── ──────── ──────── ──────── ──────── 
+  |        |        |        |        |        |        |        |        |
+   ──────── ──────── ──────── ──────── ──────── ──────── ──────── ──────── 
+  |        |        |        |        |        |        |  Z[05] |        |
+   ──────── ──────── ──────── ──────── ──────── ──────── ──────── ──────── 
+  |        |        |        |        |        |        |        |        |
+   ──────── ──────── ──────── ──────── ──────── ──────── ──────── ──────── 
+
+Command > 
+[DEBUG] Executing: Number of cycles: 3
+
+[ERROR] Error: Invalid command
+
+Command > 
+[DEBUG] Executing: Sun coins: 30
+
+[ERROR] Error: Invalid command
+
+Command > 
+[DEBUG] Executing: Remaining zombies: 3
+
+[ERROR] Error: Invalid command
+
+Command > 
+[DEBUG] Executing: 
+
+Number of cycles: 19
+Sun coins: 50
+Remaining zombies: 1
+
+   ──────── ──────── ──────── ──────── ──────── ──────── ──────── ──────── 
+  |        |        |        |  Z[05] |        |        |        |        |
+   ──────── ──────── ──────── ──────── ──────── ──────── ──────── ──────── 
+  |        |        |        |        |        |        |        |        |
+   ──────── ──────── ──────── ──────── ──────── ──────── ──────── ──────── 
+  |        |        |        |        |        |        |  Z[05] |        |
+   ──────── ──────── ──────── ──────── ──────── ──────── ──────── ──────── 
+  |        |        |        |        |        |        |        |        |
+   ──────── ──────── ──────── ──────── ──────── ──────── ──────── ──────── 
+
+Command > 
+[DEBUG] Executing:    ──────── ──────── ──────── ──────── ──────── ──────── ──────── ──────── 
+
+[ERROR] Error: Invalid command
+
+Command > 
+[DEBUG] Executing:   |  S[01] |        |        |        |        |        |        |        |
+
+[ERROR] Error: Invalid command
+
+Command > 
+[DEBUG] Executing:    ──────── ──────── ──────── ──────── ──────── ──────── ──────── ──────── 
+
+[ERROR] Error: Invalid command
+
+Command > 
+[DEBUG] Executing:   |        |        |        |        |        |        |        |        |
+
+[ERROR] Error: Invalid command
+
+Command > 
+[DEBUG] Executing:    ──────── ──────── ──────── ──────── ──────── ──────── ──────── ──────── 
+
+[ERROR] Error: Invalid command
+
+Command > 
+[DEBUG] Executing:   |        |        |        |        |        |        |        |        |
+
+[ERROR] Error: Invalid command
+
+Command > 
+[DEBUG] Executing:    ──────── ──────── ──────── ──────── ──────── ──────── ──────── ──────── 
+
+[ERROR] Error: Invalid command
+
+Command > 
+[DEBUG] Executing:   |        |        |        |        |        |        |        |        |
+
+[ERROR] Error: Invalid command
+
+Command > 
+[DEBUG] Executing:    ──────── ──────── ──────── ──────── ──────── ──────── ──────── ──────── 
+
+[ERROR] Error: Invalid command
+
+Command > 
+[DEBUG] Executing: 
+
+Number of cycles: 20
+Sun coins: 50
+Remaining zombies: 1
+
+   ──────── ──────── ──────── ──────── ──────── ──────── ──────── ──────── 
+  |        |        |        |  Z[05] |        |        |        |        |
+   ──────── ──────── ──────── ──────── ──────── ──────── ──────── ──────── 
+  |        |        |        |        |        |        |        |        |
+   ──────── ──────── ──────── ──────── ──────── ──────── ──────── ──────── 
+  |        |        |        |        |        |  Z[05] |        |        |
+   ──────── ──────── ──────── ──────── ──────── ──────── ──────── ──────── 
+  |        |        |        |        |        |        |        |        |
+   ──────── ──────── ──────── ──────── ──────── ──────── ──────── ──────── 
+
+Command > 
+[DEBUG] Executing: Command > 
+
+[ERROR] Error: Invalid command
+
+Command > 
+[DEBUG] Executing: [DEBUG] Executing: 
+
+[ERROR] Error: Invalid command
+
+Command > 
+[DEBUG] Executing: 
+
+Number of cycles: 21
+Sun coins: 50
+Remaining zombies: 1
+
+   ──────── ──────── ──────── ──────── ──────── ──────── ──────── ──────── 
+  |        |        |  Z[05] |        |        |        |        |        |
+   ──────── ──────── ──────── ──────── ──────── ──────── ──────── ──────── 
+  |        |        |        |        |        |        |        |        |
+   ──────── ──────── ──────── ──────── ──────── ──────── ──────── ──────── 
+  |        |        |        |        |        |  Z[05] |        |        |
+   ──────── ──────── ──────── ──────── ──────── ──────── ──────── ──────── 
+  |        |        |        |        |        |        |        |        |
+   ──────── ──────── ──────── ──────── ──────── ──────── ──────── ──────── 
+
+Command > 
+[DEBUG] Executing: Number of cycles: 4
+
+[ERROR] Error: Invalid command
+
+Command > 
+[DEBUG] Executing: Sun coins: 30
+
+[ERROR] Error: Invalid command
+
+Command > 
+[DEBUG] Executing: Remaining zombies: 3
+
+[ERROR] Error: Invalid command
+
+Command > 
+[DEBUG] Executing: 
+
+Number of cycles: 22
+Sun coins: 50
+Remaining zombies: 1
+
+   ──────── ──────── ──────── ──────── ──────── ──────── ──────── ──────── 
+  |        |        |  Z[05] |        |        |        |        |        |
+   ──────── ──────── ──────── ──────── ──────── ──────── ──────── ──────── 
+  |        |        |        |        |        |        |        |        |
+   ──────── ──────── ──────── ──────── ──────── ──────── ──────── ──────── 
+  |        |        |        |        |  Z[05] |        |        |        |
+   ──────── ──────── ──────── ──────── ──────── ──────── ──────── ──────── 
+  |        |        |        |        |        |        |        |        |
+   ──────── ──────── ──────── ──────── ──────── ──────── ──────── ──────── 
+
+Command > 
+[DEBUG] Executing:    ──────── ──────── ──────── ──────── ──────── ──────── ──────── ──────── 
+
+[ERROR] Error: Invalid command
+
+Command > 
+[DEBUG] Executing:   |  S[01] |        |        |        |        |        |        |        |
+
+[ERROR] Error: Invalid command
+
+Command > 
+[DEBUG] Executing:    ──────── ──────── ──────── ──────── ──────── ──────── ──────── ──────── 
+
+[ERROR] Error: Invalid command
+
+Command > 
+[DEBUG] Executing:   |        |        |        |        |        |        |        |        |
+
+[ERROR] Error: Invalid command
+
+Command > 
+[DEBUG] Executing:    ──────── ──────── ──────── ──────── ──────── ──────── ──────── ──────── 
+
+[ERROR] Error: Invalid command
+
+Command > 
+[DEBUG] Executing:   |        |        |        |        |        |        |        |        |
+
+[ERROR] Error: Invalid command
+
+Command > 
+[DEBUG] Executing:    ──────── ──────── ──────── ──────── ──────── ──────── ──────── ──────── 
+
+[ERROR] Error: Invalid command
+
+Command > 
+[DEBUG] Executing:   |        |        |        |        |        |        |        |        |
+
+[ERROR] Error: Invalid command
+
+Command > 
+[DEBUG] Executing:    ──────── ──────── ──────── ──────── ──────── ──────── ──────── ──────── 
+
+[ERROR] Error: Invalid command
+
+Command > 
+[DEBUG] Executing: 
+
+Number of cycles: 23
+Sun coins: 50
+Remaining zombies: 1
+
+   ──────── ──────── ──────── ──────── ──────── ──────── ──────── ──────── 
+  |        |  Z[05] |        |        |        |        |        |        |
+   ──────── ──────── ──────── ──────── ──────── ──────── ──────── ──────── 
+  |        |        |        |        |        |        |        |        |
+   ──────── ──────── ──────── ──────── ──────── ──────── ──────── ──────── 
+  |        |        |        |        |  Z[05] |        |        |        |
+   ──────── ──────── ──────── ──────── ──────── ──────── ──────── ──────── 
+  |        |        |        |        |        |        |        |        |
+   ──────── ──────── ──────── ──────── ──────── ──────── ──────── ──────── 
+
+Command > 
+[DEBUG] Executing: Command > 
+
+[ERROR] Error: Invalid command
+
+Command > 
+[DEBUG] Executing: [DEBUG] Executing: 
+
+[ERROR] Error: Invalid command
+
+Command > 
+[DEBUG] Executing: 
+
+Number of cycles: 24
+Sun coins: 50
+Remaining zombies: 1
+
+   ──────── ──────── ──────── ──────── ──────── ──────── ──────── ──────── 
+  |        |  Z[05] |        |        |        |        |        |        |
+   ──────── ──────── ──────── ──────── ──────── ──────── ──────── ──────── 
+  |        |        |        |        |        |        |        |        |
+   ──────── ──────── ──────── ──────── ──────── ──────── ──────── ──────── 
+  |        |        |        |  Z[05] |        |        |        |        |
+   ──────── ──────── ──────── ──────── ──────── ──────── ──────── ──────── 
+  |        |        |        |        |        |        |        |        |
+   ──────── ──────── ──────── ──────── ──────── ──────── ──────── ──────── 
+
+Command > 
+[DEBUG] Executing: Number of cycles: 5
+
+[ERROR] Error: Invalid command
+
+Command > 
+[DEBUG] Executing: Sun coins: 40
+
+[ERROR] Error: Invalid command
+
+Command > 
+[DEBUG] Executing: Remaining zombies: 3
+
+[ERROR] Error: Invalid command
+
+Command > 
+[DEBUG] Executing: 
+
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: Index -1 out of bounds for length 32
+	at pvz.logic.gameobjects.PeashooterList.isEmpty(PeashooterList.java:30)
+	at pvz.logic.Game.isEmpty(Game.java:169)
+	at pvz.logic.gameobjects.Zombie.update(Zombie.java:58)
+	at pvz.logic.gameobjects.ZombieList.update(ZombieList.java:53)
+	at pvz.logic.ZombiesManager.update(ZombiesManager.java:132)
+	at pvz.logic.Game.update(Game.java:101)
+	at pvz.control.Controller.run(Controller.java:118)
+	at pvz.PlantsVsZombies.main(PlantsVsZombies.java:76)
