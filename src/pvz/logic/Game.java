@@ -9,18 +9,18 @@ import pvz.logic.gameobjects.Sunflower;
 import pvz.logic.gameobjects.SunflowerList;
 import utils.Position;
 
-public class Game {
+public class Game implements GameStatus, GameWorld, GameModel {
 
-	public static final int NUM_ROWS = 4;
-	public static final int NUM_COLS = 8;
 	public static final int INITIAL_COINS = 50;
+	private boolean playerQuit;
+
+	// hasta aquí hay en los apuntes
 
 	private int cycles;
 	private int coins;
 	private long longSeed;
 	private int seed;
 	private Random rand;
-	private boolean playerQuit;
 
 	private Level tLevel;
 	private ZombiesManager tZM;

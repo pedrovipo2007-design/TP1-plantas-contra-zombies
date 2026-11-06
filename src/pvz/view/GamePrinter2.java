@@ -69,7 +69,7 @@ public class GamePrinter implements GameView {
 	private String getInfo() {
 		StringBuilder buffer = new StringBuilder();
 
-		// TODO fill your code
+		// TODO fill your code - completar funciones en GameStatus
 
 		return buffer.toString();
 	}
