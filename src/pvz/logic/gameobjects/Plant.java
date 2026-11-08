@@ -1,5 +1,5 @@
 package pvz.logic.gameobjects;
 
-public class Plants {
+public abstract class Plant {
 
 }

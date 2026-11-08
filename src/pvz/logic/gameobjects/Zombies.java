@@ -1,5 +1,5 @@
 package pvz.logic.gameobjects;
 
-public class Zombies {
+public class Zombies extends GameObject {
 
 }

@@ -1,9 +1,9 @@
 package pvz.logic.gameobjects;
 
-import pvz.logic.Game;
+import pvz.logic.GameWorld;
 import utils.Position;
 
-public class Peashooter {
+public class Peashooter extends Plant {
 
 	// atributos
 	private Position position;
@@ -11,7 +11,7 @@ public class Peashooter {
 	public static final int DAMAGE = 1;
 	public static final int COST = 50;
 	private int health;
-	private Game game;
+	private GameWorld game;
 
 	// metodos
 	public static Object getDescription() {
@@ -19,7 +19,7 @@ public class Peashooter {
 		return "[P]eashooter: cost='50' suncoins, damage='1', endurance='3'";
 	}
 
-	public Peashooter(Position p, Game game) {
+	public Peashooter(Position p, GameWorld game) {
 		health = INITIAL_HEALTH;
 		position = p;
 		this.game = game;

@@ -2,8 +2,8 @@ package pvz.logic.gameobjects;
 
 import pvz.logic.Game;
 import utils.Position;
-
-public class Sunflower {
+import pvz.logic.GameWorld;
+public class Sunflower extends Plant {
 
 	// atributos
 
@@ -15,7 +15,7 @@ public class Sunflower {
 
 	private int health;
 	private int cyclesSinceLastGeneration;
-	private Game game;
+	private GameWorld game;
 
 	public static Object getDescription() {
 
@@ -26,7 +26,7 @@ public class Sunflower {
 		return health;
 	}
 
-	public Sunflower(Position p, Game game) {
+	public Sunflower(Position p, GameWorld game) {
 		health = INITIAL_HEALTH;
 		position = p;
 		cyclesSinceLastGeneration = 0;

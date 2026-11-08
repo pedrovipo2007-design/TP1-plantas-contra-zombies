@@ -26,7 +26,7 @@ public class Game implements GameStatus, GameWorld, GameModel {
 	private ZombiesManager tZM;
 	private PeashooterList tPL;
 	private SunflowerList tSL;
-
+	private GameObjectContainer GOC;
 	public Game(long seed, Level level) {
 
 		playerQuit = false;
@@ -39,6 +39,9 @@ public class Game implements GameStatus, GameWorld, GameModel {
 		tZM = new ZombiesManager(this, tLevel, rand);
 		tPL = new PeashooterList();
 		tSL = new SunflowerList();
+		
+		// se eliminan las anteriores para añadir 
+		GOC = new GameObjectContainer();
 	}
 
 	public String positionToString(Position position) {
@@ -164,9 +167,9 @@ public class Game implements GameStatus, GameWorld, GameModel {
 			tPL.receiveDamage(p, damage);
 	}
 
-	public boolean isEmpty(Position zombiePosition) {
-
-		return (tPL.isEmpty(zombiePosition) && tSL.isEmpty(zombiePosition));
+	public boolean isEmpty(Position pos) {
+		return GOC.isEmpty(pos);
+		
 	}
 
 	public static Position newZombiePosition(int row) { // devuelvo posicion en la col mas alejada
@@ -191,5 +194,14 @@ public class Game implements GameStatus, GameWorld, GameModel {
 
 	public boolean playerQuits() {
 		return playerQuit;
+	}
+	
+	public void addPlant(String plantName,Position pos) {
+		if(this.isInsideBoard(pos)) {
+			if(this.isEmpty(pos)) {
+				PlantFactory.spawnPlant(plantName, this, pos);
+			}
+		}
+		
 	}
 }

@@ -1,5 +1,7 @@
 package pvz.logic;
 
+import utils.Position;
+
 public interface GameModel {
 
 	// actualizar estado de la partida (reiniciar, actualizar...)
@@ -10,5 +12,7 @@ public interface GameModel {
 	void update();
 
 	void quit();
+
+	void addPlant(GameModel model, String plantName, Position pos);
 
 }

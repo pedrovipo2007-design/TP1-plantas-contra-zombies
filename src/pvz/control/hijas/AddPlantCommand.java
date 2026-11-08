@@ -4,12 +4,11 @@ import pvz.control.Command;
 import pvz.logic.GameModel;
 import pvz.view.GameView;
 import pvz.view.Messages;
-
+import utils.Position;
 public class AddPlantCommand extends Command {
 
 	private String plantName;
-	private int col;
-	private int row;
+	private Position pos;
 
 	public AddPlantCommand() {
 		name = Messages.COMMAND_ADD_PLANT_NAME;
@@ -21,8 +20,7 @@ public class AddPlantCommand extends Command {
 	private AddPlantCommand(String plantName, int col, int row) {
 		this();
 		this.plantName = plantName;
-		this.col = col;
-		this.row = row;
+		this.pos = new Position(row,col);
 	}
 
 	@Override
@@ -39,6 +37,6 @@ public class AddPlantCommand extends Command {
 
 	@Override
 	public void execute(GameModel model, GameView view) {
-		// TODO: delegate plant validation and placement to GameModel.
+		model.addPlant(model,plantName, pos)
 	}
 }
