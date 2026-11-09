@@ -19,7 +19,7 @@ import pvz.view.Messages;
 /** Common structure and command parser for the game's user actions. */
 public abstract class Command {
 
-	private static final List<Command> AVAILABLE_COMMANDS = Arrays.asList(new AddPlantCommand(),
+	protected static final List<Command> AVAILABLE_COMMANDS = Arrays.asList(new AddPlantCommand(),
 			new ListPlantsCommand(), new ListZombieCommand(), new ResetCommand(), new HelpCommand(), new ExitCommand(),
 			new UpdateCommand(), new CheatPlantCommand(), new CatchCommand());
 
