@@ -1,28 +1,29 @@
 package pvz.logic.gameobjects;
 
 import pvz.logic.GameWorld;
+import pvz.view.Messages;
 import utils.Position;
 
 public class Peashooter extends Plant {
 
 	// atributos
-	private Position position;
+	//private Position position;ya lo lleva plant
 	public static final int INITIAL_HEALTH = 3;
 	public static final int DAMAGE = 1;
 	public static final int COST = 50;
-	private int health;
-	private GameWorld game;
+	//private GameWorld game; ya lo lleva plant
 
 	// metodos
-	public static Object getDescription() {
+	@Override
+	public String getDescription() {
 
-		return "[P]eashooter: cost='50' suncoins, damage='1', endurance='3'";
+		return Messages.PEASHOOTER_DESCRIPTION;
 	}
 
 	public Peashooter(Position p, GameWorld game) {
+		super(game,p);
 		health = INITIAL_HEALTH;
-		position = p;
-		this.game = game;
+		price=COST;
 	}
 
 	public int getHealth() {
@@ -37,12 +38,33 @@ public class Peashooter extends Plant {
 		return health > 0;
 	}
 
-	public void update() {
-		game.attackZombie(position, DAMAGE);
-	}
+	//public void update() {
+		//game.attackZombie(position, DAMAGE);
+	//}
 
 	public void receiveDamage(int damage) {
 		health = health - damage;
+	}
+
+	@Override
+	public void onEnter() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void onExit() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void update() {
+		// TODO Auto-generated method stub
+		Position atackPos=this.position;
+		while(!game.plantatackreceived(atackPos,DAMAGE)&&atackPos.getCol()<game.NUM_COLS) {
+			atackPos= atackPos.right();
+		}
 	}
 
 }

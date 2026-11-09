@@ -11,8 +11,10 @@ public interface GameModel {
 
 	void update();
 
-	void quit();
+	void quit();//este va a ser equivalente a ejecutar exit?? lo he usado suponiendo que si
 
 	void addPlant(GameModel model, String plantName, Position pos);
+
+	boolean hasGameFinished();
 
 }

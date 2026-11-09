@@ -63,4 +63,6 @@ public class Zombie {
 	public boolean isAlive() {
 		return health > 0;
 	}
+	
+	
 }

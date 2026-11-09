@@ -36,6 +36,6 @@ public class CatchCommand extends Command {
 
 	@Override
 	public void execute(GameModel model, GameView view) {
-		// TODO: delegate catching the sun at (col, row) to GameModel.
+		//Todavia no lo implemento porque no caen soles en nuestra version VOLVER
 	}
 }

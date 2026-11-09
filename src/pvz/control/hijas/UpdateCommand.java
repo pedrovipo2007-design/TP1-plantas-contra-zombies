@@ -29,6 +29,6 @@ public class UpdateCommand extends Command {
 
 	@Override
 	public void execute(GameModel model, GameView view) {
-		// TODO: advance the game model and refresh the view.
+		model.update();
 	}
 }

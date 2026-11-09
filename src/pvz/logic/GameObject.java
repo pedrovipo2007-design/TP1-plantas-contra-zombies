@@ -6,8 +6,8 @@ public abstract class GameObject implements GameItem { // tipo de objetos que ma
 
 	protected GameWorld game;
 	protected Position position;
-
-	GameObject(GameWorld game, Position p) {
+	protected int health;
+	protected GameObject(GameWorld game, Position p) {
 		this.game = game;
 		this.position = p;
 	}
@@ -15,16 +15,27 @@ public abstract class GameObject implements GameItem { // tipo de objetos que ma
 	public boolean isInPosition(Position other) {
 		return this.position.equals(other);
 	}
+	
+	public int getHealth() {
+		return health;
+	}
 
-	public Position getPosition();
+	public Position getPosition() {
+		return null;
+	}
 
-	public String getName();
+	public String getName() {
+		return null;
+	}
 
 	abstract public String getDescription();
 
-	public boolean isAlive();
-
+	public boolean isAlive() {
+		return false;
+	}
 	abstract public void onEnter();
-
+	abstract public void update();
 	abstract public void onExit();
+
+	abstract public boolean plantAtackReceived(int damage);
 }

@@ -37,6 +37,6 @@ public class AddPlantCommand extends Command {
 
 	@Override
 	public void execute(GameModel model, GameView view) {
-		model.addPlant(model,plantName, pos)
+		model.addPlant(model,plantName, pos);
 	}
 }

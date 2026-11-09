@@ -25,5 +25,6 @@ public class ExitCommand extends Command {
 	@Override
 	public void execute(GameModel model, GameView view) {
 		// TODO: request the model to end the game.
+		model.quit();
 	}
 }

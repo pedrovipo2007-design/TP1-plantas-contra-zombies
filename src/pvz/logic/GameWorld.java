@@ -13,4 +13,8 @@ public interface GameWorld {
 	boolean isEmpty(Position position);
 
 	boolean isInsideBoard(Position position);
+
+	void generateCoins(int sunsPerGeneration);
+
+	boolean  plantatackreceived(Position atackPos, int damage);
 }

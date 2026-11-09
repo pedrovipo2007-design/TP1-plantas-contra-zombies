@@ -3,6 +3,8 @@ package pvz.logic.gameobjects;
 import pvz.logic.Game;
 import utils.Position;
 import pvz.logic.GameWorld;
+import pvz.view.Messages;
+
 public class Sunflower extends Plant {
 
 	// atributos
@@ -17,26 +19,26 @@ public class Sunflower extends Plant {
 	private int cyclesSinceLastGeneration;
 	private GameWorld game;
 
-	public static Object getDescription() {
-
-		return "[S]unflower: cost='20' suncoins, damage='0', endurance='1'";
-	}
+	
 
 	public int getHealth() {
 		return health;
 	}
 
 	public Sunflower(Position p, GameWorld game) {
+		super(game,p);
 		health = INITIAL_HEALTH;
 		position = p;
 		cyclesSinceLastGeneration = 0;
 		this.game = game;
+		price=COST;
 	}
 
 	public boolean isAlive() {
 		return health > 0;
 	}
 
+	@Override
 	public void update() {
 		if (cyclesSinceLastGeneration == GENERATE_AFTER_CYCLES) {
 			game.generateCoins(SUNS_PER_GENERATION);
@@ -51,5 +53,23 @@ public class Sunflower extends Plant {
 
 	public Position getPosition() {
 		return new Position(position.getRow(), position.getCol());
+	}
+
+	@Override
+	public String getDescription() {
+		// TODO Auto-generated method stub
+		return Messages.SUNFLOWER_DESCRIPTION;
+	}
+
+	@Override
+	public void onEnter() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void onExit() {
+		// TODO Auto-generated method stub
+		
 	}
 }

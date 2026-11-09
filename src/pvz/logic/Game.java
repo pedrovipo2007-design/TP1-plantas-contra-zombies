@@ -5,6 +5,7 @@ import java.util.Random;
 import pvz.control.Level;
 import pvz.logic.gameobjects.Peashooter;
 import pvz.logic.gameobjects.PeashooterList;
+import pvz.logic.gameobjects.Plant;
 import pvz.logic.gameobjects.Sunflower;
 import pvz.logic.gameobjects.SunflowerList;
 import utils.Position;
@@ -96,7 +97,7 @@ public class Game implements GameStatus, GameWorld, GameModel {
 		playerQuit = true;
 	}
 
-	public void update() {
+	/*public void update() {
 
 		tZM.addZombie(); // tenemos dudas de que quieres que actualicemos primero
 		tSL.update();
@@ -105,6 +106,13 @@ public class Game implements GameStatus, GameWorld, GameModel {
 		tSL.removeDead();
 		tPL.removeDead();
 		tZM.removeDead();
+		cycles++;
+	}
+	*/
+	
+	@Override
+	public void update() {
+		GOC.update();
 		cycles++;
 	}
 
@@ -196,12 +204,29 @@ public class Game implements GameStatus, GameWorld, GameModel {
 		return playerQuit;
 	}
 	
-	public void addPlant(String plantName,Position pos) {
+	
+	@Override
+	public void addPlant(GameModel game,String plantName,Position pos) {
 		if(this.isInsideBoard(pos)) {
 			if(this.isEmpty(pos)) {
-				PlantFactory.spawnPlant(plantName, this, pos);
+				Plant miplanta = PlantFactory.spawnPlant(plantName, this, pos);
+				if(miplanta!=null) {
+					if(this.coins>= miplanta.getPrice()) {
+						this.GOC.add(miplanta,pos);
+						this.buyWithCoins(miplanta.getPrice());
+					}
+				}
+				
 			}
 		}
 		
+	}
+
+
+
+	@Override
+	public boolean plantatackreceived(Position atackPos, int damage) {
+		// TODO Auto-generated method stub
+		return this.GOC.plantAtackReceived(atackPos,damage);
 	}
 }

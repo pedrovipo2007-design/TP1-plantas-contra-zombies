@@ -47,6 +47,14 @@ public class Position {
 
 		return position;
 	}
+	public Position right() {
+		Position position;
+		
+		position = new Position(this.getRow(), this.getCol() +1);
+		
+
+		return position;
+	}
 
 	@Override
 	public boolean equals(Object o) {

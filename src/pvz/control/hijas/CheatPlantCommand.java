@@ -40,5 +40,6 @@ public class CheatPlantCommand extends Command {
 	@Override
 	public void execute(GameModel model, GameView view) {
 		// TODO: delegate free plant placement to GameModel.
+		//No vale pa nada de momento mas que pa hacer debuging
 	}
 }

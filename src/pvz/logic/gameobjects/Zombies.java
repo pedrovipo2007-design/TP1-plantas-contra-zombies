@@ -1,5 +1,20 @@
 package pvz.logic.gameobjects;
 
-public class Zombies extends GameObject {
+import pvz.logic.GameObject;
+import pvz.logic.GameWorld;
+import utils.Position;
 
+public abstract class Zombies extends GameObject {
+	
+	protected Zombies(GameWorld game, Position p) {
+		super(game, p);
+		// TODO Auto-generated constructor stub
+	}
+
+	@Override
+	public boolean plantAtackReceived(int damage) {
+		
+		health=health-damage;
+		return true;
+	}
 }

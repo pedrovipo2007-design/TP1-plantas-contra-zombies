@@ -25,5 +25,6 @@ public class HelpCommand extends Command {
 	@Override
 	public void execute(GameModel model, GameView view) {
 		// TODO: ask the model or view to display the command help.
+		view.printHelpMessage();
 	}
 }
