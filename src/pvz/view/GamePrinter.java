@@ -1,3 +1,6 @@
+
+// YA LA IMPLEMENTAREMOS CUANDO TENGAMOS TODAS LAS INTERFACES 
+
 package pvz.view;
 
 import static pvz.view.Messages.PROMPT;
@@ -8,6 +11,8 @@ import static utils.StringUtils.repeat;
 import java.util.Scanner;
 
 import pvz.logic.Game;
+import pvz.logic.GameStatus;
+import pvz.logic.GameWorld;
 import utils.Position;
 import utils.StringUtils;
 
@@ -39,7 +44,7 @@ public class GamePrinter implements GameView {
 
 	private static final String MARGIN = repeat(SPACE, MARGIN_SIZE);
 
-	private static final int CELL_SIZE = 8;
+	private static final int CELL_SIZE = 12;
 
 	private static final String CELL_BORDER = repeat(CELL_BORDER_CHAR, CELL_SIZE);
 
@@ -47,10 +52,10 @@ public class GamePrinter implements GameView {
 
 	private static final String INDENTED_ROW_BORDER = String.format("%n%s%s%n", MARGIN, ROW_BORDER);
 
-	private Game game;
+	private GameStatus game;
 	private Scanner scanner;
 
-	public GamePrinter(Game game) {
+	public GamePrinter(GameStatus game) {
 		this.game = game;
 		this.scanner = new Scanner(System.in);
 	}
@@ -61,11 +66,11 @@ public class GamePrinter implements GameView {
 	 * 
 	 * @return the string that represents the game status.
 	 */
-	private String getInfo() {
+	private String getInfo() { // GS?? Creo que no
 		StringBuilder buffer = new StringBuilder();
-		buffer.append(String.format(Messages.NUMBER_OF_CYCLES, game.getCycles()));
-		buffer.append(String.format(Messages.NUMBER_OF_COINS, game.getCoins()));
-		buffer.append(String.format(Messages.REMAINING_ZOMBIES, game.getRemainingZombies()));
+
+		// TODO fill your code - completar funciones en GameStatus (hacer default)
+
 		return buffer.toString();
 	}
 
@@ -73,60 +78,49 @@ public class GamePrinter implements GameView {
 	 * Prints complete representation (status+board) of the game.
 	 */
 	@Override
-	public void showGame() {
-
+	public void showGame() { // GV
 		StringBuilder str = new StringBuilder();
 
-		// Game Status
+		// Game Status (¿?)
 		str.append(getInfo());
 
 		// Paint game board
 		str.append(INDENTED_ROW_BORDER);
 
-		for (int row = 0; row < Game.NUM_ROWS; row++) {
+		for (int row = 0; row < GameWorld.NUM_ROWS; row++) {
 			str.append(MARGIN).append(VERTICAL_DELIMITER);
-			for (int col = 0; col < Game.NUM_COLS; col++) {
+			for (int col = 0; col < GameWorld.NUM_COLS; col++) {
 				str.append(StringUtils.centre(game.positionToString(new Position(row, col)), CELL_SIZE))
-						.append(VERTICAL_DELIMITER);// el objeto que se crea arriba esta aqui
+						.append(VERTICAL_DELIMITER);
 			}
 			str.append(INDENTED_ROW_BORDER);
 		}
 
 		System.out.println(str);
-
 	}
 
 	/**
 	 * Prints the message to be printed once the game has finished.
 	 */
 	@Override
-	public void showEndMessage() {
+	public void showEndMessage() { // GV
 		StringBuilder buffer = new StringBuilder(Messages.GAME_OVER);
-		buffer.append('\n');
-
-		// GamePrinter.showEndMessage()
-		if (game.haveZombiesReached())
-			buffer.append(Messages.ZOMBIES_WIN);
-		else if (game.playerWins())
-			buffer.append(Messages.PLAYER_WINS);
-		else
-			buffer.append(Messages.PLAYER_QUITS);
-
+		// TODO fill your code
 		System.out.println(buffer);
 	}
 
 	@Override
-	public void showError(String message) {
+	public void showError(String message) { // GV
 		System.out.println(error(message));
 	}
 
 	@Override
-	public void showMessage(String message) {
+	public void showMessage(String message) { // GV
 		System.out.println(message);
 	}
 
 	@Override
-	public String[] getPrompt() {
+	public String[] getPrompt() { // GV
 		System.out.print(PROMPT);
 		String line = scanner.nextLine();
 		String[] words = line.toLowerCase().trim().split("\\s+");
@@ -135,4 +129,11 @@ public class GamePrinter implements GameView {
 
 		return words;
 	}
+
+	@Override
+	public void printHelpMessage() { // GV
+		System.out.println(message);
+
+	}
+
 }

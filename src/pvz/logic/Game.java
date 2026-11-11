@@ -1,3 +1,15 @@
+
+/*
+ * 
+ * voy poniendo por aquí las interfaces completadas hasta el momento:
+ * 
+ * GameModel  -> NO
+ * GameWorld  -> NO
+ * GameStatus -> SI
+ * GameView   -> SI
+ * 
+ */
+
 package pvz.logic;
 
 import java.util.Random;
@@ -11,6 +23,10 @@ import pvz.logic.gameobjects.SunflowerList;
 import utils.Position;
 
 public class Game implements GameStatus, GameWorld, GameModel {
+
+	// GameStatus -> metodos que usa GamePrinter (estado del mundo)
+	// GameWorld -> metodos para que los objetos interactuen
+	// GameModel -> metodos para modificar el estado de la partida
 
 	public static final int INITIAL_COINS = 50;
 	private boolean playerQuit;
@@ -27,7 +43,9 @@ public class Game implements GameStatus, GameWorld, GameModel {
 	private ZombiesManager tZM;
 	private PeashooterList tPL;
 	private SunflowerList tSL;
+
 	private GameObjectContainer GOC;
+
 	public Game(long seed, Level level) {
 
 		playerQuit = false;
@@ -40,12 +58,15 @@ public class Game implements GameStatus, GameWorld, GameModel {
 		tZM = new ZombiesManager(this, tLevel, rand);
 		tPL = new PeashooterList();
 		tSL = new SunflowerList();
-		
-		// se eliminan las anteriores para añadir 
+
+		// eliminar las anteriores
 		GOC = new GameObjectContainer();
 	}
 
-	public String positionToString(Position position) {
+	public String positionToString(Position position) { // GS
+
+		// te dice que objeto hay en "position"
+		// creo que hay que refactorizar para que sea independiente de los objetos
 
 		// tenemos los objetos en arrays de Game.NUM_COLS*Game.NUM_ROWS (x*y) y su
 		// posicion sera (x * NUM_COLS) + y
@@ -71,23 +92,23 @@ public class Game implements GameStatus, GameWorld, GameModel {
 		return res;
 	}
 
-	public boolean checkGameObject(String objectName) {
+	public boolean checkGameObject(String objectName) { // GS
 
 		return (objectName.equals("sunflower") || objectName.equals("s") || objectName.equals("peashooter")
 				|| objectName.equals("p"));
 	}
 
-	public int getCycles() {
+	public int getCycles() { // GS
 
 		return cycles;
 	}
 
-	public int getCoins() {
+	public int getCoins() { // GS
 
 		return coins;
 	}
 
-	public int getRemainingZombies() {
+	public int getRemainingZombies() { // GS
 
 		return tZM.getRemainingZombies();
 	}
@@ -97,19 +118,14 @@ public class Game implements GameStatus, GameWorld, GameModel {
 		playerQuit = true;
 	}
 
-	/*public void update() {
+	/*
+	 * public void update() {
+	 * 
+	 * tZM.addZombie(); tSL.update(); tPL.update(); tZM.update(); // para que den
+	 * los test tSL.removeDead(); tPL.removeDead(); tZM.removeDead(); cycles++; }
+	 * 
+	 */
 
-		tZM.addZombie(); // tenemos dudas de que quieres que actualicemos primero
-		tSL.update();
-		tPL.update();
-		tZM.update(); // para que den los test este es el orden
-		tSL.removeDead();
-		tPL.removeDead();
-		tZM.removeDead();
-		cycles++;
-	}
-	*/
-	
 	@Override
 	public void update() {
 		GOC.update();
@@ -177,7 +193,7 @@ public class Game implements GameStatus, GameWorld, GameModel {
 
 	public boolean isEmpty(Position pos) {
 		return GOC.isEmpty(pos);
-		
+
 	}
 
 	public static Position newZombiePosition(int row) { // devuelvo posicion en la col mas alejada
@@ -203,30 +219,27 @@ public class Game implements GameStatus, GameWorld, GameModel {
 	public boolean playerQuits() {
 		return playerQuit;
 	}
-	
-	
+
 	@Override
-	public void addPlant(GameModel game,String plantName,Position pos) {
-		if(this.isInsideBoard(pos)) {
-			if(this.isEmpty(pos)) {
+	public void addPlant(GameModel game, String plantName, Position pos) {
+		if (this.isInsideBoard(pos)) {
+			if (this.isEmpty(pos)) {
 				Plant miplanta = PlantFactory.spawnPlant(plantName, this, pos);
-				if(miplanta!=null) {
-					if(this.coins>= miplanta.getPrice()) {
-						this.GOC.add(miplanta,pos);
+				if (miplanta != null) {
+					if (this.coins >= miplanta.getPrice()) {
+						this.GOC.add(miplanta, pos);
 						this.buyWithCoins(miplanta.getPrice());
 					}
 				}
-				
+
 			}
 		}
-		
+
 	}
-
-
 
 	@Override
 	public boolean plantatackreceived(Position atackPos, int damage) {
 		// TODO Auto-generated method stub
-		return this.GOC.plantAtackReceived(atackPos,damage);
+		return this.GOC.plantAtackReceived(atackPos, damage);
 	}
 }

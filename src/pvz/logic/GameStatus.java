@@ -1,7 +1,15 @@
 package pvz.logic;
 
-public interface GameStatus { // incluye metodos de GamePrinter
+public interface GameStatus { // incluye los metodos que usa GamePrinter (no que implementa)
 
-	int getCycles(); // ver getInfo de GamePrinter (son los gets que hay que poner aqui)
+	String positionToString();
+
+	boolean checkGameObject(String objectName);
+
+	public int getCycles();
+
+	public int getCoins();
+
+	public int getRemainingZombies();
 
 }
