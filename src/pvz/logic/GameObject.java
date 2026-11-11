@@ -12,6 +12,10 @@ public abstract class GameObject implements GameItem { // tipo de objetos que ma
 		this.position = p;
 	}
 
+	public GameObject() {
+		// TODO Auto-generated constructor stub
+	}//LO QUEREMOS UNICAMENTE PARA GETS DESCRIPTIONS CUANDO NO HAY MODEL O POSITION
+
 	public boolean isInPosition(Position other) {
 		return this.position.equals(other);
 	}

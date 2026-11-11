@@ -7,7 +7,7 @@ public interface GameModel {
 	// actualizar estado de la partida (reiniciar, actualizar...)
 	// interactua con comandos y ejecuta acciones del usuario
 
-	void reset();
+	void reset();//aqui no se si habra que utilizar el hecho de que el command lo ejecuto con un model 
 
 	void update();
 

@@ -19,7 +19,9 @@ public class Sunflower extends Plant {
 	private int cyclesSinceLastGeneration;
 	private GameWorld game;
 
-	
+	public Sunflower() {
+		
+	}
 
 	public int getHealth() {
 		return health;

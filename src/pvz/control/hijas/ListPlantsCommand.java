@@ -2,6 +2,8 @@ package pvz.control.hijas;
 
 import pvz.control.Command;
 import pvz.logic.GameModel;
+import pvz.logic.PlantFactory;
+import pvz.logic.gameobjects.Plant;
 import pvz.view.GameView;
 import pvz.view.Messages;
 
@@ -24,6 +26,12 @@ public class ListPlantsCommand extends Command {
 
 	@Override
 	public void execute(GameModel model, GameView view) {
-		// TODO: retrieve and display the available plants.
+		StringBuilder h= new StringBuilder();
+		for(Plant p :PlantFactory.getAvailablePlants()) {
+			h.append(p.getDescription());
+			h.append(System.lineSeparator());
+		}
+		String help = h.toString();
+		view.showMessage(help);
 	}
 }
