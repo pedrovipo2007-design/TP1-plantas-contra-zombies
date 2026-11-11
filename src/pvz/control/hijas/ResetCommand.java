@@ -49,6 +49,6 @@ public class ResetCommand extends Command {
 	@Override
 	public void execute(GameModel model, GameView view) {
 		// TODO: reset the model, using level and seed when hasConfiguration is true.
-		model.reset();
+		model.reset();//VOLVER
 	}
 }

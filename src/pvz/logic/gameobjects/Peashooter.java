@@ -25,7 +25,11 @@ public class Peashooter extends Plant {
 		health = INITIAL_HEALTH;
 		price=COST;
 	}
-
+	
+	public Peashooter() {
+		super();
+		
+	}
 	public int getHealth() {
 		return health;
 	}

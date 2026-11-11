@@ -19,6 +19,17 @@ public abstract class Plant extends GameObject {
 	
 	
 	
+	public Plant() {
+		super ();
+		// TODO Auto-generated constructor stub
+	}
+
+
+
+
+
+
+
 	public int getPrice() {
 		return price;
 	}

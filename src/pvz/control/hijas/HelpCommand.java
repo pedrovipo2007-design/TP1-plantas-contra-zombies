@@ -27,9 +27,11 @@ public class HelpCommand extends Command {
 		// TODO: ask the model or view to display the command help.
 		
 		StringBuilder h= new StringBuilder();
+		h.append(Messages.HELP_AVAILABLE_COMMANDS);
 		for(Command com :AVAILABLE_COMMANDS) {
 			h.append(com.getDetails());
-			h.append(com.getDetails());
+			h.append(Messages.HELP_DETAILS_COMMAND_HELP_SEPARATOR);
+			h.append(com.getHelp());
 			h.append(System.lineSeparator());
 		}
 		String help = h.toString();
