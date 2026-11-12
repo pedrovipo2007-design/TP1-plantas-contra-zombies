@@ -28,7 +28,10 @@ public class UpdateCommand extends Command {
 	}
 
 	@Override
-	public void execute(GameModel model, GameView view) {
+	public boolean execute(GameModel model, GameView view) {
 		model.update();
+		return false;
 	}
+	
+	
 }

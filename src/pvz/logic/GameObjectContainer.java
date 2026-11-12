@@ -16,7 +16,7 @@ public class GameObjectContainer {
 	}
 	public boolean isEmpty(Position pos) {
 		// TODO Auto-generated method stub
-		return board[pos.getRow()][pos.getCol()].equals(null);
+		return board[pos.getRow()][pos.getCol()]==null;
 	}
 	public void add(GameObject obj, Position pos) {
 		int row= pos.getRow();
@@ -39,6 +39,9 @@ public class GameObjectContainer {
 
 			}
 		}
+	}
+	public String iconInPosition(Position pos) {
+		return board[pos.getRow()][pos.getCol()].getIcon();
 	}
 	
 }

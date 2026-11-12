@@ -23,7 +23,7 @@ public class HelpCommand extends Command {
 	}
 
 	@Override
-	public void execute(GameModel model, GameView view) {
+	public boolean execute(GameModel model, GameView view) {
 		// TODO: ask the model or view to display the command help.
 		
 		StringBuilder h= new StringBuilder();
@@ -36,5 +36,8 @@ public class HelpCommand extends Command {
 		}
 		String help = h.toString();
 		view.showMessage(help);
+		return false;
 	}
+	
+	
 }

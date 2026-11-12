@@ -27,6 +27,8 @@ public class ZombiesManager {
 	private Random rand;
 
 	private int remainingZombies;
+	
+	private int zombiesOnGame;
 
 	private ZombieList zombies;
 
@@ -36,6 +38,7 @@ public class ZombiesManager {
 		this.rand = rand;
 		this.remainingZombies = level.getNumberOfZombies();
 		this.zombies = new ZombieList();
+		zombiesOnGame=0;
 	}
 
 	/**
@@ -76,7 +79,7 @@ public class ZombiesManager {
 
 	public boolean addZombie(int row) {
 
-		Position zombiePosition = Game.newZombiePosition(row);
+		Position zombiePosition = game.newZombiePosition(row);
 
 		boolean canAdd = this.remainingZombies > 0 && shouldAddZombie() && game.isEmptyOfZombies(zombiePosition);
 
@@ -133,13 +136,20 @@ public class ZombiesManager {
 	}
 
 	public boolean allZombiesWereKilled() {
-		return (remainingZombies == 0 && zombies.noMoreZombies());
+		return (remainingZombies == 0 && zombiesOnGame==0);
 	}
 
 	public void removeDead() {
 		zombies.removeDead();
 	}
 
+	public void zombieWasAdded() {
+		remainingZombies--;
+		zombiesOnGame++;
+	}
+	public void zombieWasKilled() {
+		zombiesOnGame--;
+	}
 	public void addZombiePosition(Position pos) { // para debugear
 		Zombie zombie;
 		zombie = new Zombie(pos, game);

@@ -32,7 +32,7 @@ public abstract class Command {
 	public abstract Command create(String[] commandWords);
 
 	/** Executes this command using the model and view contracts. */
-	public abstract void execute(GameModel model, GameView view);
+	public abstract  boolean execute(GameModel model, GameView view);
 
 	public boolean matchCommand(String word) {
 		return name.equals(word) || shortcut.equals(word);
@@ -64,4 +64,6 @@ public abstract class Command {
 		}
 		return null;
 	}
+	
+	//public abstract boolean consumedTurn();//Al final este lo meto en el execute que si no el addplant es dificil
 }

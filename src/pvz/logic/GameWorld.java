@@ -25,4 +25,9 @@ public interface GameWorld {
 	void attackZombie(Position p, int damage);
 
 	public void attackPlant(Position p, int damage);
+	
+	public void zombieWasAdded();
+
+	
+	public void zombieWasKilled();
 }

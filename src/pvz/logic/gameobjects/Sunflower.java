@@ -74,4 +74,15 @@ public class Sunflower extends Plant {
 		// TODO Auto-generated method stub
 		
 	}
+
+	@Override
+	public String getName() {
+		// TODO Auto-generated method stub
+		return Messages.SUNFLOWER_NAME;
+	}
+	
+	@Override
+	public String getIcon() {
+		return String.format(Messages.SUNFLOWER_ICON,this);
+	}
 }

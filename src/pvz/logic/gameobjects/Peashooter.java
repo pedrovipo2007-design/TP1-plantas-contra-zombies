@@ -1,5 +1,6 @@
 package pvz.logic.gameobjects;
 
+import pvz.logic.Game;
 import pvz.logic.GameWorld;
 import pvz.view.Messages;
 import utils.Position;
@@ -65,6 +66,17 @@ public class Peashooter extends Plant {
 		while (!game.plantAtackReceived(atackPos, DAMAGE) && atackPos.getCol() < game.NUM_COLS) {
 			atackPos = atackPos.right();
 		}
+	}
+
+	@Override
+	public String getName() {
+		// TODO
+		return Messages.PEASHOOTER_NAME;
+	}
+	
+	@Override
+	public String getIcon() {
+		return String.format(Messages.PEASHOOTER_ICON,this);
 	}
 
 }

@@ -60,7 +60,7 @@ public class Game implements GameStatus, GameWorld, GameModel {
 		// eliminar las anteriores
 		GOC = new GameObjectContainer();
 	}
-
+	@Override
 	public String positionToString(Position position) { // GS
 
 		// te dice que objeto hay en "position"
@@ -72,19 +72,12 @@ public class Game implements GameStatus, GameWorld, GameModel {
 
 		String res;
 
-		if (!tZM.isEmpty(position)) {
+		if (!GOC.isEmpty(position)) {
 
-			res = tZM.iconInPosition(position);
+			res = GOC.iconInPosition(position);
 
-		} else if (!tPL.isEmpty(position)) {
-
-			res = tPL.iconInPosition(position);
-
-		} else if (!tSL.isEmpty(position)) {
-
-			res = tSL.iconInPosition(position);
-
-		} else
+		} 
+		else
 			res = " "; // devolvemos vacio si no hay nada
 
 		return res;
@@ -208,7 +201,16 @@ public class Game implements GameStatus, GameWorld, GameModel {
 		}
 
 	}
+	
+	@Override
+	public void zombieWasAdded() {
+		tZM.zombieWasAdded();
+	}
 
+	@Override
+	public void zombieWasKilled() {
+		tZM.zombieWasKilled();
+	}
 	public boolean plantAtackReceived(Position atackPos, int damage) { // GW
 
 		return this.GOC.plantAtackReceived(atackPos, damage);

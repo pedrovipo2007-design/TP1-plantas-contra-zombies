@@ -40,4 +40,11 @@ public abstract class Plant extends GameObject {
 	public boolean plantAtackReceived(int damage) {
 		return false;
 	}
+	
+	
+	@Override
+	public boolean zombieAtackReceived(int damage) {
+		health=health-damage;
+		return true;
+	}
 }

@@ -17,4 +17,8 @@ public abstract class Zombies extends GameObject {
 		health=health-damage;
 		return true;
 	}
+	@Override
+	public boolean zombieAtackReceived(int damage) {
+		return false;
+	}
 }

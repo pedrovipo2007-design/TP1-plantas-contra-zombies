@@ -23,7 +23,10 @@ public class ListZombieCommand extends Command {
 	}
 
 	@Override
-	public void execute(GameModel model, GameView view) {
+	public boolean execute(GameModel model, GameView view) {
 		// TODO: retrieve and display the available zombies.
+		return false;
 	}
+	
+	
 }
