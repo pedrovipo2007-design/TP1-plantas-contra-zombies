@@ -7,38 +7,44 @@ public abstract class GameObject implements GameItem { // tipo de objetos que ma
 	protected GameWorld game;
 	protected Position position;
 	protected int health;
+
 	protected GameObject(GameWorld game, Position p) {
 		this.game = game;
 		this.position = p;
 	}
 
 	public GameObject() {
-		// TODO Auto-generated constructor stub
-	}//LO QUEREMOS UNICAMENTE PARA GETS DESCRIPTIONS CUANDO NO HAY MODEL O POSITION
+		// LO QUEREMOS UNICAMENTE PARA GETS DESCRIPTIONS CUANDO NO HAY MODEL O POSITION
+		// - Que??
+		// TODO
+	}
 
 	public boolean isInPosition(Position other) {
 		return this.position.equals(other);
 	}
-	
+
 	public int getHealth() {
 		return health;
 	}
 
 	public Position getPosition() {
-		return null;
+		Position aux = new Position(position.getRow(), position.getCol());
+		return aux;
 	}
 
-	public String getName() {
-		return null;
-	}
+	abstract public String getName();
 
 	abstract public String getDescription();
 
 	public boolean isAlive() {
-		return false;
+
+		return health != 0;
 	}
+
 	abstract public void onEnter();
+
 	abstract public void update();
+
 	abstract public void onExit();
 
 	abstract public boolean plantAtackReceived(int damage);

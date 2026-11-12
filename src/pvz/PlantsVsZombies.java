@@ -72,7 +72,7 @@ public class PlantsVsZombies { // recordar poner en debug arguments EASY y una s
 		System.out.println(String.format(Messages.CONFIGURED_SEED, seed));
 
 		Game game = new Game(seed, level);
-		Controller controller = new Controller(game);
+		Controller controller = new Controller(game, game); // chapuza de la chapuza (ver constructora)
 		controller.run();
 	}
 }

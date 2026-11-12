@@ -7,7 +7,10 @@ public interface GameModel {
 	// actualizar estado de la partida (reiniciar, actualizar...)
 	// interactua con comandos y ejecuta acciones del usuario
 
-	void reset();//aqui no se si habra que utilizar el hecho de que el command lo ejecuto con un model 
+	void reset();
+
+	// aqui no se si habra que utilizar el hecho de que el command lo ejecuto con un
+	// model
 
 	void update();
 
@@ -17,4 +20,7 @@ public interface GameModel {
 
 	boolean hasGameFinished();
 
+	boolean playerWins();
+
+	boolean playerQuits();
 }

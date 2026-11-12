@@ -7,11 +7,11 @@ import utils.Position;
 public class Peashooter extends Plant {
 
 	// atributos
-	//private Position position;ya lo lleva plant
+	// private Position position;ya lo lleva plant
 	public static final int INITIAL_HEALTH = 3;
 	public static final int DAMAGE = 1;
 	public static final int COST = 50;
-	//private GameWorld game; ya lo lleva plant
+	// private GameWorld game; ya lo lleva plant
 
 	// metodos
 	@Override
@@ -21,15 +21,16 @@ public class Peashooter extends Plant {
 	}
 
 	public Peashooter(Position p, GameWorld game) {
-		super(game,p);
+		super(game, p);
 		health = INITIAL_HEALTH;
-		price=COST;
+		price = COST;
 	}
-	
+
 	public Peashooter() {
 		super();
-		
+
 	}
+
 	public int getHealth() {
 		return health;
 	}
@@ -42,10 +43,6 @@ public class Peashooter extends Plant {
 		return health > 0;
 	}
 
-	//public void update() {
-		//game.attackZombie(position, DAMAGE);
-	//}
-
 	public void receiveDamage(int damage) {
 		health = health - damage;
 	}
@@ -53,21 +50,20 @@ public class Peashooter extends Plant {
 	@Override
 	public void onEnter() {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void onExit() {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void update() {
-		// TODO Auto-generated method stub
-		Position atackPos=this.position;
-		while(!game.plantatackreceived(atackPos,DAMAGE)&&atackPos.getCol()<game.NUM_COLS) {
-			atackPos= atackPos.right();
+		Position atackPos = this.position;
+		while (!game.plantAtackReceived(atackPos, DAMAGE) && atackPos.getCol() < game.NUM_COLS) {
+			atackPos = atackPos.right();
 		}
 	}
 

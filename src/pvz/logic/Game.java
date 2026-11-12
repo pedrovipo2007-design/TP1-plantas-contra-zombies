@@ -15,10 +15,8 @@ package pvz.logic;
 import java.util.Random;
 
 import pvz.control.Level;
-import pvz.logic.gameobjects.Peashooter;
 import pvz.logic.gameobjects.PeashooterList;
 import pvz.logic.gameobjects.Plant;
-import pvz.logic.gameobjects.Sunflower;
 import pvz.logic.gameobjects.SunflowerList;
 import utils.Position;
 
@@ -113,30 +111,23 @@ public class Game implements GameStatus, GameWorld, GameModel {
 		return tZM.getRemainingZombies();
 	}
 
-	public void quit() {
+	public void quit() { // GM
 
 		playerQuit = true;
 	}
 
-	/*
-	 * public void update() {
-	 * 
-	 * tZM.addZombie(); tSL.update(); tPL.update(); tZM.update(); // para que den
-	 * los test tSL.removeDead(); tPL.removeDead(); tZM.removeDead(); cycles++; }
-	 * 
-	 */
-
 	@Override
-	public void update() {
+	public void update() { // GM
 		GOC.update();
 		cycles++;
 	}
 
-	public boolean haveZombiesReached() {
+	public boolean haveZombiesReached() { // no se en que interfaz ponerlo
+
 		return tZM.doZombiesReachedTheHouse();
 	}
 
-	public void reset() {
+	public void reset() { // GM
 
 		coins = INITIAL_COINS;
 		cycles = 0;
@@ -148,80 +139,62 @@ public class Game implements GameStatus, GameWorld, GameModel {
 		rand.setSeed(longSeed); // lo he buscado, daba error
 	}
 
-	public void addGameObject(String plantType, Position position) {
-
-		if (plantType.equals("peashooter") || plantType.equals("p")) {
-
-			Peashooter p = new Peashooter(position, this);
-			tPL.add(p);
-			this.buyWithCoins(Peashooter.COST);
-		}
-
-		else if (plantType.equals("sunflower") || plantType.equals("s")) {
-
-			Sunflower s = new Sunflower(position, this);
-			tSL.add(s);
-			this.buyWithCoins(Sunflower.COST);
-		}
-	}
-
-	public void generateCoins(int cost) {
+	public void generateCoins(int cost) { // GW
 
 		coins += cost;
 	}
 
-	private void buyWithCoins(int cost) {
+	private void buyWithCoins(int cost) { // privada
 
 		coins -= cost;
 	}
 
-	public boolean isEmptyOfZombies(Position pos) {
+	public boolean isEmptyOfZombies(Position pos) { // GW
+
 		return tZM.isEmpty(pos);
 	}
 
-	public void attackZombie(Position p, int damage) { // position p es la planta
+	public void attackZombie(Position p, int damage) { // position p es la planta - GW
 
 		tZM.damageZombie(p, damage);
 	}
 
-	public void attackPlant(Position p, int damage) { // position p es la planta
+	public void attackPlant(Position p, int damage) { // position p es la planta - GW
 		if (tPL.isEmpty(p))
 			tSL.receiveDamage(damage, p);
 		else
 			tPL.receiveDamage(p, damage);
 	}
 
-	public boolean isEmpty(Position pos) {
-		return GOC.isEmpty(pos);
+	public boolean isEmpty(Position pos) { // GW
 
+		return GOC.isEmpty(pos);
 	}
 
-	public static Position newZombiePosition(int row) { // devuelvo posicion en la col mas alejada
+	public Position newZombiePosition(int row) { // devuelvo posicion en la col mas alejada - GW
 
 		Position p = new Position(row, NUM_COLS + 1);
-
 		return p;
 	}
 
-	public boolean isInsideBoard(Position p) {
+	public boolean isInsideBoard(Position p) { // GW
 
 		return p.getCol() < NUM_COLS && p.getRow() < NUM_ROWS && p.getCol() >= 0 && p.getRow() >= 0;
 	}
 
-	public boolean hasGameFinished() {
+	public boolean hasGameFinished() { // GM
 		return playerQuit || haveZombiesReached() || playerWins();
 	}
 
-	public boolean playerWins() {
+	public boolean playerWins() { // GM
 		return tZM.getRemainingZombies() == 0 && tZM.noMoreZombies();
 	}
 
-	public boolean playerQuits() {
+	public boolean playerQuits() { // GM
 		return playerQuit;
 	}
 
-	@Override
-	public void addPlant(GameModel game, String plantName, Position pos) {
+	public void addPlant(GameModel game, String plantName, Position pos) { // GM
 		if (this.isInsideBoard(pos)) {
 			if (this.isEmpty(pos)) {
 				Plant miplanta = PlantFactory.spawnPlant(plantName, this, pos);
@@ -231,15 +204,13 @@ public class Game implements GameStatus, GameWorld, GameModel {
 						this.buyWithCoins(miplanta.getPrice());
 					}
 				}
-
 			}
 		}
 
 	}
 
-	@Override
-	public boolean plantatackreceived(Position atackPos, int damage) {
-		// TODO Auto-generated method stub
+	public boolean plantAtackReceived(Position atackPos, int damage) { // GW
+
 		return this.GOC.plantAtackReceived(atackPos, damage);
 	}
 }

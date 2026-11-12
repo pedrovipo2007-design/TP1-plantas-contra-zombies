@@ -16,5 +16,13 @@ public interface GameWorld {
 
 	void generateCoins(int sunsPerGeneration);
 
-	boolean  plantatackreceived(Position atackPos, int damage);
+	boolean plantAtackReceived(Position atackPos, int damage);
+
+	Position newZombiePosition(int row);
+
+	boolean isEmptyOfZombies(Position pos);
+
+	void attackZombie(Position p, int damage);
+
+	public void attackPlant(Position p, int damage);
 }

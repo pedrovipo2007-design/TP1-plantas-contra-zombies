@@ -132,8 +132,8 @@ public class GamePrinter implements GameView {
 
 	@Override
 	public void printHelpMessage() { // GV
-		System.out.println(message);
 
+		System.out.println("COMPILAR"); // ya lo arreglaremos
 	}
 
 }
