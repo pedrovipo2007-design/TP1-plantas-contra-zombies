@@ -30,6 +30,7 @@ import utils.StringUtils;
  * through the public API and never modifies it. All string literals and format
  * templates are sourced from {@link Messages}.
  */
+
 public class GamePrinter implements GameView {
 
 	private static final String SPACE = " ";
@@ -66,10 +67,14 @@ public class GamePrinter implements GameView {
 	 * 
 	 * @return the string that represents the game status.
 	 */
-	private String getInfo() { // GS?? Creo que no
+	private String getInfo() { // es privado
 		StringBuilder buffer = new StringBuilder();
 
-		// TODO fill your code - completar funciones en GameStatus (hacer default)
+		// Supongo que tengo que pasar el ciclo, las monedas, etc - TODO
+
+		buffer.append(game.getCoins());
+		buffer.append(game.getCycles());
+		buffer.append(game.getRemainingZombies());
 
 		return buffer.toString();
 	}
@@ -105,7 +110,6 @@ public class GamePrinter implements GameView {
 	@Override
 	public void showEndMessage() { // GV
 		StringBuilder buffer = new StringBuilder(Messages.GAME_OVER);
-		// TODO fill your code
 		System.out.println(buffer);
 	}
 
@@ -133,7 +137,7 @@ public class GamePrinter implements GameView {
 	@Override
 	public void printHelpMessage() { // GV
 
-		System.out.println("COMPILAR"); // ya lo arreglaremos
+		System.out.println("COMPILAR"); // ya lo arreglaremos - ver GameView
 	}
 
 }
