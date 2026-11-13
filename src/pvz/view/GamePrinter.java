@@ -71,10 +71,13 @@ public class GamePrinter implements GameView {
 		StringBuilder buffer = new StringBuilder();
 
 		// Supongo que tengo que pasar el ciclo, las monedas, etc - TODO
-
-		buffer.append(game.getCoins());
-		buffer.append(game.getCycles());
-		buffer.append(game.getRemainingZombies());
+		buffer.append(String.format(Messages.NUMBER_OF_COINS,game.getCoins()));
+		
+		buffer.append(String.format(Messages.NUMBER_OF_CYCLES,game.getCycles()));
+		
+		
+		buffer.append(String.format(Messages.REMAINING_ZOMBIES,game.getRemainingZombies()));
+		
 
 		return buffer.toString();
 	}

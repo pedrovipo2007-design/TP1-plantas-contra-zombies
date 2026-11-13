@@ -83,6 +83,6 @@ public class Sunflower extends Plant {
 	
 	@Override
 	public String getIcon() {
-		return String.format(Messages.SUNFLOWER_ICON,this);
+		return String.format(Messages.SUNFLOWER_ICON,this.health);
 	}
 }

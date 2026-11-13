@@ -76,7 +76,7 @@ public class Peashooter extends Plant {
 	
 	@Override
 	public String getIcon() {
-		return String.format(Messages.PEASHOOTER_ICON,this);
+		return String.format(Messages.PEASHOOTER_ICON,this.health);
 	}
 
 }

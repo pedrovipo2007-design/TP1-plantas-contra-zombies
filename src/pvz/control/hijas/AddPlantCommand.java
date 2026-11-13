@@ -37,7 +37,7 @@ public class AddPlantCommand extends Command {
 
 	@Override
 	public boolean execute(GameModel model, GameView view) {
-		model.addPlant(model,plantName, pos);
-		return false;
+		
+		return model.addPlant(plantName, pos);
 	}
 }

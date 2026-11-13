@@ -18,9 +18,9 @@ public class GameObjectContainer {
 		// TODO Auto-generated method stub
 		return board[pos.getRow()][pos.getCol()]==null;
 	}
-	public void add(GameObject obj, Position pos) {
-		int row= pos.getRow();
-		int col= pos.getCol();
+	public void add(GameObject obj) {
+		int row= obj.getPosition().getRow();
+		int col= obj.getPosition().getCol();
 		board[row][col]=obj;
 	}
 	public boolean plantAtackReceived(Position atackPos, int damage) {

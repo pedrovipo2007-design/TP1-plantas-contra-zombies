@@ -86,7 +86,7 @@ public class ZombiesManager {
 		if (canAdd) {
 			Zombie zombie;
 			zombie = new Zombie(zombiePosition, game);
-			zombies.add(zombie);
+			GameObjectContainer.add(zombie);
 		}
 		return canAdd;
 	}
@@ -99,7 +99,7 @@ public class ZombiesManager {
 
 		this.remainingZombies = level.getNumberOfZombies();
 		zombies.reset();
-	}
+	}	//ESTE SE PUEDE ELIMINAR, EL RESET VA EN GOC
 
 	public boolean doZombiesReachedTheHouse() {
 
@@ -133,7 +133,7 @@ public class ZombiesManager {
 
 	public void update() {
 		zombies.update();
-	}
+	}//TAMBIEN ELIMINABLE EL UPDATE VA EN GOC
 
 	public boolean allZombiesWereKilled() {
 		return (remainingZombies == 0 && zombiesOnGame==0);
@@ -141,7 +141,7 @@ public class ZombiesManager {
 
 	public void removeDead() {
 		zombies.removeDead();
-	}
+	}//ESTO LO METEREMOS EN EL UPDATE SUPONGO, SI NO COMO METODO EXTRA DE GOC Y ASI NO HAY PROBLEMA DE QUE UNO QE=UE MUERE EN ESE TURNO NO ATACA
 
 	public void zombieWasAdded() {
 		remainingZombies--;

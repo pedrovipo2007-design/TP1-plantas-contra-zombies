@@ -111,6 +111,7 @@ public class Game implements GameStatus, GameWorld, GameModel {
 
 	@Override
 	public void update() { // GM
+		tZM.update();
 		GOC.update();
 		cycles++;
 	}
@@ -186,7 +187,9 @@ public class Game implements GameStatus, GameWorld, GameModel {
 	public boolean playerQuits() { // GM
 		return playerQuit;
 	}
-
+	
+	//ESTE REALMENTE SE PUEDE BORRAR< ES SOLO POR SI NO TE GUSTA COMO ESTA
+	@Override
 	public void addPlant(GameModel game, String plantName, Position pos) { // GM
 		if (this.isInsideBoard(pos)) {
 			if (this.isEmpty(pos)) {
@@ -199,6 +202,24 @@ public class Game implements GameStatus, GameWorld, GameModel {
 				}
 			}
 		}
+
+	}
+	
+	@Override
+	public boolean addPlant( String plantName, Position pos) { // GM
+		if (this.isInsideBoard(pos)) {
+			if (this.isEmpty(pos)) {
+				Plant miplanta = PlantFactory.spawnPlant(plantName, this, pos);
+				if (miplanta != null) {
+					if (this.coins >= miplanta.getPrice()) {
+						this.GOC.add(miplanta, pos);
+						this.buyWithCoins(miplanta.getPrice());
+						return true;
+					}
+				}
+			}
+		}
+		return false;
 
 	}
 	

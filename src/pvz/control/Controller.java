@@ -41,7 +41,9 @@ public class Controller {
 			String[] words = view.getPrompt();
 			Command command = Command.parse(words);
 			if (command != null) {
-				command.execute(game, view);
+				if(command.execute(game, view)) {//returnea on booleano indicando si actualiza el tablero
+					view.showGame();
+				}
 			} else {
 				view.showError(Messages.UNKNOWN_COMMAND);
 			}
