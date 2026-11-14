@@ -14,11 +14,16 @@ public class Zombie extends Zombies {
 	private int cyclesNotMoving;
 
 	public Zombie(Position p, GameWorld game) {
+
 		super(game, p);
 		position = p;
 		health = INITIAL_HEALTH;
 		cyclesNotMoving = 0;
+	}
 
+	public Zombie() {
+
+		super();
 	}
 
 	public int getHealth() {

@@ -16,8 +16,7 @@ import pvz.logic.GameModel;
 import pvz.view.GameView;
 import pvz.view.Messages;
 
-/** Common structure and command parser for the game's user actions. */
-public abstract class Command {
+public abstract class Command { // para sus hijas investigar el "d{1,3}" para coger formato
 
 	protected static final List<Command> AVAILABLE_COMMANDS = Arrays.asList(new AddPlantCommand(),
 			new ListPlantsCommand(), new ListZombieCommand(), new ResetCommand(), new HelpCommand(), new ExitCommand(),

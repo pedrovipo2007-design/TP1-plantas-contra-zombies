@@ -6,9 +6,13 @@ import utils.Position;
 
 public abstract class Zombies extends GameObject { // Zombies es la clase abstracta, Zombie es zombie normal (objeto)
 
-	protected Zombies(GameWorld game, Position p) {
+	protected Zombies(GameWorld game, Position p) { // xq lo hacemos protected??
 		super(game, p);
 		// TODO
+	}
+
+	protected Zombies() {
+		super();
 	}
 
 	@Override

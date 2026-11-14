@@ -39,6 +39,6 @@ public class AddZombieCommand extends Command { // creo que esta clase había qu
 	@Override
 	public boolean execute(GameModel model, GameView view) {
 
-		return model.addZombie(plantName, pos); // TODO
+		return model.addZombie(plantName, pos);
 	}
 }
