@@ -93,7 +93,7 @@ public class Zombie  extends Zombies{
 	
 	@Override
 	public String getIcon() {
-		return String.format(Messages.ZOMBIE_ICON,this);
+		return String.format(Messages.ZOMBIE_ICON,this.health);
 	}
 	
 }

@@ -20,7 +20,7 @@ import utils.Position;
 
 public class ZombiesManager {
 
-	private Game game;
+	private GameWorld game;
 
 	private Level level;
 
@@ -32,7 +32,7 @@ public class ZombiesManager {
 
 	private ZombieList zombies;
 
-	public ZombiesManager(Game game, Level level, Random rand) {
+	public ZombiesManager(GameWorld game, Level level, Random rand) {
 		this.game = game;
 		this.level = level;
 		this.rand = rand;
@@ -72,9 +72,11 @@ public class ZombiesManager {
 
 	public boolean addZombie() {
 		int row = randomZombieRow();
-		if (addZombie(row))
+		if (addZombie(row)) {
 			remainingZombies--;
-		return true;
+			return true;
+		}
+		else return false;
 	}
 
 	public boolean addZombie(int row) {
@@ -86,7 +88,7 @@ public class ZombiesManager {
 		if (canAdd) {
 			Zombie zombie;
 			zombie = new Zombie(zombiePosition, game);
-			GameObjectContainer.add(zombie);
+			game.add(zombie);
 		}
 		return canAdd;
 	}

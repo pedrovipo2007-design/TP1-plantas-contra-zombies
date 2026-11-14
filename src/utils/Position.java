@@ -39,11 +39,8 @@ public class Position {
 
 	public Position left() {
 		Position position;
-		if (this.col < 8) {
 			position = new Position(this.getRow(), this.getCol() - 1);
-		} else {
-			position = new Position(this.getRow(), Game.NUM_COLS - 1);
-		}
+		
 
 		return position;
 	}

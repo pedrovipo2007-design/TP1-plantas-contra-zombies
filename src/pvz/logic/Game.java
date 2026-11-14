@@ -18,6 +18,7 @@ import pvz.control.Level;
 import pvz.logic.gameobjects.PeashooterList;
 import pvz.logic.gameobjects.Plant;
 import pvz.logic.gameobjects.SunflowerList;
+import pvz.logic.gameobjects.Zombie;
 import utils.Position;
 
 public class Game implements GameStatus, GameWorld, GameModel {
@@ -111,7 +112,7 @@ public class Game implements GameStatus, GameWorld, GameModel {
 
 	@Override
 	public void update() { // GM
-		tZM.update();
+		tZM.addZombie();
 		GOC.update();
 		cycles++;
 	}
@@ -167,7 +168,7 @@ public class Game implements GameStatus, GameWorld, GameModel {
 
 	public Position newZombiePosition(int row) { // devuelvo posicion en la col mas alejada - GW
 
-		Position p = new Position(row, NUM_COLS + 1);
+		Position p = new Position(row, NUM_COLS );
 		return p;
 	}
 
@@ -196,7 +197,7 @@ public class Game implements GameStatus, GameWorld, GameModel {
 				Plant miplanta = PlantFactory.spawnPlant(plantName, this, pos);
 				if (miplanta != null) {
 					if (this.coins >= miplanta.getPrice()) {
-						this.GOC.add(miplanta, pos);
+						this.GOC.add(miplanta);
 						this.buyWithCoins(miplanta.getPrice());
 					}
 				}
@@ -212,7 +213,7 @@ public class Game implements GameStatus, GameWorld, GameModel {
 				Plant miplanta = PlantFactory.spawnPlant(plantName, this, pos);
 				if (miplanta != null) {
 					if (this.coins >= miplanta.getPrice()) {
-						this.GOC.add(miplanta, pos);
+						this.GOC.add(miplanta);
 						this.buyWithCoins(miplanta.getPrice());
 						return true;
 					}
@@ -235,5 +236,11 @@ public class Game implements GameStatus, GameWorld, GameModel {
 	public boolean plantAtackReceived(Position atackPos, int damage) { // GW
 
 		return this.GOC.plantAtackReceived(atackPos, damage);
+	}
+	
+	@Override
+	public void add(Zombie zombie) {
+		// TODO Auto-generated method stub
+		GOC.add(zombie);
 	}
 }

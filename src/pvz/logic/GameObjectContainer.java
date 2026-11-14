@@ -12,7 +12,7 @@ public class GameObjectContainer {
 	
 	
 	GameObjectContainer(){
-		board = new GameObject[Game.NUM_ROWS][Game.NUM_COLS];
+		board = new GameObject[Game.NUM_ROWS][Game.NUM_COLS+1];
 	}
 	public boolean isEmpty(Position pos) {
 		// TODO Auto-generated method stub
