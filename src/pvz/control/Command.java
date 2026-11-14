@@ -16,7 +16,10 @@ import pvz.logic.GameModel;
 import pvz.view.GameView;
 import pvz.view.Messages;
 
-public abstract class Command { // para sus hijas investigar el "d{1,3}" para coger formato
+public abstract class Command {
+
+	// para sus hijas investigar el "d{1,3}" para coger formato
+	// tengo copiado en clase IllegalCommand y UnknownCommand XXX
 
 	protected static final List<Command> AVAILABLE_COMMANDS = Arrays.asList(new AddPlantCommand(),
 			new ListPlantsCommand(), new ListZombieCommand(), new ResetCommand(), new HelpCommand(), new ExitCommand(),
