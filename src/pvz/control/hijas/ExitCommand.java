@@ -24,10 +24,8 @@ public class ExitCommand extends Command {
 
 	@Override
 	public boolean execute(GameModel model, GameView view) {
-		// TODO: request the model to end the game.
+
 		model.quit();
-		return false;
+		return false; // TODO??
 	}
-	
-	
 }

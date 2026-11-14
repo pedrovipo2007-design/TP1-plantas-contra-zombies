@@ -2,6 +2,8 @@ package pvz.control.hijas;
 
 import pvz.control.Command;
 import pvz.logic.GameModel;
+import pvz.logic.ZombieFactory;
+import pvz.logic.gameobjects.Zombies;
 import pvz.view.GameView;
 import pvz.view.Messages;
 
@@ -24,9 +26,13 @@ public class ListZombieCommand extends Command {
 
 	@Override
 	public boolean execute(GameModel model, GameView view) {
-		// TODO: retrieve and display the available zombies.
-		return false;
+		StringBuilder h = new StringBuilder();
+		for (Zombies z : ZombieFactory.getAvailableZombies()) { // TODO cuando implementemos ZombieFactory
+			h.append(z.getDescription());
+			h.append(System.lineSeparator());
+		}
+		String help = h.toString();
+		view.showMessage(help);
+		return false; // TODO??
 	}
-	
-	
 }

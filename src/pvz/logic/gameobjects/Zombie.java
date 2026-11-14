@@ -1,11 +1,10 @@
 package pvz.logic.gameobjects;
 
-import pvz.logic.Game;
 import pvz.logic.GameWorld;
 import pvz.view.Messages;
 import utils.Position;
 
-public class Zombie  extends Zombies{
+public class Zombie extends Zombies {
 
 	private Position position;
 	public static final int INITIAL_HEALTH = 5;
@@ -15,11 +14,11 @@ public class Zombie  extends Zombies{
 	private int cyclesNotMoving;
 
 	public Zombie(Position p, GameWorld game) {
-		super(game,p);
+		super(game, p);
 		position = p;
 		health = INITIAL_HEALTH;
 		cyclesNotMoving = 0;
-	
+
 	}
 
 	public int getHealth() {
@@ -81,7 +80,7 @@ public class Zombie  extends Zombies{
 	@Override
 	public void onEnter() {
 		game.zombieWasAdded();
-		
+
 	}
 
 	@Override
@@ -89,11 +88,10 @@ public class Zombie  extends Zombies{
 		// TODO Auto-generated method stub
 		game.zombieWasKilled();
 	}
-	
-	
+
 	@Override
 	public String getIcon() {
-		return String.format(Messages.ZOMBIE_ICON,this.health);
+		return String.format(Messages.ZOMBIE_ICON, this.health);
 	}
-	
+
 }

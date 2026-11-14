@@ -36,9 +36,7 @@ public class CatchCommand extends Command {
 
 	@Override
 	public boolean execute(GameModel model, GameView view) {
-		//Todavia no lo implemento porque no caen soles en nuestra version VOLVER
+		// Todavia no lo implemento porque no caen soles en nuestra version TODO
 		return false;
 	}
-	
-	
 }

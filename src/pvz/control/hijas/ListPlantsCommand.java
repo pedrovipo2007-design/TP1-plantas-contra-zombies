@@ -26,15 +26,13 @@ public class ListPlantsCommand extends Command {
 
 	@Override
 	public boolean execute(GameModel model, GameView view) {
-		StringBuilder h= new StringBuilder();
-		for(Plant p :PlantFactory.getAvailablePlants()) {
+		StringBuilder h = new StringBuilder();
+		for (Plant p : PlantFactory.getAvailablePlants()) {
 			h.append(p.getDescription());
 			h.append(System.lineSeparator());
 		}
 		String help = h.toString();
 		view.showMessage(help);
-		return false;
+		return false; // TODO??
 	}
-	
-	
 }

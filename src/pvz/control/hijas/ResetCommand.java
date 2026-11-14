@@ -20,7 +20,7 @@ public class ResetCommand extends Command {
 	}
 
 	private ResetCommand(Level level, long seed) {
-		this();
+		// this(); - para que sirve esto??
 		this.level = level;
 		this.seed = seed;
 		this.hasConfiguration = true;
@@ -48,10 +48,9 @@ public class ResetCommand extends Command {
 
 	@Override
 	public boolean execute(GameModel model, GameView view) {
-		// TODO: reset the model, using level and seed when hasConfiguration is true.
-		model.reset();//VOLVER
+
+		model.reset(); // TODO
 		return false;
 	}
-	
-	
+
 }

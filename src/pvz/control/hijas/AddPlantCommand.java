@@ -5,6 +5,7 @@ import pvz.logic.GameModel;
 import pvz.view.GameView;
 import pvz.view.Messages;
 import utils.Position;
+
 public class AddPlantCommand extends Command {
 
 	private String plantName;
@@ -20,7 +21,7 @@ public class AddPlantCommand extends Command {
 	private AddPlantCommand(String plantName, int col, int row) {
 		this();
 		this.plantName = plantName;
-		this.pos = new Position(row,col);
+		this.pos = new Position(row, col);
 	}
 
 	@Override
@@ -37,7 +38,7 @@ public class AddPlantCommand extends Command {
 
 	@Override
 	public boolean execute(GameModel model, GameView view) {
-		
+
 		return model.addPlant(plantName, pos);
 	}
 }

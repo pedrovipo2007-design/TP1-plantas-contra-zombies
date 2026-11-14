@@ -22,18 +22,20 @@ public abstract class Command {
 	protected static final List<Command> AVAILABLE_COMMANDS = Arrays.asList(new AddPlantCommand(),
 			new ListPlantsCommand(), new ListZombieCommand(), new ResetCommand(), new HelpCommand(), new ExitCommand(),
 			new UpdateCommand(), new CheatPlantCommand(), new CatchCommand());
+	// entender bien List<> (es una interfaz, similar a los vectores de c++)
 
 	protected String name = Messages.EMPTY_STRING;
 	protected String shortcut = Messages.EMPTY_STRING;
 	protected String details = Messages.EMPTY_STRING;
 	protected String help = Messages.EMPTY_STRING;
 
-	/** Creates a command instance from its words, or returns null if invalid. */
+	// crea una instancia del comando
 	public abstract Command create(String[] commandWords);
 
-	/** Executes this command using the model and view contracts. */
-	public abstract  boolean execute(GameModel model, GameView view);
+	// ejecuta el comando
+	public abstract boolean execute(GameModel model, GameView view);
 
+	// comprueba el comando
 	public boolean matchCommand(String word) {
 		return name.equals(word) || shortcut.equals(word);
 	}
@@ -54,9 +56,9 @@ public abstract class Command {
 		return shortcut;
 	}
 
-	public static Command parse(String[] commandWords) {
+	public static Command parse(String[] commandWords) { // parsear es convertir un texto a un objeto
 		if (commandWords == null || commandWords.length == 0)
-			return null;
+			return null; // cuando es vacio
 
 		for (Command command : AVAILABLE_COMMANDS) {
 			if (command.matchCommand(commandWords[0]))
@@ -64,6 +66,4 @@ public abstract class Command {
 		}
 		return null;
 	}
-	
-	//public abstract boolean consumedTurn();//Al final este lo meto en el execute que si no el addplant es dificil
 }
