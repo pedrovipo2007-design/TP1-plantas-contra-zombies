@@ -23,9 +23,9 @@ public interface GameWorld {
 
 	boolean isEmptyOfZombies(Position pos);
 
-	void attackZombie(Position p, int damage);
+	boolean zombieAtackReceived(Position p, int damage);
 
-	public void attackPlant(Position p, int damage);
+
 	
 	public void zombieWasAdded();
 

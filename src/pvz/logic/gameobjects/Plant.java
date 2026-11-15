@@ -7,15 +7,15 @@ import utils.Position;
 public abstract class Plant extends GameObject {
 
 	protected int price;
-
+	protected int health;
 	public Plant(GameWorld game, Position p) {
 		super(game, p);
-		// TODO Auto-generated constructor stub
+		
 	}
 
 	public Plant() {
 		super();
-		// TODO Auto-generated constructor stub
+
 	}
 
 	public int getPrice() {

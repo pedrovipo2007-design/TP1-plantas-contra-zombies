@@ -1,13 +1,13 @@
 
 /*
- * 
+ *
  * voy poniendo por aquí las interfaces completadas hasta el momento:
- * 
+ *
  * GameModel  -> NO
  * GameWorld  -> NO
  * GameStatus -> SI
  * GameView   -> SI
- * 
+ *
  */
 
 package pvz.logic;
@@ -15,9 +15,9 @@ package pvz.logic;
 import java.util.Random;
 
 import pvz.control.Level;
-import pvz.logic.gameobjects.PeashooterList;
+
 import pvz.logic.gameobjects.Plant;
-import pvz.logic.gameobjects.SunflowerList;
+
 import pvz.logic.gameobjects.Zombie;
 import pvz.logic.gameobjects.Zombies;
 import utils.Position;
@@ -41,8 +41,7 @@ public class Game implements GameStatus, GameWorld, GameModel {
 
 	private Level tLevel;
 	private ZombiesManager tZM;
-	private PeashooterList tPL;
-	private SunflowerList tSL;
+
 
 	private GameObjectContainer GOC;
 
@@ -56,10 +55,8 @@ public class Game implements GameStatus, GameWorld, GameModel {
 		tLevel = level;
 
 		tZM = new ZombiesManager(this, tLevel, rand);
-		tPL = new PeashooterList();
-		tSL = new SunflowerList();
 
-		// eliminar las anteriores
+
 		GOC = new GameObjectContainer();
 	}
 	@Override
@@ -78,7 +75,7 @@ public class Game implements GameStatus, GameWorld, GameModel {
 
 			res = GOC.iconInPosition(position);
 
-		} 
+		}
 		else
 			res = " "; // devolvemos vacio si no hay nada
 
@@ -120,7 +117,7 @@ public class Game implements GameStatus, GameWorld, GameModel {
 
 	public boolean haveZombiesReached() { // no se en que interfaz ponerlo
 
-		return tZM.doZombiesReachedTheHouse();
+		return GOC.doZombiesReachedTheHouse();
 	}
 
 	public void reset() { // GM
@@ -129,9 +126,7 @@ public class Game implements GameStatus, GameWorld, GameModel {
 		cycles = 0;
 
 		tZM.reset();
-		tPL.reset();
-		tSL.reset();
-
+		GOC.reset();
 		rand.setSeed(longSeed); // lo he buscado, daba error
 	}
 
@@ -150,18 +145,9 @@ public class Game implements GameStatus, GameWorld, GameModel {
 		return tZM.isEmpty(pos);
 	}
 
-	public void attackZombie(Position p, int damage) { // position p es la planta - GW
+	
 
-		tZM.damageZombie(p, damage);
-	}
-
-	public void attackPlant(Position p, int damage) { // position p es la planta - GW
-		if (tPL.isEmpty(p))
-			tSL.receiveDamage(damage, p);
-		else
-			tPL.receiveDamage(p, damage);
-	}
-
+	
 	public boolean isEmpty(Position pos) { // GW
 
 		return GOC.isEmpty(pos);
@@ -189,23 +175,9 @@ public class Game implements GameStatus, GameWorld, GameModel {
 	public boolean playerQuits() { // GM
 		return playerQuit;
 	}
-	
-	//ESTE REALMENTE SE PUEDE BORRAR< ES SOLO POR SI NO TE GUSTA COMO ESTA
-	@Override
-	public void addPlant(GameModel game, String plantName, Position pos) { // GM
-		if (this.isInsideBoard(pos)) {
-			if (this.isEmpty(pos)) {
-				Plant miplanta = PlantFactory.spawnPlant(plantName, this, pos);
-				if (miplanta != null) {
-					if (this.coins >= miplanta.getPrice()) {
-						this.GOC.add(miplanta);
-						this.buyWithCoins(miplanta.getPrice());
-					}
-				}
-			}
-		}
 
-	}
+	//ESTE REALMENTE SE PUEDE BORRAR< ES SOLO POR SI NO TE GUSTA COMO ESTA
+	
 	
 	@Override
 	public boolean addPlant( String plantName, Position pos) { // GM
@@ -220,11 +192,28 @@ public class Game implements GameStatus, GameWorld, GameModel {
 					}
 				}
 			}
+			
 		}
+		return false;
+//NO INDICA POR QUE NO SE HA PODIDO EJECUTAR EL COMANDO
+	}
+
+	@Override
+	public boolean addCheatPlant( String plantName, Position pos) { // GM
+		if (this.isInsideBoard(pos)) {
+			if (this.isEmpty(pos)) {
+				Plant miplanta = PlantFactory.spawnPlant(plantName, this, pos);
+				if (miplanta != null) {
+					GOC.add(miplanta);
+					return true;
+					}
+				}
+			}
+		
 		return false;
 
 	}
-	
+
 	@Override
 	public void zombieWasAdded() {
 		tZM.zombieWasAdded();
@@ -238,13 +227,13 @@ public class Game implements GameStatus, GameWorld, GameModel {
 
 		return this.GOC.plantAtackReceived(atackPos, damage);
 	}
-	
+
 	@Override
 	public void add(Zombie zombie) {
-		// TODO Auto-generated method stub
+
 		GOC.add(zombie);
 	}
-	
+
 	@Override
 	public boolean addZombie( String zombieName, Position pos) { // GM
 		if (this.isInsideBoard(pos)) {
@@ -258,5 +247,10 @@ public class Game implements GameStatus, GameWorld, GameModel {
 		}
 		return false;
 
+	}
+	
+	@Override
+	public boolean zombieAtackReceived(Position p, int damage) {
+		return GOC.zombieAtackReceived(p,damage);
 	}
 }

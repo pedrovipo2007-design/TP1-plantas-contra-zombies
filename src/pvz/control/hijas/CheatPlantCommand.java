@@ -40,7 +40,7 @@ public class CheatPlantCommand extends Command {
 	@Override
 	public boolean execute(GameModel model, GameView view) {
 
-		// TODO
+		model.addCheatPlant(plantName, null);
 		// para hacer debuging
 
 		return false;

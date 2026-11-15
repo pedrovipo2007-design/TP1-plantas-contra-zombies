@@ -60,25 +60,21 @@ public class Sunflower extends Plant {
 
 	@Override
 	public String getDescription() {
-		// TODO Auto-generated method stub
 		return Messages.SUNFLOWER_DESCRIPTION;
 	}
 
 	@Override
 	public void onEnter() {
-		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
 	public void onExit() {
-		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
 	public String getName() {
-		// TODO Auto-generated method stub
 		return Messages.SUNFLOWER_NAME;
 	}
 	

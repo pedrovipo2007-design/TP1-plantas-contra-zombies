@@ -33,6 +33,6 @@ public class ListPlantsCommand extends Command {
 		}
 		String help = h.toString();
 		view.showMessage(help);
-		return false; // TODO??
+		return false; 
 	}
 }

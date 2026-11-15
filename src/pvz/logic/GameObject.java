@@ -15,7 +15,6 @@ public abstract class GameObject implements GameItem { // tipo de objetos que ma
 
 	public GameObject() {
 		// LO QUEREMOS UNICAMENTE PARA GETS DESCRIPTIONS CUANDO NO HAY MODEL O POSITION
-		// TODO??
 	}
 
 	public boolean isInPosition(Position other) {
@@ -37,7 +36,7 @@ public abstract class GameObject implements GameItem { // tipo de objetos que ma
 
 	public boolean isAlive() {
 
-		return health != 0;
+		return health > 0;
 	}
 
 	abstract public void onEnter();	// el boolean indica si se mueve para que el GOC acctualice la informacion

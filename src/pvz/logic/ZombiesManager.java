@@ -4,7 +4,7 @@ import java.util.Random;
 
 import pvz.control.Level;
 import pvz.logic.gameobjects.Zombie;
-import pvz.logic.gameobjects.ZombieList;
+
 import utils.Position;
 
 /**
@@ -30,14 +30,14 @@ public class ZombiesManager {
 	
 	private int zombiesOnGame;
 
-	private ZombieList zombies;
+
 
 	public ZombiesManager(GameWorld game, Level level, Random rand) {
 		this.game = game;
 		this.level = level;
 		this.rand = rand;
 		this.remainingZombies = level.getNumberOfZombies();
-		this.zombies = new ZombieList();
+
 		zombiesOnGame=0;
 	}
 
@@ -52,9 +52,7 @@ public class ZombiesManager {
 
 	}
 
-	public boolean noMoreZombies() {
-		return zombies.noMoreZombies();
-	}
+	
 
 	/**
 	 * Return a random row within the board limits.
@@ -66,14 +64,11 @@ public class ZombiesManager {
 		return rand.nextInt(Game.NUM_ROWS);
 	}
 
-	public String iconInPosition(Position p) {
-		return zombies.iconInPosition(p);
-	}
+	
 
 	public boolean addZombie() {
 		int row = randomZombieRow();
 		if (addZombie(row)) {
-			remainingZombies--;
 			return true;
 		}
 		else return false;
@@ -97,53 +92,17 @@ public class ZombiesManager {
 		return remainingZombies;
 	}
 
-	public void reset() {
 
-		this.remainingZombies = level.getNumberOfZombies();
-		zombies.reset();
-	}	//ESTE SE PUEDE ELIMINAR, EL RESET VA EN GOC
-
-	public boolean doZombiesReachedTheHouse() {
-
-		return zombies.hasReachedHouse();
-
-	}//se migra a game que consulta GOC, 
-
-	public void damageZombie(Position pos, int damage) {
-
-		int row = pos.getRow();
-		int col = pos.getCol();
-
-		int p = col;
-		p++;
-
-		while (p < game.NUM_COLS) {
-
-			if (!isEmpty(new Position(row, p))) {
-				Position aux = new Position(row, p);
-				zombies.damage(aux, damage);
-				break;
-
-			} else
-				p++;
-		}
-	}
 
 	public boolean isEmpty(Position pos) {
-		return zombies.isEmpty(pos);
+		return game.isEmpty(pos);
 	}
-	//Este hay que cambiarlo para que consulte GOC TODO
-	public void update() {
-		zombies.update();
-	}//TAMBIEN ELIMINABLE EL UPDATE VA EN GOC
+	
 
 	public boolean allZombiesWereKilled() {
 		return (remainingZombies == 0 && zombiesOnGame==0);
 	}
 
-	public void removeDead() {
-		zombies.removeDead();
-	}//ESTO LO METEREMOS EN EL UPDATE SUPONGO, SI NO COMO METODO EXTRA DE GOC Y ASI NO HAY PROBLEMA DE QUE UNO QE=UE MUERE EN ESE TURNO NO ATACA
 
 	public void zombieWasAdded() {
 		remainingZombies--;
@@ -155,6 +114,19 @@ public class ZombiesManager {
 	public void addZombiePosition(Position pos) { // para debugear
 		Zombie zombie;
 		zombie = new Zombie(pos, game);
-		zombies.add(zombie);
+		game.add(zombie);
+	}
+
+	public void reset() {
+		
+		this.remainingZombies = level.getNumberOfZombies();
+
+		zombiesOnGame=0;
+		
+	}
+
+	public boolean noMoreZombies() {
+
+		return zombiesOnGame==0;
 	}
 }

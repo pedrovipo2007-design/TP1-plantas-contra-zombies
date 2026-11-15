@@ -70,7 +70,7 @@ public class GamePrinter implements GameView {
 	private String getInfo() { // es privado
 		StringBuilder buffer = new StringBuilder();
 
-		// Supongo que tengo que pasar el ciclo, las monedas, etc - TODO
+		// Supongo que tengo que pasar el ciclo, las monedas, etc -
 		buffer.append(String.format(Messages.NUMBER_OF_COINS,game.getCoins()));
 		
 		buffer.append(String.format(Messages.NUMBER_OF_CYCLES,game.getCycles()));

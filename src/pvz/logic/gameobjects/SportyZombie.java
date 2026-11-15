@@ -28,9 +28,9 @@ public class SportyZombie extends Zombies {
 	}
 
 	@Override
-	public void update() {
+	public boolean update() {
 		// TODO Auto-generated method stub
-
+		return false;
 	}
 
 	@Override

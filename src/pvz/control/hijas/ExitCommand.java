@@ -26,6 +26,6 @@ public class ExitCommand extends Command {
 	public boolean execute(GameModel model, GameView view) {
 
 		model.quit();
-		return false; // TODO??
+		return false; 
 	}
 }

@@ -50,20 +50,18 @@ public class Peashooter extends Plant {
 
 	@Override
 	public void onEnter() {
-		// TODO Auto-generated method stub
 
 	}
 
 	@Override
 	public void onExit() {
-		// TODO Auto-generated method stub
 
 	}
 
 	@Override
 	public boolean update() {
-		Position atackPos = this.position;
-		while (!game.plantAtackReceived(atackPos, DAMAGE) && atackPos.getCol() < game.NUM_COLS) {
+		Position atackPos = this.position.right();
+		while (!game.plantAtackReceived(atackPos, DAMAGE) && atackPos.getCol() < game.NUM_COLS-1) {
 			atackPos = atackPos.right();
 		}
 		return false; //ninguna planta se mueve
@@ -71,7 +69,6 @@ public class Peashooter extends Plant {
 
 	@Override
 	public String getName() {
-		// TODO
 		return Messages.PEASHOOTER_NAME;
 	}
 	

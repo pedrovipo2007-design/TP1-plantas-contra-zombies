@@ -49,7 +49,7 @@ public class ResetCommand extends Command {
 	@Override
 	public boolean execute(GameModel model, GameView view) {
 
-		model.reset(); // TODO
+		model.reset();
 		return false;
 	}
 

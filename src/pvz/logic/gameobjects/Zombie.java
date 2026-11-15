@@ -10,7 +10,6 @@ public class Zombie extends Zombies {
 	public static final int INITIAL_HEALTH = 5;
 	public static final int DAMAGE = 1;
 	public static final int MOVE_AFTER_CYCLES = 2;
-	private int health;
 	private int cyclesNotMoving;
 
 	public Zombie(Position p, GameWorld game) {
@@ -48,23 +47,20 @@ public class Zombie extends Zombies {
 			return false;
 	}
 
-	private void atack() {
-		game.attackPlant(this.getPosition().left(), DAMAGE);
-	}
 	@Override
 	public boolean update() {
 
 		Position left = getPosition().left();
-		boolean house = left.getCol() < 0; // está en la columna 0: el siguiente paso cruza la casa
 		boolean hasMoved=false;
-		if (house || (game.isEmpty(left) && game.isEmptyOfZombies(left))) {
-			hasMoved=move();
+		if(left.getCol()>=0) {
+			if(!game.zombieAtackReceived(left, DAMAGE)) {
+				
+				hasMoved=move();
 		}
-		if (position.getCol() > 0 && !house) { // ataque en el mismo ciclo en que llega
-			left = getPosition().left();
-			if (position.getCol() > 0 && !game.isEmpty(left) && game.isEmptyOfZombies(left))
-				atack();
+		else hasMoved=move();
 		}
+		
+	
 		return hasMoved;
 	}
 
@@ -74,14 +70,13 @@ public class Zombie extends Zombies {
 
 	@Override
 	public String getName() {
-		// TODO Auto-generated method stub
-		return null;
+		return Messages.ZOMBIE_NAME;
 	}
 
 	@Override
 	public String getDescription() {
-		// TODO Auto-generated method stub
-		return null;
+
+		return Messages.ZOMBIE_DESCRIPTION;
 	}
 
 	@Override
@@ -92,7 +87,6 @@ public class Zombie extends Zombies {
 
 	@Override
 	public void onExit() {
-		// TODO Auto-generated method stub
 		game.zombieWasKilled();
 	}
 
