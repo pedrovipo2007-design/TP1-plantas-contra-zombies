@@ -4,8 +4,13 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
+import pvz.logic.gameobjects.Peashooter;
+import pvz.logic.gameobjects.Plant;
+import pvz.logic.gameobjects.SportyZombie;
+import pvz.logic.gameobjects.Sunflower;
 import pvz.logic.gameobjects.Zombie;
 import pvz.logic.gameobjects.Zombies;
+import pvz.view.Messages;
 import utils.Position;
 
 public class ZombieFactory {
@@ -18,9 +23,14 @@ public class ZombieFactory {
 	// ACCEDERIAMOS A MEMORIA VACIA
 	// MISMO PROBLEMA QUE EN PLANTFACTORY FIXME
 
-	public static Zombies spawnZombie(String ZombieName, GameWorld game, Position pos) {
-
-		// adaptar spawnPlant TODO
+	public static Zombies spawnZombie(String zombieName, GameWorld game, Position pos) {
+		
+		if (zombieName.equalsIgnoreCase(Messages.ZOMBIE_SYMBOL) || zombieName.equals(Messages.ZOMBIE_NAME)) {
+			return new Zombie(pos, game);
+		}
+		if (zombieName.equalsIgnoreCase(Messages.SPORTY_ZOMBIE_SYMBOL) || zombieName.equals(Messages.SPORTY_ZOMBIE_NAME)) {
+			return new SportyZombie(pos, game);//hay que añadir el resto de zombies TODO
+		} else
 		return null;
 	}
 
@@ -29,3 +39,4 @@ public class ZombieFactory {
 		return Collections.unmodifiableList(AVAILABLE_ZOMBIES);
 	}
 }
+

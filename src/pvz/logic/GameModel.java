@@ -26,5 +26,7 @@ public interface GameModel {
 
 	boolean playerQuits();
 
-	boolean addZombie(String s, Position p); // ver AddZombieCommand
+	boolean addZombie(String plantName, Position pos);
+
+	//boolean addZombie(String s, Position p); // ver AddZombieCommand
 }

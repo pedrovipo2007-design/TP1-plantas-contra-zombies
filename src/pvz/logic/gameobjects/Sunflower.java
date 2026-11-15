@@ -41,12 +41,13 @@ public class Sunflower extends Plant {
 	}
 
 	@Override
-	public void update() {
+	public boolean update() {
 		if (cyclesSinceLastGeneration == GENERATE_AFTER_CYCLES) {
 			game.generateCoins(SUNS_PER_GENERATION);
 			cyclesSinceLastGeneration = 1;
 		} else
 			cyclesSinceLastGeneration++;
+		return false;
 	}
 
 	public void receiveDamage(int damage) {

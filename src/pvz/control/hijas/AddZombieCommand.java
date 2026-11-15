@@ -8,7 +8,7 @@ import utils.Position;
 
 public class AddZombieCommand extends Command { // creo que esta clase había que implementarla
 
-	private String plantName;
+	private String zombieName;
 	private Position pos;
 
 	public AddZombieCommand() {
@@ -20,7 +20,7 @@ public class AddZombieCommand extends Command { // creo que esta clase había qu
 
 	private AddZombieCommand(String plantName, int col, int row) {
 		this();
-		this.plantName = plantName;
+		this.zombieName = plantName;
 		this.pos = new Position(row, col);
 	}
 
@@ -39,6 +39,6 @@ public class AddZombieCommand extends Command { // creo que esta clase había qu
 	@Override
 	public boolean execute(GameModel model, GameView view) {
 
-		return model.addZombie(plantName, pos);
+		return model.addZombie(zombieName, pos);
 	}
 }

@@ -40,9 +40,9 @@ public abstract class GameObject implements GameItem { // tipo de objetos que ma
 		return health != 0;
 	}
 
-	abstract public void onEnter();
+	abstract public void onEnter();	// el boolean indica si se mueve para que el GOC acctualice la informacion
 
-	abstract public void update();
+	abstract public boolean update();
 
 	abstract public void onExit();
 

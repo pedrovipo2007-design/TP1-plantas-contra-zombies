@@ -19,6 +19,7 @@ import pvz.logic.gameobjects.PeashooterList;
 import pvz.logic.gameobjects.Plant;
 import pvz.logic.gameobjects.SunflowerList;
 import pvz.logic.gameobjects.Zombie;
+import pvz.logic.gameobjects.Zombies;
 import utils.Position;
 
 public class Game implements GameStatus, GameWorld, GameModel {
@@ -242,5 +243,20 @@ public class Game implements GameStatus, GameWorld, GameModel {
 	public void add(Zombie zombie) {
 		// TODO Auto-generated method stub
 		GOC.add(zombie);
+	}
+	
+	@Override
+	public boolean addZombie( String zombieName, Position pos) { // GM
+		if (this.isInsideBoard(pos)) {
+			if (this.isEmpty(pos)) {
+				Zombies zombie = ZombieFactory.spawnZombie(zombieName, this, pos);
+				if (zombie != null) {
+					this.GOC.add(zombie);
+					return true;
+				}
+			}
+		}
+		return false;
+
 	}
 }

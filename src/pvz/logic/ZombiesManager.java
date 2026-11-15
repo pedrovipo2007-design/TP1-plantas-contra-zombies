@@ -87,7 +87,7 @@ public class ZombiesManager {
 
 		if (canAdd) {
 			Zombie zombie;
-			zombie = new Zombie(zombiePosition, game);
+			zombie = new Zombie(zombiePosition, game);//TODO migrar para el zombiefactory para 2.2
 			game.add(zombie);
 		}
 		return canAdd;
@@ -107,7 +107,7 @@ public class ZombiesManager {
 
 		return zombies.hasReachedHouse();
 
-	}
+	}//se migra a game que consulta GOC, 
 
 	public void damageZombie(Position pos, int damage) {
 
@@ -132,7 +132,7 @@ public class ZombiesManager {
 	public boolean isEmpty(Position pos) {
 		return zombies.isEmpty(pos);
 	}
-
+	//Este hay que cambiarlo para que consulte GOC TODO
 	public void update() {
 		zombies.update();
 	}//TAMBIEN ELIMINABLE EL UPDATE VA EN GOC

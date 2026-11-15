@@ -38,32 +38,34 @@ public class Zombie extends Zombies {
 		health = health - damage;
 	}
 
-	private void move() {
+	private boolean move() {
 		if (cyclesNotMoving == MOVE_AFTER_CYCLES) {
 			position = position.left();
 			cyclesNotMoving = 1;
-
+			return true;
 		} else
 			cyclesNotMoving++;
+			return false;
 	}
 
 	private void atack() {
 		game.attackPlant(this.getPosition().left(), DAMAGE);
 	}
-
-	public void update() {
+	@Override
+	public boolean update() {
 
 		Position left = getPosition().left();
 		boolean house = left.getCol() < 0; // está en la columna 0: el siguiente paso cruza la casa
-
-		if (house || (game.isEmpty(left) && game.isEmptyOfZombies(left)))
-			move();
-
+		boolean hasMoved=false;
+		if (house || (game.isEmpty(left) && game.isEmptyOfZombies(left))) {
+			hasMoved=move();
+		}
 		if (position.getCol() > 0 && !house) { // ataque en el mismo ciclo en que llega
 			left = getPosition().left();
 			if (position.getCol() > 0 && !game.isEmpty(left) && game.isEmptyOfZombies(left))
 				atack();
 		}
+		return hasMoved;
 	}
 
 	public boolean isAlive() {

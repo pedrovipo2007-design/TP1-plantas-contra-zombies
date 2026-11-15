@@ -1,6 +1,7 @@
 package pvz.logic;
 
 import pvz.logic.gameobjects.Plant;
+import pvz.logic.gameobjects.Zombies;
 import utils.Position;
 
 public class GameObjectContainer {
@@ -32,9 +33,12 @@ public class GameObjectContainer {
 	public void update() {
 		// TODO Auto-generated method stub
 		for(int i=0;i<Game.NUM_ROWS;i++) {
-			for(int j=0;j<Game.NUM_COLS;j++) {
+			for(int j=0;j<=Game.NUM_COLS;j++) {
 				if(board[i][j]!=null) {
-					board[i][j].update();
+					if(board[i][j].update()) {
+						add(board[i][j]);
+						board[i][j]=null;
+					}
 				}
 
 			}
@@ -43,5 +47,7 @@ public class GameObjectContainer {
 	public String iconInPosition(Position pos) {
 		return board[pos.getRow()][pos.getCol()].getIcon();
 	}
+	
+	
 	
 }
