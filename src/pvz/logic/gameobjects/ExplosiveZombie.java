@@ -10,16 +10,13 @@ public class ExplosiveZombie extends Zombies {
 	public static final int DAMAGE = 1;
 	public static final int MOVE_AFTER_CYCLES = 2;
 	public static final int EXPLOSION_DAMAGE = 3;
-	private int cyclesNotMoving;
 
 	public ExplosiveZombie(Position position, GameWorld game) {
-		super(game, position);
-		health = INITIAL_HEALTH;
-		cyclesNotMoving = 0;
+		super(game, position, INITIAL_HEALTH, DAMAGE, MOVE_AFTER_CYCLES);
 	}
 
 	public ExplosiveZombie() {
-		super();
+		super(INITIAL_HEALTH, DAMAGE, MOVE_AFTER_CYCLES);
 	}
 
 	@Override
@@ -28,39 +25,8 @@ public class ExplosiveZombie extends Zombies {
 	}
 
 	@Override
-	public String getDescription() {
-		return String.format(Messages.ZOMBIE_DESCRIPTION, getName(), MOVE_AFTER_CYCLES, DAMAGE, INITIAL_HEALTH);
-	}
-
-	@Override
-	public boolean isAlive() {
-		return health > 0;
-	}
-
-	private boolean move() {
-		if (++cyclesNotMoving >= MOVE_AFTER_CYCLES) {
-			position = position.left();
-			cyclesNotMoving = 0;
-			return true;
-		}
-		return false;
-	}
-
-	@Override
-	public boolean update() {
-		Position left = getPosition().left();
-		game.zombieAtackReceived(left, DAMAGE);
-		return move();
-	}
-
-	@Override
-	public void onEnter() {
-		game.zombieWasAdded();
-	}
-
-	@Override
 	public void onExit() {
-		game.zombieWasKilled();
+		super.onExit();
 		game.explodeZombie(getPosition(), EXPLOSION_DAMAGE);
 	}
 

@@ -9,57 +9,18 @@ public class SportyZombie extends Zombies {
 	public static final int INITIAL_HEALTH = 2;
 	public static final int DAMAGE = 1;
 	public static final int MOVE_AFTER_CYCLES = 1;
-	private int cyclesNotMoving;
 
 	public SportyZombie(Position position, GameWorld game) {
-		super(game, position);
-		health = INITIAL_HEALTH;
-		cyclesNotMoving = 0;
+		super(game, position, INITIAL_HEALTH, DAMAGE, MOVE_AFTER_CYCLES);
 	}
 
 	public SportyZombie() {
-		super();
+		super(INITIAL_HEALTH, DAMAGE, MOVE_AFTER_CYCLES);
 	}
 
 	@Override
 	public String getName() {
 		return Messages.SPORTY_ZOMBIE_NAME;
-	}
-
-	@Override
-	public String getDescription() {
-		return String.format(Messages.ZOMBIE_DESCRIPTION, getName(), MOVE_AFTER_CYCLES, DAMAGE, INITIAL_HEALTH);
-	}
-
-	@Override
-	public boolean isAlive() {
-		return health > 0;
-	}
-
-	private boolean move() {
-		if (++cyclesNotMoving >= MOVE_AFTER_CYCLES) {
-			position = position.left();
-			cyclesNotMoving = 0;
-			return true;
-		}
-		return false;
-	}
-
-	@Override
-	public boolean update() {
-		Position left = getPosition().left();
-		game.zombieAtackReceived(left, DAMAGE);
-		return move();
-	}
-
-	@Override
-	public void onEnter() {
-		game.zombieWasAdded();
-	}
-
-	@Override
-	public void onExit() {
-		game.zombieWasKilled();
 	}
 
 	@Override

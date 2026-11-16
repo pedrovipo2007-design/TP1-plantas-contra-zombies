@@ -1,6 +1,6 @@
 package pvz.logic;
 
-import pvz.logic.gameobjects.Zombie;
+import pvz.logic.gameobjects.Zombies;
 import utils.Position;
 
 public interface GameWorld {
@@ -32,7 +32,7 @@ public interface GameWorld {
 	
 	public void zombieWasKilled();
 
-	void add(Zombie zombie);
+	void add(Zombies zombie);
 
 	void explodePlant(Position center, int damage);
 	void explodeZombie(Position center, int damage);

@@ -229,7 +229,7 @@ public class Game implements GameStatus, GameWorld, GameModel {
 	}
 
 	@Override
-	public void add(Zombie zombie) {
+	public void add(Zombies zombie) {
 
 		GOC.add(zombie);
 	}
@@ -259,7 +259,10 @@ public class Game implements GameStatus, GameWorld, GameModel {
 		for(int i=-1;i<=1;i++) {
 			for(int j=-1;j<=1;j++) {
 				p=new Position(center.getRow() + i, center.getCol() + j);
-				GOC.plantAtackReceived(p, damage);
+				if(this.isInsideBoard(p)) {
+					GOC.plantAtackReceived(p, damage);
+				}
+				
 			}
 		}
 		
@@ -270,7 +273,10 @@ public class Game implements GameStatus, GameWorld, GameModel {
 		for(int i=-1;i<=1;i++) {
 			for(int j=-1;j<=1;j++) {
 				p=new Position(center.getRow() + i, center.getCol() + j);
-				GOC.zombieAtackReceived(p, damage);
+				if(this.isInsideBoard(p)) {
+					GOC.zombieAtackReceived(p, damage);
+				}
+				
 			}
 		}
 		

@@ -64,7 +64,10 @@ public class CherryBomb extends Plant {
 			if(cyclesToExplode>0) {
 				cyclesToExplode--;
 			}
-			else game.explodePlant(getPosition(), DAMAGE);
+			else {
+				 game.explodePlant(getPosition(), DAMAGE);
+				 health=0;
+			}
 			return false;
 		}
 

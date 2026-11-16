@@ -1,11 +1,13 @@
 package pvz.logic;
 
+import java.util.List;
 import java.util.Random;
 
 import pvz.control.Level;
 import pvz.logic.gameobjects.Zombie;
-
+import pvz.logic.gameobjects.Zombies;
 import utils.Position;
+import pvz.logic.ZombieFactory;
 
 /**
  * Manages the full lifecycle of zombies for a game session.
@@ -29,7 +31,6 @@ public class ZombiesManager {
 	private int remainingZombies;
 	
 	private int zombiesOnGame;
-
 
 
 	public ZombiesManager(GameWorld game, Level level, Random rand) {
@@ -81,9 +82,12 @@ public class ZombiesManager {
 		boolean canAdd = this.remainingZombies > 0 && shouldAddZombie() && game.isEmptyOfZombies(zombiePosition);
 
 		if (canAdd) {
-			Zombie zombie;
-			zombie = new Zombie(zombiePosition, game);//TODO migrar para el zombiefactory para 2.2
-			game.add(zombie);
+			
+			
+			List<Zombies> tipos = ZombieFactory.getAvailableZombies();
+			Zombies tipoAleatorio = tipos.get(rand.nextInt(tipos.size()));
+			Zombies zombi =ZombieFactory.spawnZombie(tipoAleatorio.getName(), game, zombiePosition);
+			game.add(zombi);
 		}
 		return canAdd;
 	}
