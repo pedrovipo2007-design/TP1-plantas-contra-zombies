@@ -7,7 +7,6 @@ import utils.Position;
 public abstract class Plant extends GameObject {
 
 	protected int price;
-	protected int health;
 	public Plant(GameWorld game, Position p) {
 		super(game, p);
 		

@@ -17,8 +17,8 @@ public class Peashooter extends Plant {
 	// metodos
 	@Override
 	public String getDescription() {
-
-		return Messages.PEASHOOTER_DESCRIPTION;
+		return String.format(Messages.PLANT_DESCRIPTION, Messages.PEASHOOTER_NAME_AND_SHORTCUT,
+				COST, DAMAGE, INITIAL_HEALTH);
 	}
 
 	public Peashooter(Position p, GameWorld game) {

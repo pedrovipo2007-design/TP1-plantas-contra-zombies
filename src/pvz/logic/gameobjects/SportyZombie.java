@@ -1,48 +1,69 @@
 package pvz.logic.gameobjects;
 
 import pvz.logic.GameWorld;
+import pvz.view.Messages;
 import utils.Position;
 
 public class SportyZombie extends Zombies {
 
-	
-	public SportyZombie(Position pos, GameWorld game) {
-		//TODO
+	public static final int INITIAL_HEALTH = 2;
+	public static final int DAMAGE = 1;
+	public static final int MOVE_AFTER_CYCLES = 1;
+	private int cyclesNotMoving;
+
+	public SportyZombie(Position position, GameWorld game) {
+		super(game, position);
+		health = INITIAL_HEALTH;
+		cyclesNotMoving = 0;
 	}
+
+	public SportyZombie() {
+		super();
+	}
+
 	@Override
 	public String getName() {
-		// TODO Auto-generated method stub
-		return null;
+		return Messages.SPORTY_ZOMBIE_NAME;
 	}
 
 	@Override
 	public String getDescription() {
-		// TODO Auto-generated method stub
-		return null;
+		return String.format(Messages.ZOMBIE_DESCRIPTION, getName(), MOVE_AFTER_CYCLES, DAMAGE, INITIAL_HEALTH);
 	}
 
 	@Override
-	public void onEnter() {
-		// TODO Auto-generated method stub
-
+	public boolean isAlive() {
+		return health > 0;
 	}
 
-	@Override
-	public boolean update() {
-		// TODO Auto-generated method stub
+	private boolean move() {
+		if (++cyclesNotMoving >= MOVE_AFTER_CYCLES) {
+			position = position.left();
+			cyclesNotMoving = 0;
+			return true;
+		}
 		return false;
 	}
 
 	@Override
-	public void onExit() {
-		// TODO Auto-generated method stub
+	public boolean update() {
+		Position left = getPosition().left();
+		game.zombieAtackReceived(left, DAMAGE);
+		return move();
+	}
 
+	@Override
+	public void onEnter() {
+		game.zombieWasAdded();
+	}
+
+	@Override
+	public void onExit() {
+		game.zombieWasKilled();
 	}
 
 	@Override
 	protected String getIcon() {
-		// TODO Auto-generated method stub
-		return null;
+		return String.format(Messages.SPORTY_ZOMBIE_ICON, health);
 	}
-
 }

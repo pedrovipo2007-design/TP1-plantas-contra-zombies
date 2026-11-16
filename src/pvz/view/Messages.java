@@ -84,6 +84,7 @@ public class Messages {
 	public static final String ZOMBIE_DESCRIPTION = "%s: speed='%d', damage='%d', endurance='%d'";
 	public static final String ZOMBIE_ICON = " Z[%02d]";
 	public static final String ZOMBIE_NAME_AND_SHORTCUT = "[Z]ombie";
+	public static final String AVAILABLE_ZOMBIES = "Available zombies:";
 
 	public static final String WALL_NUT_SYMBOL = "WN";
 	public static final String WALL_NUT_NAME = "Wall-Nut";
@@ -95,12 +96,15 @@ public class Messages {
 
 	public static final String BUCKET_HEAD_ZOMBIE_SYMBOL = "Bz";
 	public static final String BUCKET_HEAD_ZOMBIE_NAME = "BucketHead Zombie";
+	public static final String BUCKET_HEAD_ZOMBIE_ICON = " Bz[%02d]";
 
 	public static final String SPORTY_ZOMBIE_SYMBOL = "Sz";
 	public static final String SPORTY_ZOMBIE_NAME = "Sporty Zombie";
+	public static final String SPORTY_ZOMBIE_ICON = " Sz[%02d]";
 
 	public static final String EXPLOSIVE_ZOMBIE_SYMBOL = "Ez";
 	public static final String EXPLOSIVE_ZOMBIE_NAME = "Explosive Zombie";
+	public static final String EXPLOSIVE_ZOMBIE_ICON = " Ez[%02d]";
 
 	public static final String SUN_SYMBOL = "*";
 	public static final String SUN_DESCRIPTION = "Sun";

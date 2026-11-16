@@ -27,6 +27,7 @@ public class ListZombieCommand extends Command {
 	@Override
 	public boolean execute(GameModel model, GameView view) {
 		StringBuilder h = new StringBuilder();
+		h.append(Messages.AVAILABLE_ZOMBIES).append(System.lineSeparator());
 		for (Zombies z : ZombieFactory.getAvailableZombies()) {
 			h.append(z.getDescription());
 			h.append(System.lineSeparator());

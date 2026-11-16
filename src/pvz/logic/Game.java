@@ -253,4 +253,26 @@ public class Game implements GameStatus, GameWorld, GameModel {
 	public boolean zombieAtackReceived(Position p, int damage) {
 		return GOC.zombieAtackReceived(p,damage);
 	}
+	@Override
+	public void explodePlant(Position center, int damage) {
+		Position p;
+		for(int i=-1;i<=1;i++) {
+			for(int j=-1;j<=1;j++) {
+				p=new Position(center.getRow() + i, center.getCol() + j);
+				GOC.plantAtackReceived(p, damage);
+			}
+		}
+		
+	}
+	@Override
+	public void explodeZombie(Position center, int damage) {
+		Position p;
+		for(int i=-1;i<=1;i++) {
+			for(int j=-1;j<=1;j++) {
+				p=new Position(center.getRow() + i, center.getCol() + j);
+				GOC.zombieAtackReceived(p, damage);
+			}
+		}
+		
+	}
 }

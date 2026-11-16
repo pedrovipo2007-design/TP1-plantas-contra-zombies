@@ -33,4 +33,7 @@ public interface GameWorld {
 	public void zombieWasKilled();
 
 	void add(Zombie zombie);
+
+	void explodePlant(Position center, int damage);
+	void explodeZombie(Position center, int damage);
 }

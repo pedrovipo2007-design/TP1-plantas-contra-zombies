@@ -38,13 +38,12 @@ public class Zombie extends Zombies {
 	}
 
 	private boolean move() {
-		if (cyclesNotMoving == MOVE_AFTER_CYCLES) {
+		if (++cyclesNotMoving >= MOVE_AFTER_CYCLES) {
 			position = position.left();
-			cyclesNotMoving = 1;
+			cyclesNotMoving = 0;
 			return true;
-		} else
-			cyclesNotMoving++;
-			return false;
+		}
+		return false;
 	}
 
 	@Override
@@ -54,11 +53,13 @@ public class Zombie extends Zombies {
 		boolean hasMoved=false;
 		if(left.getCol()>=0) {
 			if(!game.zombieAtackReceived(left, DAMAGE)) {
-				
 				hasMoved=move();
+			}
 		}
-		else hasMoved=move();
+		else {
+			hasMoved=move();
 		}
+		
 		
 	
 		return hasMoved;
@@ -75,8 +76,7 @@ public class Zombie extends Zombies {
 
 	@Override
 	public String getDescription() {
-
-		return Messages.ZOMBIE_DESCRIPTION;
+		return String.format(Messages.ZOMBIE_DESCRIPTION, getName(), MOVE_AFTER_CYCLES, DAMAGE, INITIAL_HEALTH);
 	}
 
 	@Override

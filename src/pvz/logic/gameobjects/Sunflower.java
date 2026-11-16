@@ -9,15 +9,14 @@ public class Sunflower extends Plant {
 
 	// atributos
 
-	private Position position;
+
 	public static final int INITIAL_HEALTH = 1;
+	public static final int DAMAGE = 0;
 	public static final int GENERATE_AFTER_CYCLES = 3;
 	public static final int COST = 20;
 	public static final int SUNS_PER_GENERATION = 10;
-
-	private int health;
 	private int cyclesSinceLastGeneration;
-	private GameWorld game;
+
 
 	public Sunflower() {
 		
@@ -60,7 +59,8 @@ public class Sunflower extends Plant {
 
 	@Override
 	public String getDescription() {
-		return Messages.SUNFLOWER_DESCRIPTION;
+		return String.format(Messages.PLANT_DESCRIPTION, Messages.SUNFLOWER_NAME_AND_SHORTCUT,
+				COST, DAMAGE, INITIAL_HEALTH);
 	}
 
 	@Override

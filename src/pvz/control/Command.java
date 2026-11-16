@@ -4,6 +4,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import pvz.control.hijas.AddPlantCommand;
+import pvz.control.hijas.AddZombieCommand;
 import pvz.control.hijas.CatchCommand;
 import pvz.control.hijas.CheatPlantCommand;
 import pvz.control.hijas.ExitCommand;
@@ -20,7 +21,7 @@ public abstract class Command {
 
 	// para sus hijas investigar el "d{1,3}" para coger formato
 
-	protected static final List<Command> AVAILABLE_COMMANDS = Arrays.asList(new AddPlantCommand(),
+	protected static final List<Command> AVAILABLE_COMMANDS = Arrays.asList(new AddPlantCommand(), new AddZombieCommand(),
 			new ListPlantsCommand(), new ListZombieCommand(), new ResetCommand(), new HelpCommand(), new ExitCommand(),
 			new UpdateCommand(), new CheatPlantCommand(), new CatchCommand());
 	// entender bien List<> (es una interfaz, similar a los vectores de c++)
