@@ -1,84 +1,70 @@
 package pvz.logic.gameobjects;
 
 import pvz.logic.GameWorld;
+import pvz.logic.actions.ExplosionAction;
 import pvz.view.Messages;
 import utils.Position;
 
 public class CherryBomb extends Plant {
-	
-	// atributos
-		// private Position position;ya lo lleva plant
-		public static final int INITIAL_HEALTH = 2;
-		public static final int DAMAGE = 10;
-		public static final int COST = 50;
-		private int cyclesToExplode;
-		// private GameWorld game; ya lo lleva plant
 
-		// metodos
-		@Override
-		public String getDescription() {
-			return String.format(Messages.PLANT_DESCRIPTION, Messages.CHERRY_BOMB_NAME_SHORTCUT,
-					COST, DAMAGE, INITIAL_HEALTH);
-		}
+    public static final int INITIAL_HEALTH = 2;
+    public static final int DAMAGE = 10;
+    public static final int COST = 50;
 
-		public CherryBomb(Position p, GameWorld game) {
-			super(game, p);
-			health = INITIAL_HEALTH;
-			price = COST;
-			cyclesToExplode=2;
-		}
+    private int cyclesToExplode;
 
-		public CherryBomb() {
-			super();
+    public CherryBomb(Position position, GameWorld game) {
+        super(game, position);
+        health = INITIAL_HEALTH;
+        price = COST;
+        cyclesToExplode = 2;
+    }
 
-		}
+    public CherryBomb() {
+        super();
+    }
 
-		public int getHealth() {
-			return health;
-		}
+    @Override
+    public String getDescription() {
+        return String.format(Messages.PLANT_DESCRIPTION,
+                Messages.CHERRY_BOMB_NAME_SHORTCUT, COST, DAMAGE, INITIAL_HEALTH);
+    }
 
-		public Position getPosition() {
-			return new Position(position.getRow(), position.getCol());
-		}
+    @Override
+    public void onEnter() {
+    }
 
-		public boolean isAlive() {
-			return health > 0;
-		}
+    @Override
+    public void onExit() {
+    }
 
-		public void receiveDamage(int damage) {
-			health = health - damage;
-		}
+    @Override
+    public boolean update() {
+        if (!isAlive()) {
+            return false;
+        }
+        if (cyclesToExplode > 1) {
+            cyclesToExplode--;
+        } else if (cyclesToExplode == 1) {
+            cyclesToExplode = 0;
+            game.pushAction(new ExplosionAction(
+                    getPosition(), DAMAGE, ExplosionAction.Target.ZOMBIES));
+            health = 0;
+        }
+        return false;
+    }
 
-		@Override
-		public void onEnter() {
+    @Override
+    public String getName() {
+        return Messages.CHERRY_BOMB_NAME;
+    }
 
-		}
-
-		@Override
-		public void onExit() {
-
-		}
-
-		@Override
-		public boolean update() {
-			if(cyclesToExplode>0) {
-				cyclesToExplode--;
-			}
-			else {
-				 game.explodePlant(getPosition(), DAMAGE);
-				 health=0;
-			}
-			return false;
-		}
-
-		@Override
-		public String getName() {
-			return Messages.CHERRY_BOMB_NAME;
-		}
-		
-		@Override
-		public String getIcon() {
-			return String.format(Messages.GAME_OBJECT_ICON, Messages.CHERRY_BOMB_SYMBOL, this.health);
-		}
-
+    @Override
+    public String getIcon() {
+        String symbol = cyclesToExplode == 1
+                ? Messages.CHERRY_BOMB_EXPLODING_SYMBOL
+                : Messages.CHERRY_BOMB_SYMBOL;
+        return String.format(Messages.GAME_OBJECT_ICON, symbol, health);
+    }
 }
+

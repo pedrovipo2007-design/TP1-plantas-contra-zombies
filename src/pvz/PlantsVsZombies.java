@@ -38,7 +38,7 @@ public class PlantsVsZombies { // recordar poner en debug arguments EASY y una s
 
 	public static void main(String[] args) {
 		// Required to avoid issues with tests
-		Locale.setDefault(Locale.of("es", "ES", "es"));
+		Locale.setDefault(new Locale("es", "ES", "es"));
 
 		if (args.length < 1 || args.length > 2) {
 			usage();

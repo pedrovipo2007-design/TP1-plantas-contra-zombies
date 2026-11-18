@@ -45,6 +45,9 @@ public abstract class Zombies extends GameObject {
 		}
 
 		if (++cyclesNotMoving >= moveAfterCycles) {
+			if (nextPosition.getCol() == GameWorld.NUM_COLS + 1) {
+				game.zombieReachedHouse();
+			}
 			position = nextPosition;
 			cyclesNotMoving = 0;
 			return true;

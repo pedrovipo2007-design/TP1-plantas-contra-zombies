@@ -69,25 +69,21 @@ public class ZombiesManager {
 
 	public boolean addZombie() {
 		int row = randomZombieRow();
-		if (addZombie(row)) {
-			return true;
-		}
-		else return false;
+		return addZombie(row);
 	}
 
 	public boolean addZombie(int row) {
-
 		Position zombiePosition = game.newZombiePosition(row);
 
-		boolean canAdd = this.remainingZombies > 0 && shouldAddZombie() && game.isEmptyOfZombies(zombiePosition);
+		boolean spawnRequested = shouldAddZombie();
+		boolean canAdd = this.remainingZombies > 0 && spawnRequested && game.isEmptyOfZombies(zombiePosition);
 
 		if (canAdd) {
-			
-			
-			List<Zombies> tipos = ZombieFactory.getAvailableZombies();
-			Zombies tipoAleatorio = tipos.get(rand.nextInt(tipos.size()));
-			Zombies zombi =ZombieFactory.spawnZombie(tipoAleatorio.getName(), game, zombiePosition);
+			List<Zombies> types = ZombieFactory.getAvailableZombies();
+			Zombies randomType = types.get(rand.nextInt(types.size()));
+			Zombies zombi = ZombieFactory.spawnZombie(randomType.getName(), game, zombiePosition);
 			game.add(zombi);
+			remainingZombies--;
 		}
 		return canAdd;
 	}
@@ -109,7 +105,6 @@ public class ZombiesManager {
 
 
 	public void zombieWasAdded() {
-		remainingZombies--;
 		zombiesOnGame++;
 	}
 	public void zombieWasKilled() {

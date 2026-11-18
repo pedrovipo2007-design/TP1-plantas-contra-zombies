@@ -42,6 +42,17 @@ public class PlantFactory {
 		return null;
 	}
 
+	public static boolean isPlantName(String plantName) {
+		return plantName != null && (plantName.equalsIgnoreCase(Messages.SUNFLOWER_SYMBOL)
+				|| plantName.equalsIgnoreCase(Messages.SUNFLOWER_NAME)
+				|| plantName.equalsIgnoreCase(Messages.PEASHOOTER_SYMBOL)
+				|| plantName.equalsIgnoreCase(Messages.PEASHOOTER_NAME)
+				|| plantName.equalsIgnoreCase(Messages.WALL_NUT_SYMBOL)
+				|| plantName.equalsIgnoreCase(Messages.WALL_NUT_NAME)
+				|| plantName.equalsIgnoreCase(Messages.CHERRY_BOMB_SYMBOL)
+				|| plantName.equalsIgnoreCase(Messages.CHERRY_BOMB_NAME));
+	}
+
 	public static List<Plant> getAvailablePlants() {
 		return Collections.unmodifiableList(AVAILABLE_PLANTS);
 	}

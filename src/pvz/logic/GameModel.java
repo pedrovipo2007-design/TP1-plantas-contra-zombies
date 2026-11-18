@@ -1,5 +1,6 @@
 package pvz.logic;
 
+import pvz.control.Level;
 import utils.Position;
 
 public interface GameModel {
@@ -8,6 +9,8 @@ public interface GameModel {
 	// interactua con comandos y ejecuta acciones del usuario
 
 	void reset();
+
+    void reset(Level level, long seed);
 
 	// aqui no se si habra que utilizar el hecho de que el command lo ejecuto con un
 	// model
@@ -19,6 +22,10 @@ public interface GameModel {
 	
 
 	boolean addPlant(String plantName, Position pos);
+
+	boolean isInsideBoard(Position position);
+
+	boolean isEmpty(Position position);
 	
 	boolean addCheatPlant(String plantName, Position pos);
 
@@ -29,6 +36,10 @@ public interface GameModel {
 	boolean playerQuits();
 
 	boolean addZombie(String plantName, Position pos);
+
+	boolean catchSun(Position pos);
+
+	boolean hasCaughtSunThisCycle();
 
 	//boolean addZombie(String s, Position p); // ver AddZombieCommand
 }

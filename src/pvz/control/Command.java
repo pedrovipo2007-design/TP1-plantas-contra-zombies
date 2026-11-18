@@ -22,8 +22,8 @@ public abstract class Command {
 	// para sus hijas investigar el "d{1,3}" para coger formato
 
 	protected static final List<Command> AVAILABLE_COMMANDS = Arrays.asList(new AddPlantCommand(), new AddZombieCommand(),
-			new ListPlantsCommand(), new ListZombieCommand(), new ResetCommand(), new HelpCommand(), new ExitCommand(),
-			new UpdateCommand(), new CheatPlantCommand(), new CatchCommand());
+			new CheatPlantCommand(), new CatchCommand(), new ListPlantsCommand(), new ListZombieCommand(),
+			new ResetCommand(), new HelpCommand(), new ExitCommand(), new UpdateCommand());
 	// entender bien List<> (es una interfaz, similar a los vectores de c++)
 
 	protected String name = Messages.EMPTY_STRING;
@@ -67,5 +67,27 @@ public abstract class Command {
 				return command.create(commandWords);
 		}
 		return null;
+	}
+
+	public static String errorFor(String[] commandWords) {
+		if (commandWords == null || commandWords.length == 0) return Messages.UNKNOWN_COMMAND;
+		for (Command command : AVAILABLE_COMMANDS) {
+			if (command.matchCommand(commandWords[0])) {
+				int requiredWords = 1;
+				if (command.name.equals(Messages.COMMAND_ADD_PLANT_NAME)
+						|| command.name.equals(Messages.COMMAND_ADD_ZOMBIE_NAME)
+						|| command.name.equals(Messages.COMMAND_CHEAT_PLANT_NAME)) {
+					requiredWords = 4;
+				} else if (command.name.equals(Messages.COMMAND_CATCH_NAME)) {
+					requiredWords = 3;
+				} else if (command.name.equals(Messages.COMMAND_RESET_NAME) && commandWords.length == 2) {
+					return Messages.COMMAND_PARAMETERS_MISSING;
+				}
+				return commandWords.length < requiredWords
+						? Messages.COMMAND_PARAMETERS_MISSING
+						: Messages.COMMAND_INCORRECT_PARAMETER_NUMBER;
+			}
+		}
+		return Messages.UNKNOWN_COMMAND;
 	}
 }

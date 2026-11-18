@@ -45,7 +45,7 @@ public class Controller {
 					view.showGame();
 				}
 			} else {
-				view.showError(Messages.UNKNOWN_COMMAND);
+				view.showError(Command.errorFor(words));
 			}
 		}
 		view.showEndMessage();

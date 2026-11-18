@@ -14,4 +14,10 @@ public interface GameStatus { // incluye los metodos que usa GamePrinter (no que
 
 	public int getRemainingZombies();
 
+	public int getGeneratedSuns();
+
+	public int getCaughtSuns();
+
+	String getEndMessage();
+
 }

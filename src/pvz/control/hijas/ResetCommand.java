@@ -19,12 +19,12 @@ public class ResetCommand extends Command {
 		help = Messages.COMMAND_RESET_HELP;
 	}
 
-	private ResetCommand(Level level, long seed) {
-		// this(); - para que sirve esto??
-		this.level = level;
-		this.seed = seed;
-		this.hasConfiguration = true;
-	}
+	    private ResetCommand(Level level, long seed) {
+        this();
+        this.level = level;
+        this.seed = seed;
+        this.hasConfiguration = true;
+    }
 
 	@Override
 	public Command create(String[] commandWords) {
@@ -45,12 +45,18 @@ public class ResetCommand extends Command {
 			return null;
 		}
 	}
-
 	@Override
 	public boolean execute(GameModel model, GameView view) {
-
-		model.reset();
-		return false;
-	}
+        if (hasConfiguration) {
+            model.reset(level, seed);
+        } else {
+            model.reset();
+        }
+        return true;
+    }
 
 }
+
+
+
+

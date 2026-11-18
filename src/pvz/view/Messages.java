@@ -17,7 +17,7 @@ import pvz.control.Level;
  */
 public class Messages {
 
-	public static final String VERSION = "2.0";
+	public static final String VERSION = "1.0";
 
 	public static final String GAME_NAME = "PlantsVsZombies";
 
@@ -91,6 +91,7 @@ public class Messages {
 	public static final String WALL_NUT_NAME_SHORTCUT = "[W]all-[N]ut";
 
 	public static final String CHERRY_BOMB_SYMBOL = "c";
+    public static final String CHERRY_BOMB_EXPLODING_SYMBOL = "C";
 	public static final String CHERRY_BOMB_NAME = "Cherry-Bomb";
 	public static final String CHERRY_BOMB_NAME_SHORTCUT = "[C]herry-Bomb";
 
@@ -108,6 +109,7 @@ public class Messages {
 
 	public static final String SUN_SYMBOL = "*";
 	public static final String SUN_DESCRIPTION = "Sun";
+	public static final String SUN_ICON = "*[%02d]";
 
 	public static final String NOT_ENOUGH_COINS = "Not enough suncoins";
 
@@ -185,6 +187,7 @@ public class Messages {
 	public static final String COMMAND_CATCH_HELP = "catch a sun, if possible, in position (col, row)";
 
 	public static final String NO_CATCHABLE_IN_POSITION = "No sun in (%d, %d)";
+	public static final String CATCH_ALREADY_USED = "A sun has already been caught this cycle";
 
 	/**
 	 * Formats a debug message.

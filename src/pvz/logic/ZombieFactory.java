@@ -44,8 +44,18 @@ public class ZombieFactory {
 		return null;
 	}
 
-	public static List<Zombies> getAvailableZombies() {
+	public static boolean isZombieName(String zombieName) {
+		return zombieName != null && (zombieName.equalsIgnoreCase(Messages.ZOMBIE_SYMBOL)
+				|| zombieName.equalsIgnoreCase(Messages.ZOMBIE_NAME)
+				|| zombieName.equalsIgnoreCase(Messages.BUCKET_HEAD_ZOMBIE_SYMBOL)
+				|| zombieName.equalsIgnoreCase(Messages.BUCKET_HEAD_ZOMBIE_NAME)
+				|| zombieName.equalsIgnoreCase(Messages.SPORTY_ZOMBIE_SYMBOL)
+				|| zombieName.equalsIgnoreCase(Messages.SPORTY_ZOMBIE_NAME)
+				|| zombieName.equalsIgnoreCase(Messages.EXPLOSIVE_ZOMBIE_SYMBOL)
+				|| zombieName.equalsIgnoreCase(Messages.EXPLOSIVE_ZOMBIE_NAME));
+	}
 
+	public static List<Zombies> getAvailableZombies() {
 		return Collections.unmodifiableList(AVAILABLE_ZOMBIES);
 	}
 }

@@ -4,6 +4,7 @@ import pvz.control.Command;
 import pvz.logic.GameModel;
 import pvz.view.GameView;
 import pvz.view.Messages;
+import utils.Position;
 
 public class CatchCommand extends Command {
 
@@ -36,7 +37,14 @@ public class CatchCommand extends Command {
 
 	@Override
 	public boolean execute(GameModel model, GameView view) {
-		// Todavia no lo implemento porque no caen soles en nuestra version TODO
+		if (model.hasCaughtSunThisCycle()) {
+			view.showError(Messages.CATCH_ALREADY_USED);
+			return false;
+		}
+		if (model.catchSun(new Position(row, col))) {
+			return true;
+		}
+		view.showError(String.format(Messages.NO_CATCHABLE_IN_POSITION, col, row));
 		return false;
 	}
 }

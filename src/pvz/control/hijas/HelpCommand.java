@@ -26,7 +26,7 @@ public class HelpCommand extends Command {
 	public boolean execute(GameModel model, GameView view) {
 
 		StringBuilder h = new StringBuilder();
-		h.append(Messages.HELP_AVAILABLE_COMMANDS);
+		h.append(Messages.HELP_AVAILABLE_COMMANDS).append(System.lineSeparator());
 		for (Command com : AVAILABLE_COMMANDS) {
 			h.append(com.getDetails());
 			h.append(Messages.HELP_DETAILS_COMMAND_HELP_SEPARATOR);

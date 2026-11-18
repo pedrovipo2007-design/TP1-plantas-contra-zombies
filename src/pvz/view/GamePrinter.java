@@ -71,12 +71,11 @@ public class GamePrinter implements GameView {
 		StringBuilder buffer = new StringBuilder();
 
 		// Supongo que tengo que pasar el ciclo, las monedas, etc -
-		buffer.append(String.format(Messages.NUMBER_OF_COINS,game.getCoins()));
-		
 		buffer.append(String.format(Messages.NUMBER_OF_CYCLES,game.getCycles()));
-		
-		
+		buffer.append(String.format(Messages.NUMBER_OF_COINS, game.getCoins()));
 		buffer.append(String.format(Messages.REMAINING_ZOMBIES,game.getRemainingZombies()));
+		buffer.append(String.format(Messages.GENERATED_SUNS, game.getGeneratedSuns()));
+		buffer.append(String.format(Messages.CAUGHT_SUNS, game.getCaughtSuns()));
 		
 
 		return buffer.toString();
@@ -112,8 +111,8 @@ public class GamePrinter implements GameView {
 	 */
 	@Override
 	public void showEndMessage() { // GV
-		StringBuilder buffer = new StringBuilder(Messages.GAME_OVER);
-		System.out.println(buffer);
+		System.out.println(Messages.GAME_OVER);
+		System.out.println(game.getEndMessage());
 	}
 
 	@Override
@@ -129,6 +128,9 @@ public class GamePrinter implements GameView {
 	@Override
 	public String[] getPrompt() { // GV
 		System.out.print(PROMPT);
+		if (!scanner.hasNextLine()) {
+			return new String[] { Messages.COMMAND_EXIT_SHORTCUT };
+		}
 		String line = scanner.nextLine();
 		String[] words = line.toLowerCase().trim().split("\\s+");
 

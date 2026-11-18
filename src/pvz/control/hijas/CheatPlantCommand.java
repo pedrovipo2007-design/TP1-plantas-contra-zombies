@@ -2,47 +2,54 @@ package pvz.control.hijas;
 
 import pvz.control.Command;
 import pvz.logic.GameModel;
+import pvz.logic.PlantFactory;
 import pvz.view.GameView;
 import pvz.view.Messages;
+import utils.Position;
 
 public class CheatPlantCommand extends Command {
 
-	private String plantName;
-	private int col;
-	private int row;
+    private String plantName;
+    private int col;
+    private int row;
 
-	public CheatPlantCommand() {
-		name = Messages.COMMAND_CHEAT_PLANT_NAME;
-		shortcut = Messages.COMMAND_CHEAT_PLANT_SHORTCUT;
-		details = Messages.COMMAND_CHEAT_PLANT_DETAILS;
-		help = Messages.COMMAND_CHEAT_PLANT_HELP;
-	}
+    public CheatPlantCommand() {
+        name = Messages.COMMAND_CHEAT_PLANT_NAME;
+        shortcut = Messages.COMMAND_CHEAT_PLANT_SHORTCUT;
+        details = Messages.COMMAND_CHEAT_PLANT_DETAILS;
+        help = Messages.COMMAND_CHEAT_PLANT_HELP;
+    }
 
-	private CheatPlantCommand(String plantName, int col, int row) {
-		this();
-		this.plantName = plantName;
-		this.col = col;
-		this.row = row;
-	}
+    private CheatPlantCommand(String plantName, int col, int row) {
+        this();
+        this.plantName = plantName;
+        this.col = col;
+        this.row = row;
+    }
 
-	@Override
-	public Command create(String[] commandWords) {
-		if (commandWords.length != 4) {
-			return null;
-		}
-		if (!commandWords[2].matches("\\d{1,3}") || !commandWords[3].matches("\\d{1,3}")) {
-			return null;
-		}
-		return new CheatPlantCommand(commandWords[1], Integer.parseInt(commandWords[2]),
-				Integer.parseInt(commandWords[3]));
-	}
+    @Override
+    public Command create(String[] commandWords) {
+        if (commandWords.length != 4) {
+            return null;
+        }
+        if (!commandWords[2].matches("\\d{1,3}") || !commandWords[3].matches("\\d{1,3}")) {
+            return null;
+        }
+        return new CheatPlantCommand(commandWords[1], Integer.parseInt(commandWords[2]),
+                Integer.parseInt(commandWords[3]));
+    }
 
-	@Override
-	public boolean execute(GameModel model, GameView view) {
-
-		model.addCheatPlant(plantName, null);
-		// para hacer debuging
-
-		return false;
-	}
+    @Override
+    public boolean execute(GameModel model, GameView view) {
+        Position position = new Position(row, col);
+        boolean added = model.addCheatPlant(plantName, position);
+        if (added) {
+            model.update();
+        } else if (!model.isInsideBoard(position) || !model.isEmpty(position)) {
+            view.showError(Messages.INVALID_POSITION);
+        } else if (!PlantFactory.isPlantName(plantName)) {
+            view.showError(Messages.INVALID_GAME_OBJECT);
+        }
+        return added;
+    }
 }

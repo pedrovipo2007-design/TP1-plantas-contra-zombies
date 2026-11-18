@@ -1,5 +1,6 @@
 package pvz.logic;
 
+import pvz.logic.actions.GameAction;
 import pvz.logic.gameobjects.Zombies;
 import utils.Position;
 
@@ -17,6 +18,8 @@ public interface GameWorld {
 
 	void generateCoins(int sunsPerGeneration);
 
+	void generateSun();
+
 	boolean plantAtackReceived(Position atackPos, int damage);
 
 	Position newZombiePosition(int row);
@@ -27,7 +30,9 @@ public interface GameWorld {
 
 
 	
-	public void zombieWasAdded();
+	void zombieWasAdded();
+
+	void zombieReachedHouse();
 
 	
 	public void zombieWasKilled();
@@ -36,4 +41,6 @@ public interface GameWorld {
 
 	void explodePlant(Position center, int damage);
 	void explodeZombie(Position center, int damage);
+
+    void pushAction(GameAction action);
 }

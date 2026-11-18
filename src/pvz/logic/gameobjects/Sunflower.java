@@ -1,9 +1,8 @@
 package pvz.logic.gameobjects;
 
-import pvz.logic.Game;
-import utils.Position;
 import pvz.logic.GameWorld;
 import pvz.view.Messages;
+import utils.Position;
 
 public class Sunflower extends Plant {
 
@@ -14,7 +13,6 @@ public class Sunflower extends Plant {
 	public static final int DAMAGE = 0;
 	public static final int GENERATE_AFTER_CYCLES = 3;
 	public static final int COST = 20;
-	public static final int SUNS_PER_GENERATION = 10;
 	private int cyclesSinceLastGeneration;
 
 
@@ -41,11 +39,11 @@ public class Sunflower extends Plant {
 
 	@Override
 	public boolean update() {
-		if (cyclesSinceLastGeneration == GENERATE_AFTER_CYCLES) {
-			game.generateCoins(SUNS_PER_GENERATION);
-			cyclesSinceLastGeneration = 1;
-		} else
-			cyclesSinceLastGeneration++;
+		cyclesSinceLastGeneration++;
+		if (cyclesSinceLastGeneration >= GENERATE_AFTER_CYCLES) {
+			game.generateSun();
+			cyclesSinceLastGeneration = 0;
+		}
 		return false;
 	}
 

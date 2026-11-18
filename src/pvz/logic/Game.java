@@ -12,14 +12,18 @@
 
 package pvz.logic;
 
+import java.util.ArrayDeque;
+import java.util.Deque;
 import java.util.Random;
 
 import pvz.control.Level;
 
+import pvz.logic.actions.GameAction;
 import pvz.logic.gameobjects.Plant;
 
 import pvz.logic.gameobjects.Zombie;
 import pvz.logic.gameobjects.Zombies;
+import pvz.view.Messages;
 import utils.Position;
 
 public class Game implements GameStatus, GameWorld, GameModel {
@@ -41,6 +45,10 @@ public class Game implements GameStatus, GameWorld, GameModel {
 
 	private Level tLevel;
 	private ZombiesManager tZM;
+	private SunsManager sunsManager;
+	private int lastCatchCycle;
+    private boolean zombiesReachedHouse;
+    private Deque<GameAction> actions;
 
 
 	private GameObjectContainer GOC;
@@ -55,6 +63,10 @@ public class Game implements GameStatus, GameWorld, GameModel {
 		tLevel = level;
 
 		tZM = new ZombiesManager(this, tLevel, rand);
+		sunsManager = new SunsManager(rand);
+		lastCatchCycle = -1;
+        zombiesReachedHouse = false;
+        actions = new ArrayDeque<>();
 
 
 		GOC = new GameObjectContainer();
@@ -69,23 +81,18 @@ public class Game implements GameStatus, GameWorld, GameModel {
 		// posicion sera (x * NUM_COLS) + y
 		// hay que buscar en las 3 listas
 
-		String res;
-
-		if (!GOC.isEmpty(position)) {
-
-			res = GOC.iconInPosition(position);
-
+		String objectIcon = GOC.isEmpty(position) ? "" : GOC.iconInPosition(position).trim();
+		String sunIcon = sunsManager.iconInPosition(position);
+		if (!objectIcon.isEmpty() && !sunIcon.isEmpty()) {
+			return objectIcon + " " + sunIcon;
 		}
-		else
-			res = " "; // devolvemos vacio si no hay nada
-
-		return res;
+		if (!objectIcon.isEmpty()) return objectIcon;
+		if (!sunIcon.isEmpty()) return sunIcon;
+		return " ";
 	}
 
 	public boolean checkGameObject(String objectName) { // GS
-
-		return (objectName.equals("sunflower") || objectName.equals("s") || objectName.equals("peashooter")
-				|| objectName.equals("p"));
+		return PlantFactory.isPlantName(objectName);
 	}
 
 	public int getCycles() { // GS
@@ -103,42 +110,106 @@ public class Game implements GameStatus, GameWorld, GameModel {
 		return tZM.getRemainingZombies();
 	}
 
+	@Override
+	public int getGeneratedSuns() {
+		return sunsManager.getGeneratedSuns();
+	}
+
+	@Override
+	public int getCaughtSuns() {
+		return sunsManager.getCaughtSuns();
+	}
+
 	public void quit() { // GM
 
 		playerQuit = true;
 	}
 
-	@Override
-	public void update() { // GM
-		tZM.addZombie();
-		GOC.update();
-		cycles++;
-	}
+    @Override
+    public void update() {
+        executePendingActions();
+        sunsManager.update(cycles);
+        GOC.update();
+        tZM.addZombie();
+
+        boolean deadRemoved = true;
+        while (deadRemoved || !actions.isEmpty()) {
+            deadRemoved = GOC.removeDead();
+            executePendingActions();
+        }
+
+        cycles++;
+    }
 
 	public boolean haveZombiesReached() { // no se en que interfaz ponerlo
-
-		return GOC.doZombiesReachedTheHouse();
+		return zombiesReachedHouse;
 	}
 
-	public void reset() { // GM
+        @Override
+    public void reset() {
+        reset(tLevel, longSeed);
+    }
 
-		coins = INITIAL_COINS;
-		cycles = 0;
-
-		tZM.reset();
-		GOC.reset();
-		rand.setSeed(longSeed); // lo he buscado, daba error
-	}
+    @Override
+    public void reset(Level level, long seed) {
+        tLevel = level;
+        longSeed = seed;
+        playerQuit = false;
+        coins = INITIAL_COINS;
+        cycles = 0;
+        rand.setSeed(seed);
+        tZM = new ZombiesManager(this, tLevel, rand);
+        GOC.reset();
+        sunsManager.reset();
+        actions.clear();
+        lastCatchCycle = -1;
+        zombiesReachedHouse = false;
+    }
 
 	public void generateCoins(int cost) { // GW
 
 		coins += cost;
 	}
 
-	private void buyWithCoins(int cost) { // privada
-
-		coins -= cost;
+	@Override
+	public void generateSun() {
+		sunsManager.generateSun();
 	}
+
+	@Override
+	public boolean catchSun(Position pos) {
+		if (lastCatchCycle == cycles) {
+			return false;
+		}
+		int caught = sunsManager.catchSuns(pos);
+		if (caught == 0) {
+			return false;
+		}
+		coins += caught * 10;
+		lastCatchCycle = cycles;
+		return true;
+	}
+
+	@Override
+	public boolean hasCaughtSunThisCycle() {
+		return lastCatchCycle == cycles;
+	}
+
+    @Override
+    public void pushAction(GameAction action) {
+        actions.addLast(action);
+    }
+
+    private void executePendingActions() {
+        while (!actions.isEmpty()) {
+            GameAction action = actions.removeLast();
+            action.execute(this);
+        }
+    }
+
+        private void buyWithCoins(int cost) {
+        coins -= cost;
+    }
 
 	public boolean isEmptyOfZombies(Position pos) { // GW
 
@@ -174,6 +245,13 @@ public class Game implements GameStatus, GameWorld, GameModel {
 
 	public boolean playerQuits() { // GM
 		return playerQuit;
+	}
+
+	@Override
+	public String getEndMessage() {
+		if (playerQuit) return Messages.PLAYER_QUITS;
+		if (playerWins()) return Messages.PLAYER_WINS;
+		return Messages.ZOMBIES_WIN;
 	}
 
 	//ESTE REALMENTE SE PUEDE BORRAR< ES SOLO POR SI NO TE GUSTA COMO ESTA
@@ -217,6 +295,11 @@ public class Game implements GameStatus, GameWorld, GameModel {
 	@Override
 	public void zombieWasAdded() {
 		tZM.zombieWasAdded();
+	}
+
+	@Override
+	public void zombieReachedHouse() {
+		zombiesReachedHouse = true;
 	}
 
 	@Override
