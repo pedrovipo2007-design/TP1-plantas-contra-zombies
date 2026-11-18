@@ -28,7 +28,8 @@ public class Sunflower extends Plant {
 		super(game,p);
 		health = INITIAL_HEALTH;
 		position = p;
-		cyclesSinceLastGeneration = 0;
+		// The cycle in which the plant is added does not count toward its first sun.
+		cyclesSinceLastGeneration = -1;
 		this.game = game;
 		price=COST;
 	}
@@ -42,7 +43,8 @@ public class Sunflower extends Plant {
 		cyclesSinceLastGeneration++;
 		if (cyclesSinceLastGeneration >= GENERATE_AFTER_CYCLES) {
 			game.generateSun();
-			cyclesSinceLastGeneration = 0;
+			// The cycle in which the plant is added does not count toward its first sun.
+		cyclesSinceLastGeneration = -1;
 		}
 		return false;
 	}

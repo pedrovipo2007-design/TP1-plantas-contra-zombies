@@ -1,0 +1,351 @@
+PlantsVsZombies 1.0
+
+Level: EASY
+Random generator initialized with seed: 25
+Number of cycles: 0
+Sun coins: 50
+Remaining zombies: 3
+Generated suns: 0
+Caught suns: 0
+
+   ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── 
+  |            |            |            |            |            |            |            |            |
+   ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── 
+  |            |            |            |            |            |            |            |            |
+   ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── 
+  |            |            |            |            |            |            |            |            |
+   ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── 
+  |            |            |            |            |            |            |            |            |
+   ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── 
+
+Command > 
+[DEBUG] Executing: h
+
+Available commands:
+[a]dd <plant> <col> <row>: add a plant in position (col, row)
+[a]dd[Z]ombie <zombie> <col> <row>: add a zombie in position (col, row)
+[C]heat[P]lant <plant> <col> <row>: add a plant in position (col, row) without consuming suncoins
+[C]atch <col> <row>: catch a sun, if possible, in position (col, row)
+[l]ist: print the list of available plants
+[l]ist[Z]ombies: print the list of available zombies
+[r]eset [<level> <seed>]: start a new game (if level and seed are both provided, they are used to initialize the game)
+[h]elp: print this help message
+[e]xit: terminate the program
+[n]one | "": skips cycle
+
+Command > 
+[DEBUG] Executing: H
+
+Available commands:
+[a]dd <plant> <col> <row>: add a plant in position (col, row)
+[a]dd[Z]ombie <zombie> <col> <row>: add a zombie in position (col, row)
+[C]heat[P]lant <plant> <col> <row>: add a plant in position (col, row) without consuming suncoins
+[C]atch <col> <row>: catch a sun, if possible, in position (col, row)
+[l]ist: print the list of available plants
+[l]ist[Z]ombies: print the list of available zombies
+[r]eset [<level> <seed>]: start a new game (if level and seed are both provided, they are used to initialize the game)
+[h]elp: print this help message
+[e]xit: terminate the program
+[n]one | "": skips cycle
+
+Command > 
+[DEBUG] Executing: help
+
+Available commands:
+[a]dd <plant> <col> <row>: add a plant in position (col, row)
+[a]dd[Z]ombie <zombie> <col> <row>: add a zombie in position (col, row)
+[C]heat[P]lant <plant> <col> <row>: add a plant in position (col, row) without consuming suncoins
+[C]atch <col> <row>: catch a sun, if possible, in position (col, row)
+[l]ist: print the list of available plants
+[l]ist[Z]ombies: print the list of available zombies
+[r]eset [<level> <seed>]: start a new game (if level and seed are both provided, they are used to initialize the game)
+[h]elp: print this help message
+[e]xit: terminate the program
+[n]one | "": skips cycle
+
+Command > 
+[DEBUG] Executing: Help
+
+Available commands:
+[a]dd <plant> <col> <row>: add a plant in position (col, row)
+[a]dd[Z]ombie <zombie> <col> <row>: add a zombie in position (col, row)
+[C]heat[P]lant <plant> <col> <row>: add a plant in position (col, row) without consuming suncoins
+[C]atch <col> <row>: catch a sun, if possible, in position (col, row)
+[l]ist: print the list of available plants
+[l]ist[Z]ombies: print the list of available zombies
+[r]eset [<level> <seed>]: start a new game (if level and seed are both provided, they are used to initialize the game)
+[h]elp: print this help message
+[e]xit: terminate the program
+[n]one | "": skips cycle
+
+Command > 
+[DEBUG] Executing: l
+
+[S]unflower: cost='20' suncoins, damage='0', endurance='1'
+[P]eashooter: cost='50' suncoins, damage='1', endurance='3'
+[W]all-[N]ut: cost='50' suncoins, damage='0', endurance='10'
+[C]herry-Bomb: cost='50' suncoins, damage='10', endurance='2'
+
+Command > 
+[DEBUG] Executing: List
+
+[S]unflower: cost='20' suncoins, damage='0', endurance='1'
+[P]eashooter: cost='50' suncoins, damage='1', endurance='3'
+[W]all-[N]ut: cost='50' suncoins, damage='0', endurance='10'
+[C]herry-Bomb: cost='50' suncoins, damage='10', endurance='2'
+
+Command > 
+[DEBUG] Executing: add sunflower 0 1
+
+Number of cycles: 1
+Sun coins: 30
+Remaining zombies: 2
+Generated suns: 0
+Caught suns: 0
+
+   ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── 
+  |            |            |            |            |            |            |            |            |
+   ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── 
+  |    S[01]   |            |            |            |            |            |            |            |
+   ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── 
+  |            |            |            |            |            |            |            |            |
+   ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── 
+  |            |            |            |            |            |            |            |            |
+   ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── 
+
+Command > 
+[DEBUG] Executing: 
+
+Number of cycles: 2
+Sun coins: 30
+Remaining zombies: 1
+Generated suns: 0
+Caught suns: 0
+
+   ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── 
+  |            |            |            |            |            |            |            |            |
+   ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── 
+  |    S[01]   |            |            |            |            |            |            |            |
+   ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── 
+  |            |            |            |            |            |            |            |            |
+   ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── 
+  |            |            |            |            |            |            |            |   Sz[02]   |
+   ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── 
+
+Command > 
+[DEBUG] Executing: a s 0 3
+
+Number of cycles: 3
+Sun coins: 10
+Remaining zombies: 1
+Generated suns: 0
+Caught suns: 0
+
+   ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── 
+  |            |            |            |            |            |            |            |   Sz[02]   |
+   ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── 
+  |    S[01]   |            |            |            |            |            |            |            |
+   ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── 
+  |            |            |            |            |            |            |            |            |
+   ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── 
+  |    S[01]   |            |            |            |            |            |   Sz[02]   |            |
+   ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── 
+
+Command > 
+[DEBUG] Executing: 
+
+Number of cycles: 4
+Sun coins: 10
+Remaining zombies: 1
+Generated suns: 1
+Caught suns: 0
+
+   ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── 
+  |            |            |            |            |            |            |   Sz[02]   |            |
+   ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── 
+  |    S[01]   |            |            |            |            |            |    *[10]   |            |
+   ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── 
+  |            |            |            |            |            |            |            |            |
+   ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── 
+  |    S[01]   |            |            |            |            |   Sz[02]   |            |            |
+   ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── 
+
+Command > 
+[DEBUG] Executing: c 6 1
+
+Number of cycles: 4
+Sun coins: 20
+Remaining zombies: 1
+Generated suns: 1
+Caught suns: 1
+
+   ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── 
+  |            |            |            |            |            |            |   Sz[02]   |            |
+   ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── 
+  |    S[01]   |            |            |            |            |            |            |            |
+   ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── 
+  |            |            |            |            |            |            |            |            |
+   ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── 
+  |    S[01]   |            |            |            |            |   Sz[02]   |            |            |
+   ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── 
+
+Command > 
+[DEBUG] Executing: 
+
+Number of cycles: 5
+Sun coins: 20
+Remaining zombies: 1
+Generated suns: 1
+Caught suns: 1
+
+   ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── 
+  |            |            |            |            |            |   Sz[02]   |            |            |
+   ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── 
+  |    S[01]   |            |            |            |            |            |            |            |
+   ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── 
+  |            |            |            |            |            |            |            |            |
+   ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── 
+  |    S[01]   |            |            |            |   Sz[02]   |            |            |            |
+   ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── 
+
+Command > 
+[DEBUG] Executing: 
+
+Number of cycles: 6
+Sun coins: 20
+Remaining zombies: 1
+Generated suns: 3
+Caught suns: 1
+
+   ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── 
+  |    *[10]   |            |            |            |   Sz[02]   |            |            |            |
+   ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── 
+  |    S[01]   |            |            |            |            |            |            |            |
+   ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── 
+  |            |            |            |            |            |            |    *[10]   |            |
+   ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── 
+  |    S[01]   |            |            |   Sz[02]   |            |            |            |            |
+   ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── 
+
+Command > 
+[DEBUG] Executing: c 7 2
+
+[ERROR] Error: No sun in (7, 2)
+
+Command > 
+[DEBUG] Executing: 
+
+Number of cycles: 7
+Sun coins: 20
+Remaining zombies: 1
+Generated suns: 3
+Caught suns: 1
+
+   ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── 
+  |    *[09]   |            |            |   Sz[02]   |            |            |            |            |
+   ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── 
+  |    S[01]   |            |            |            |            |            |            |            |
+   ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── 
+  |            |            |            |            |            |            |    *[09]   |            |
+   ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── 
+  |    S[01]   |            |   Sz[02]   |            |            |            |            |            |
+   ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── 
+
+Command > 
+[DEBUG] Executing: c 5 0
+
+[ERROR] Error: No sun in (5, 0)
+
+Command > 
+[DEBUG] Executing: 
+
+Number of cycles: 8
+Sun coins: 20
+Remaining zombies: 1
+Generated suns: 4
+Caught suns: 1
+
+   ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── 
+  |    *[08]   |            |   Sz[02]   |            |            |            |            |            |
+   ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── 
+  |    S[01]   |            |            |            |            |            |            |            |
+   ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── 
+  |            |            |            |            |            |            |    *[08]   |            |
+   ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── 
+  |    S[01]   |   Sz[02]   |            |            |            |            |            |    *[10]   |
+   ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── 
+
+Command > 
+[DEBUG] Executing: 
+
+Number of cycles: 9
+Sun coins: 20
+Remaining zombies: 1
+Generated suns: 4
+Caught suns: 1
+
+   ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── 
+  |    *[07]   |   Sz[02]   |            |            |            |            |            |            |
+   ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── 
+  |    S[01]   |            |            |            |            |            |            |            |
+   ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── 
+  |            |            |            |            |            |            |    *[07]   |            |
+   ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── 
+  |            |   Sz[02]   |            |            |            |            |            |    *[09]   |
+   ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── 
+
+Command > 
+[DEBUG] Executing: c 7 1
+
+[ERROR] Error: No sun in (7, 1)
+
+Command > 
+[DEBUG] Executing: a p 0 2
+
+[ERROR] Error: Not enough suncoins
+
+Command > 
+[DEBUG] Executing: c 3 0
+
+[ERROR] Error: No sun in (3, 0)
+
+Command > 
+[DEBUG] Executing: 
+
+Number of cycles: 10
+Sun coins: 20
+Remaining zombies: 1
+Generated suns: 4
+Caught suns: 1
+
+   ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── 
+  |Sz[02] *[06]|            |            |            |            |            |            |            |
+   ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── 
+  |    S[01]   |            |            |            |            |            |            |            |
+   ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── 
+  |            |            |            |            |            |            |    *[06]   |            |
+   ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── 
+  |   Sz[02]   |            |            |            |            |            |            |    *[08]   |
+   ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── 
+
+Command > 
+[DEBUG] Executing: 
+
+Number of cycles: 11
+Sun coins: 20
+Remaining zombies: 1
+Generated suns: 5
+Caught suns: 1
+
+   ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── 
+  |    *[05]   |            |            |            |            |            |            |            |
+   ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── 
+  |    S[01]   |    *[10]   |            |            |            |            |            |            |
+   ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── 
+  |            |            |            |            |            |            |    *[05]   |            |
+   ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── 
+  |            |            |            |            |            |            |            |    *[07]   |
+   ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── ──────────── 
+
+Game over
+Zombies win!

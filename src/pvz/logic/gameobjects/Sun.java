@@ -3,7 +3,9 @@ package pvz.logic.gameobjects;
 import pvz.view.Messages;
 import utils.Position;
 
-/** A collectible sun that remains on the board for ten game cycles. */
+/** No se si deberia extender gameObject, no encuentro ventajas fuera de que podriamos actualizarlo junto 
+ * con el resto de objetos. Ademas esto podria llevar a interraciones y rompe la division 
+ * pues GameObjectContainer guarda elementos que interactuan entre si y los soles no lo hacen*/
 public class Sun {
 
 	public static final int LIFETIME = 10;
