@@ -44,7 +44,7 @@ public class Sunflower extends Plant {
 		if (cyclesSinceLastGeneration >= GENERATE_AFTER_CYCLES) {
 			game.generateSun();
 			// The cycle in which the plant is added does not count toward its first sun.
-		cyclesSinceLastGeneration = -1;
+			cyclesSinceLastGeneration = 0;
 		}
 		return false;
 	}

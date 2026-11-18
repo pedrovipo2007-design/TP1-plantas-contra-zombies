@@ -42,6 +42,7 @@ public class GameObjectContainer {
                 }
             }
         }
+
     }
 
     /** Removes dead objects in one pass and reports whether any were removed. */

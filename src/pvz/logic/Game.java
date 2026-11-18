@@ -17,11 +17,8 @@ import java.util.Deque;
 import java.util.Random;
 
 import pvz.control.Level;
-
 import pvz.logic.actions.GameAction;
 import pvz.logic.gameobjects.Plant;
-
-import pvz.logic.gameobjects.Zombie;
 import pvz.logic.gameobjects.Zombies;
 import pvz.view.Messages;
 import utils.Position;
@@ -47,9 +44,8 @@ public class Game implements GameStatus, GameWorld, GameModel {
 	private ZombiesManager tZM;
 	private SunsManager sunsManager;
 	private int lastCatchCycle;
-    private boolean zombiesReachedHouse;
-    private Deque<GameAction> actions;
-
+	private boolean zombiesReachedHouse;
+	private Deque<GameAction> actions;
 
 	private GameObjectContainer GOC;
 
@@ -65,12 +61,12 @@ public class Game implements GameStatus, GameWorld, GameModel {
 		tZM = new ZombiesManager(this, tLevel, rand);
 		sunsManager = new SunsManager(rand);
 		lastCatchCycle = -1;
-        zombiesReachedHouse = false;
-        actions = new ArrayDeque<>();
-
+		zombiesReachedHouse = false;
+		actions = new ArrayDeque<>();
 
 		GOC = new GameObjectContainer();
 	}
+
 	@Override
 	public String positionToString(Position position) { // GS
 
@@ -86,8 +82,10 @@ public class Game implements GameStatus, GameWorld, GameModel {
 		if (!objectIcon.isEmpty() && !sunIcon.isEmpty()) {
 			return objectIcon + " " + sunIcon;
 		}
-		if (!objectIcon.isEmpty()) return objectIcon;
-		if (!sunIcon.isEmpty()) return sunIcon;
+		if (!objectIcon.isEmpty())
+			return objectIcon;
+		if (!sunIcon.isEmpty())
+			return sunIcon;
 		return " ";
 	}
 
@@ -125,46 +123,47 @@ public class Game implements GameStatus, GameWorld, GameModel {
 		playerQuit = true;
 	}
 
-    @Override
-    public void update() {
-        executePendingActions();
-        sunsManager.update(cycles);
-        GOC.update();
-        tZM.addZombie();
+	@Override
+	public void update() {
+		executePendingActions();
+		tZM.prepareZombieSpawn();
+		sunsManager.update(cycles);
+		GOC.update();
+		tZM.addPreparedZombie();
 
-        boolean deadRemoved = true;
-        while (deadRemoved || !actions.isEmpty()) {
-            deadRemoved = GOC.removeDead();
-            executePendingActions();
-        }
+		boolean deadRemoved = true;
+		while (deadRemoved || !actions.isEmpty()) {
+			deadRemoved = GOC.removeDead();
+			executePendingActions();
+		}
 
-        cycles++;
-    }
+		cycles++;
+	}
 
 	public boolean haveZombiesReached() { // no se en que interfaz ponerlo
 		return zombiesReachedHouse;
 	}
 
-        @Override
-    public void reset() {
-        reset(tLevel, longSeed);
-    }
+	@Override
+	public void reset() {
+		reset(tLevel, longSeed);
+	}
 
-    @Override
-    public void reset(Level level, long seed) {
-        tLevel = level;
-        longSeed = seed;
-        playerQuit = false;
-        coins = INITIAL_COINS;
-        cycles = 0;
-        rand.setSeed(seed);
-        tZM = new ZombiesManager(this, tLevel, rand);
-        GOC.reset();
-        sunsManager.reset();
-        actions.clear();
-        lastCatchCycle = -1;
-        zombiesReachedHouse = false;
-    }
+	@Override
+	public void reset(Level level, long seed) {
+		tLevel = level;
+		longSeed = seed;
+		playerQuit = false;
+		coins = INITIAL_COINS;
+		cycles = 0;
+		rand.setSeed(seed);
+		tZM = new ZombiesManager(this, tLevel, rand);
+		GOC.reset();
+		sunsManager.reset();
+		actions.clear();
+		lastCatchCycle = -1;
+		zombiesReachedHouse = false;
+	}
 
 	public void generateCoins(int cost) { // GW
 
@@ -195,30 +194,27 @@ public class Game implements GameStatus, GameWorld, GameModel {
 		return lastCatchCycle == cycles;
 	}
 
-    @Override
-    public void pushAction(GameAction action) {
-        actions.addLast(action);
-    }
+	@Override
+	public void pushAction(GameAction action) {
+		actions.addLast(action);
+	}
 
-    private void executePendingActions() {
-        while (!actions.isEmpty()) {
-            GameAction action = actions.removeLast();
-            action.execute(this);
-        }
-    }
+	private void executePendingActions() {
+		while (!actions.isEmpty()) {
+			GameAction action = actions.removeLast();
+			action.execute(this);
+		}
+	}
 
-        private void buyWithCoins(int cost) {
-        coins -= cost;
-    }
+	private void buyWithCoins(int cost) {
+		coins -= cost;
+	}
 
 	public boolean isEmptyOfZombies(Position pos) { // GW
 
 		return tZM.isEmpty(pos);
 	}
 
-	
-
-	
 	public boolean isEmpty(Position pos) { // GW
 
 		return GOC.isEmpty(pos);
@@ -226,7 +222,7 @@ public class Game implements GameStatus, GameWorld, GameModel {
 
 	public Position newZombiePosition(int row) { // devuelvo posicion en la col mas alejada - GW
 
-		Position p = new Position(row, NUM_COLS );
+		Position p = new Position(row, NUM_COLS);
 		return p;
 	}
 
@@ -249,16 +245,17 @@ public class Game implements GameStatus, GameWorld, GameModel {
 
 	@Override
 	public String getEndMessage() {
-		if (playerQuit) return Messages.PLAYER_QUITS;
-		if (playerWins()) return Messages.PLAYER_WINS;
+		if (playerQuit)
+			return Messages.PLAYER_QUITS;
+		if (playerWins())
+			return Messages.PLAYER_WINS;
 		return Messages.ZOMBIES_WIN;
 	}
 
-	//ESTE REALMENTE SE PUEDE BORRAR< ES SOLO POR SI NO TE GUSTA COMO ESTA
-	
-	
+	// ESTE REALMENTE SE PUEDE BORRAR< ES SOLO POR SI NO TE GUSTA COMO ESTA
+
 	@Override
-	public boolean addPlant( String plantName, Position pos) { // GM
+	public boolean addPlant(String plantName, Position pos) { // GM
 		if (this.isInsideBoard(pos)) {
 			if (this.isEmpty(pos)) {
 				Plant miplanta = PlantFactory.spawnPlant(plantName, this, pos);
@@ -270,24 +267,24 @@ public class Game implements GameStatus, GameWorld, GameModel {
 					}
 				}
 			}
-			
+
 		}
 		return false;
 //NO INDICA POR QUE NO SE HA PODIDO EJECUTAR EL COMANDO
 	}
 
 	@Override
-	public boolean addCheatPlant( String plantName, Position pos) { // GM
+	public boolean addCheatPlant(String plantName, Position pos) { // GM
 		if (this.isInsideBoard(pos)) {
 			if (this.isEmpty(pos)) {
 				Plant miplanta = PlantFactory.spawnPlant(plantName, this, pos);
 				if (miplanta != null) {
 					GOC.add(miplanta);
 					return true;
-					}
 				}
 			}
-		
+		}
+
 		return false;
 
 	}
@@ -306,6 +303,7 @@ public class Game implements GameStatus, GameWorld, GameModel {
 	public void zombieWasKilled() {
 		tZM.zombieWasKilled();
 	}
+
 	public boolean plantAtackReceived(Position atackPos, int damage) { // GW
 
 		return this.GOC.plantAtackReceived(atackPos, damage);
@@ -318,7 +316,7 @@ public class Game implements GameStatus, GameWorld, GameModel {
 	}
 
 	@Override
-	public boolean addZombie( String zombieName, Position pos) { // GM
+	public boolean addZombie(String zombieName, Position pos) { // GM
 		if (this.isInsideBoard(pos)) {
 			if (this.isEmpty(pos)) {
 				Zombies zombie = ZombieFactory.spawnZombie(zombieName, this, pos);
@@ -331,37 +329,39 @@ public class Game implements GameStatus, GameWorld, GameModel {
 		return false;
 
 	}
-	
+
 	@Override
 	public boolean zombieAtackReceived(Position p, int damage) {
-		return GOC.zombieAtackReceived(p,damage);
+		return GOC.zombieAtackReceived(p, damage);
 	}
+
 	@Override
 	public void explodePlant(Position center, int damage) {
 		Position p;
-		for(int i=-1;i<=1;i++) {
-			for(int j=-1;j<=1;j++) {
-				p=new Position(center.getRow() + i, center.getCol() + j);
-				if(this.isInsideBoard(p)) {
+		for (int i = -1; i <= 1; i++) {
+			for (int j = -1; j <= 1; j++) {
+				p = new Position(center.getRow() + i, center.getCol() + j);
+				if (this.isInsideBoard(p)) {
 					GOC.plantAtackReceived(p, damage);
 				}
-				
+
 			}
 		}
-		
+
 	}
+
 	@Override
 	public void explodeZombie(Position center, int damage) {
 		Position p;
-		for(int i=-1;i<=1;i++) {
-			for(int j=-1;j<=1;j++) {
-				p=new Position(center.getRow() + i, center.getCol() + j);
-				if(this.isInsideBoard(p)) {
+		for (int i = -1; i <= 1; i++) {
+			for (int j = -1; j <= 1; j++) {
+				p = new Position(center.getRow() + i, center.getCol() + j);
+				if (this.isInsideBoard(p)) {
 					GOC.zombieAtackReceived(p, damage);
 				}
-				
+
 			}
 		}
-		
+
 	}
 }

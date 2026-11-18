@@ -9,8 +9,6 @@ import utils.Position;
 
 public class SunsManager {
 
-    private static final int RANDOM_SUN_PERIOD = 5;
-
     private final Random random;
     private final List<Sun> suns;
     private int generatedSuns;
@@ -31,13 +29,6 @@ public class SunsManager {
             }
         }
 
-        if (cycle > 0 && cycle % RANDOM_SUN_PERIOD == 0) {
-            Position position = new Position(
-                random.nextInt(Game.NUM_ROWS),
-                random.nextInt(Game.NUM_COLS)
-            );
-            addSun(position);
-        }
     }
 
     public void generateSun() {

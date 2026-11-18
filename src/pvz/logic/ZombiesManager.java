@@ -31,6 +31,9 @@ public class ZombiesManager {
 	private int remainingZombies;
 	
 	private int zombiesOnGame;
+	private boolean pendingZombieSpawn;
+	private int pendingZombieRow;
+	private Zombies pendingZombieType;
 
 
 	public ZombiesManager(GameWorld game, Level level, Random rand) {
@@ -68,10 +71,44 @@ public class ZombiesManager {
 	
 
 	public boolean addZombie() {
-		List<Zombies> types = ZombieFactory.getAvailableZombies();
-		Zombies randomType = types.get(rand.nextInt(types.size()));
-		int row = randomZombieRow();
-		return addZombie(row, randomType);
+		prepareZombieSpawn();
+		return addPreparedZombie();
+	}
+
+	/** Draws the next automatic spawn before the other per-cycle random events. */
+	public void prepareZombieSpawn() {
+		pendingZombieSpawn = false;
+
+		if (remainingZombies > 0) {
+			pendingZombieRow = randomZombieRow();
+			List<Zombies> types = ZombieFactory.getAvailableZombies();
+			pendingZombieType = types.get(rand.nextInt(types.size()));
+		}
+
+		// The probability roll is consumed every cycle, even after the quota is used.
+		boolean spawnRequested = shouldAddZombie();
+		if (remainingZombies > 0 && spawnRequested) {
+			pendingZombieSpawn = true;
+		}
+	}
+
+	/** Places the candidate selected by {@link #prepareZombieSpawn()}. */
+	public boolean addPreparedZombie() {
+		if (!pendingZombieSpawn) {
+			return false;
+		}
+
+		pendingZombieSpawn = false;
+		Position position = game.newZombiePosition(pendingZombieRow);
+		if (!game.isEmptyOfZombies(position)) {
+			return false;
+		}
+
+		Zombies zombie = ZombieFactory.spawnZombie(
+				pendingZombieType.getName(), game, position);
+		game.add(zombie);
+		remainingZombies--;
+		return true;
 	}
 
 	public boolean addZombie(int row) {
@@ -127,6 +164,7 @@ public class ZombiesManager {
 		this.remainingZombies = level.getNumberOfZombies();
 
 		zombiesOnGame=0;
+		pendingZombieSpawn = false;
 		
 	}
 
