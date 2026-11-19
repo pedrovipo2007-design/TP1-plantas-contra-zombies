@@ -68,9 +68,11 @@ public class ZombiesManager {
 	
 
 	public boolean addZombie() {
+		int row = randomZombieRow();
+		
 		List<Zombies> types = ZombieFactory.getAvailableZombies();
 		Zombies randomType = types.get(rand.nextInt(types.size()));
-		int row = randomZombieRow();
+		
 		return addZombie(row, randomType);
 	}
 

@@ -60,6 +60,9 @@ public class Peashooter extends Plant {
 
 	@Override
 	public boolean update() {
+		if (!isAlive()) {
+			return false;
+		}
 		Position atackPos = this.position.right();
 		while (!game.plantAtackReceived(atackPos, DAMAGE) && atackPos.getCol() < game.NUM_COLS-1) {
 			atackPos = atackPos.right();

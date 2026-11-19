@@ -27,7 +27,7 @@ public abstract class Zombies extends GameObject {
 		this.initialHealth = health;
 		this.damage = damage;
 		this.moveAfterCycles = moveAfterCycles;
-		this.cyclesNotMoving = 0;
+		this.cyclesNotMoving = -1;
 	}
 
 	@Override
@@ -37,14 +37,19 @@ public abstract class Zombies extends GameObject {
 
 	@Override
 	public boolean update() {
+		if (!isAlive()) {
+			return false;
+		}
+
 		Position nextPosition = position.left();
+		cyclesNotMoving++;
 
 		if (!game.isEmpty(nextPosition)) {
 			game.zombieAtackReceived(nextPosition, damage);
 			return false;
 		}
 
-		if (++cyclesNotMoving >= moveAfterCycles) {
+		if (cyclesNotMoving >= moveAfterCycles) {
 			if (nextPosition.getCol() == GameWorld.NUM_COLS + 1) {
 				game.zombieReachedHouse();
 			}

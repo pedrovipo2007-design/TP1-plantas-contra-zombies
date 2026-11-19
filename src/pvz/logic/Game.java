@@ -81,14 +81,14 @@ public class Game implements GameStatus, GameWorld, GameModel {
 		// posicion sera (x * NUM_COLS) + y
 		// hay que buscar en las 3 listas
 
-		String objectIcon = GOC.isEmpty(position) ? "" : GOC.iconInPosition(position).trim();
+		String objectIcon = GOC.isEmpty(position) ? "" : GOC.iconInPosition(position);
 		String sunIcon = sunsManager.iconInPosition(position);
 		if (!objectIcon.isEmpty() && !sunIcon.isEmpty()) {
-			return objectIcon + " " + sunIcon;
+			return sunIcon + objectIcon;
 		}
 		if (!objectIcon.isEmpty()) return objectIcon;
 		if (!sunIcon.isEmpty()) return sunIcon;
-		return " ";
+		return "";
 	}
 
 	public boolean checkGameObject(String objectName) { // GS
@@ -128,9 +128,10 @@ public class Game implements GameStatus, GameWorld, GameModel {
     @Override
     public void update() {
         executePendingActions();
+        tZM.addZombie();
         sunsManager.update(cycles);
         GOC.update();
-        tZM.addZombie();
+       
 
         boolean deadRemoved = true;
         while (deadRemoved || !actions.isEmpty()) {
@@ -212,8 +213,8 @@ public class Game implements GameStatus, GameWorld, GameModel {
     }
 
 	public boolean isEmptyOfZombies(Position pos) { // GW
-
-		return tZM.isEmpty(pos);
+		// Several zombies may wait outside the board in the entry column.
+		return pos.getCol() == NUM_COLS || tZM.isEmpty(pos);
 	}
 
 	

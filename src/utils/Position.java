@@ -37,6 +37,19 @@ public class Position {
 			return (Game.NUM_COLS * Game.NUM_ROWS + this.row);
 	}
 
+	@Override
+	public boolean equals(Object other) {
+		if (this == other) return true;
+		if (!(other instanceof Position)) return false;
+		Position position = (Position) other;
+		return row == position.row && col == position.col;
+	}
+
+	@Override
+	public int hashCode() {
+		return 31 * row + col;
+	}
+
 	public Position left() {
 		Position position;
 			if(this.getCol()==0) {

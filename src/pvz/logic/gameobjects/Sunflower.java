@@ -29,6 +29,7 @@ public class Sunflower extends Plant {
 		health = INITIAL_HEALTH;
 		position = p;
 		// The cycle in which the plant is added does not count toward its first sun.
+		// The update performed in the planting cycle only initializes the timer.
 		cyclesSinceLastGeneration = -1;
 		this.game = game;
 		price=COST;
@@ -38,15 +39,19 @@ public class Sunflower extends Plant {
 		return health > 0;
 	}
 
+	
+	
 	@Override
 	public boolean update() {
-		cyclesSinceLastGeneration++;
-		if (cyclesSinceLastGeneration >= GENERATE_AFTER_CYCLES) {
-			game.generateSun();
-			// The cycle in which the plant is added does not count toward its first sun.
-		cyclesSinceLastGeneration = -1;
-		}
-		return false;
+	    if (!isAlive()) {
+	        return false;
+	    }
+
+	    if (++cyclesSinceLastGeneration >= GENERATE_AFTER_CYCLES) {
+	        game.generateSun();
+	        cyclesSinceLastGeneration = 0;
+	    }
+	    return false;
 	}
 
 	public void receiveDamage(int damage) {
